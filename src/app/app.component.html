@@ -1,1 +1,48 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav [opened]="screenWidth > sideNavThreshold"
+                [mode]="(screenWidth > sideNavThreshold) ? 'side' : 'over'">
+        <div [ngStyle]="{'display' : (screenWidth > sideNavThreshold) ? 'block' : 'none'}"
+             class='sidenav-title-div'>
+            <a routerLink="/">
+                <span class='sidenav-title-span'><strong>Noninertial Frame</strong></span>
+            </a>
+        </div>
+        <ul>
+            <li>
+                <a routerLink="/about" (click)="(screenWidth <= sideNavThreshold) && sidenav.close()">
+                    <span class="sidenav-li-text">About</span>
+                    <span class="sidenav-li-icon"> <fa-icon [icon]="faUser"></fa-icon></span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/blog" (click)="(screenWidth <= sideNavThreshold) && sidenav.close()">
+                    <span class="sidenav-li-text">Blog</span>
+                    <span class="sidenav-li-icon">✏️</span>
+                </a>
+            </li>
+            <li>
+                <a routerLink="/projects" (click)="(screenWidth <= sideNavThreshold) && sidenav.close()">
+                    <span class="sidenav-li-text">Projects</span>
+                    <span class="sidenav-li-icon">📌</span>
+                </a>
+            </li>
+            <li>
+                <a (click)="(screenWidth <= sideNavThreshold) && sidenav.close()">
+                    <span class="sidenav-li-text">Resume</span>
+                    <span class="sidenav-li-icon">📄</span>
+                </a>
+            </li>
+        </ul>
+    </mat-sidenav>
+    
+    <div [ngStyle]="{'display' : (screenWidth > sideNavThreshold) ? 'none' : 'block'}"
+         class='small-screen-header-div'>
+        <button class='menu-button' type="button"
+                mat-icon-button (click)="sidenav.open()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <span class='title-span'>Noninertial Frame</span>
+    </div>
+  
+    <router-outlet></router-outlet>
+</mat-sidenav-container>
