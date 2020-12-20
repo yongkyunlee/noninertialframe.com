@@ -127,5 +127,8 @@
       }
     }
   },
-  "defaultProject": "noninertialframe"
+  "defaultProject": "noninertialframe",
+  "cli": {
+    "analytics": false
+  }
 }
