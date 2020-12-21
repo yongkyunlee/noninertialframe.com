@@ -1,1 +1,39 @@
-<p>blog-home works!</p>
+<div>
+    <div class='title-div'>
+        Blog
+    </div>
+    <div class='subtitle-div'>
+        Articles of my life events, projects, and everything else!
+    </div>
+    <div class='blog-home-header-div'>
+        <div>
+            List by
+            <select (change)="changeListByOption($event)">
+                <option value="year">Year</option>
+                <option value="category">Cateogry</option>
+            </select>
+        </div>
+        <div>
+            <span class='kor-span'>한국어</span>
+            <span>English</span>
+        </div>
+    </div>
+
+    <div *ngIf="listByOption == 'year'">
+        <div *ngFor="let year of years">
+            <div>{{year}}</div>
+            <div *ngFor="let blogSnippetId of blogSnippetsByYear[year]">
+                {{blogSnippets[blogSnippetId].titleEng}} - {{blogSnippets[blogSnippetId].date}} - {{blogSnippets[blogSnippetId].category}}
+            </div>
+        </div>
+    </div>
+    
+    <div *ngIf="listByOption == 'category'">
+        <div *ngFor="let category of categories">
+            <div>{{category}}</div>
+            <div *ngFor="let blogSnippetId of blogSnippetsByCategory[category]">
+                {{blogSnippets[blogSnippetId].titleEng}} - {{blogSnippets[blogSnippetId].date}} - {{blogSnippets[blogSnippetId].category}}
+            </div>
+        </div>
+    </div>
+</div>
