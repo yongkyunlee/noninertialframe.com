@@ -29,3 +29,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 ## TODO
 
 - Side Navbar sizing according to screen width
+- Adjust font size according to screen width

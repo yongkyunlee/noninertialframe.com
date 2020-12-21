@@ -34,15 +34,18 @@
             </li>
         </ul>
     </mat-sidenav>
-    
-    <div [ngStyle]="{'display' : (screenWidth > sideNavThreshold) ? 'none' : 'block'}"
-         class='small-screen-header-div'>
-        <button class='menu-button' type="button"
-                mat-icon-button (click)="sidenav.open()">
-            <mat-icon>menu</mat-icon>
-        </button>
-        <span class='title-span'>Noninertial Frame</span>
-    </div>
-  
-    <router-outlet></router-outlet>
+
+    <mat-sidenav-content>
+        <div [ngStyle]="{'display' : (screenWidth > sideNavThreshold) ? 'none' : 'block'}"
+            class='small-screen-header-div'>
+           <button class='menu-button' type="button"
+                   mat-icon-button (click)="sidenav.open()">
+               <mat-icon>menu</mat-icon>
+           </button>
+           <span class='title-span'>Noninertial Frame</span>
+       </div>
+       <div class='mat-content'>
+            <router-outlet></router-outlet>
+       </div>
+    </mat-sidenav-content>   
 </mat-sidenav-container>
