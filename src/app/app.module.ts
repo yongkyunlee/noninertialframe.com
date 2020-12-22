@@ -31,7 +31,7 @@ import { AboutComponent } from './about/about.component';
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
-    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     AppRoutingModule,
     MatSidenavModule,
