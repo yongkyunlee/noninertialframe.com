@@ -10,25 +10,33 @@
         <ul>
             <li>
                 <a routerLink="/about" (click)="(screenWidth <= sideNavThreshold) && sidenav.close()">
-                    <span class="sidenav-li-text">About</span>
+                    <span class="sidenav-li-text" [ngClass]="{'selected-page': url === '/about'}">
+                        About
+                    </span>
                     <span class="sidenav-li-icon"> <fa-icon [icon]="faUser"></fa-icon></span>
                 </a>
             </li>
             <li>
                 <a routerLink="/blog" (click)="(screenWidth <= sideNavThreshold) && sidenav.close()">
-                    <span class="sidenav-li-text">Blog</span>
+                    <span class="sidenav-li-text" [ngClass]="{'selected-page': url === '/blog'}">
+                        Blog
+                    </span>
                     <span class="sidenav-li-icon">✏️</span>
                 </a>
             </li>
             <li>
                 <a routerLink="/projects" (click)="(screenWidth <= sideNavThreshold) && sidenav.close()">
-                    <span class="sidenav-li-text">Projects</span>
+                    <span class="sidenav-li-text" [ngClass]="{'selected-page': url === '/projects'}">
+                        Projects
+                    </span>
                     <span class="sidenav-li-icon">📌</span>
                 </a>
             </li>
             <li>
                 <a (click)="(screenWidth <= sideNavThreshold) && sidenav.close()">
-                    <span class="sidenav-li-text">Resume</span>
+                    <span class="sidenav-li-text" [ngClass]="{'selected-page': url === '/resume'}">
+                        Resume
+                    </span>
                     <span class="sidenav-li-icon">📄</span>
                 </a>
             </li>

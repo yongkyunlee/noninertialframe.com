@@ -7,6 +7,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -17,7 +18,6 @@ import { AdminModule } from './admin/admin.module';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutComponent } from './about/about.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,11 +25,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProjectsComponent,
     HomeComponent,
     PageNotFoundComponent,
-    AboutComponent
+    AboutComponent,
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AppRoutingModule,
@@ -38,8 +39,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MatIconModule,
     BlogModule,
     AdminModule,
-    BrowserAnimationsModule,
-    FontAwesomeModule
+    FontAwesomeModule,
   ],
   bootstrap: [AppComponent]
 })

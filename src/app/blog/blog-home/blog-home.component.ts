@@ -11,18 +11,20 @@ import { BlogSnippet } from '../models/blog-snippet.model';
 })
 export class BlogHomeComponent implements OnInit {
 
-    listByOption = 'year';
     blogSnippets: { [key: string]: BlogSnippet } = {};
     blogSnippetsByYear: { [key: string]: string[] } = {};
     blogSnippetsByCategory: { [key: string]: string[] } = {};
     years: string[] = [];
     categories: string[] = [];
 
+    listByOption = 'year';
+    language = 'english';
+
     constructor(private blogSerivce: BlogService) { }
 
     ngOnInit() {
         this.blogSerivce.getBlogSnippets().subscribe(data => {
-            console.log(data);
+            console.log(data)
             for (const blogSnippet of data) {
                 const year = blogSnippet.date.substring(0, 4);
                 const category = blogSnippet.category;
@@ -43,6 +45,10 @@ export class BlogHomeComponent implements OnInit {
 
     changeListByOption(event: any) {
         this.listByOption = event.target.value;
+    }
+
+    chooseLanguage(language: string) {
+        this.language = language;
     }
 
 }
