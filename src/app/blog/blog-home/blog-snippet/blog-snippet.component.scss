@@ -1,0 +1,33 @@
+.header-div {
+    display: flex;
+    padding-top: 1.2rem;
+}
+
+.title-div {
+    font-size: 1.3rem;
+    padding-right: 2rem;
+    vertical-align: bottom;
+    white-space: nowrap;
+}
+
+.keywords-div {
+    font-size: 0.9rem;
+    color: #a7adba;
+    padding-top: 0.5rem;
+}
+
+.keyword-span {
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+.footer-div {
+    display: flex;
+    padding-top: 0.4rem;
+    font-size: 0.9rem;
+    color: #4f5b66;
+}
+
+.category-div {
+    margin-left: 1rem;
+}

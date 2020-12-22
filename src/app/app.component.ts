@@ -1,21 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NavigationEnd, NavigationStart, Router } from '@angular/router';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { filter } from 'rxjs/operators';
 
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.scss']
 })
-export class AppComponent{
-  screenWidth: number;
-  sideNavThreshold = 600;
-  faUser = faUser;
+export class AppComponent implements OnInit{
+    screenWidth: number;
+    sideNavThreshold = 600;
+    faUser = faUser;
+    url: string;
 
-  constructor() {
-    this.screenWidth = window.innerWidth;
-    window.onresize = () => {
-      this.screenWidth = window.innerWidth;
-    };
-  }
+    constructor(private router: Router) {
+        this.screenWidth = window.innerWidth;
+        window.onresize = () => {
+        this.screenWidth = window.innerWidth;
+        };
+    }
+
+    ngOnInit() {
+        this.router.events.pipe(
+            filter(event => event instanceof NavigationEnd)
+        ).subscribe((event: any) => {
+            this.url = event.url;
+        });
+    }
 }

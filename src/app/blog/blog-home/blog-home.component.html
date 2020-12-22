@@ -13,26 +13,59 @@
                 <option value="category">Cateogry</option>
             </select>
         </div>
-        <div>
-            <span class='kor-span'>한국어</span>
-            <span>English</span>
+        <div class='language-div'>
+            <span [ngClass]="{'selected-language-span': language === 'korean'}"
+                  class='kor-span language-span' (click)="chooseLanguage('korean')">
+                한국어
+            </span>
+            <span [ngClass]="{'selected-language-span': language === 'english'}"
+                  class='language-span' (click)="chooseLanguage('english')">
+                English
+            </span>
         </div>
     </div>
 
-    <div *ngIf="listByOption == 'year'">
-        <div *ngFor="let year of years">
-            <div>{{year}}</div>
+    <div *ngIf="listByOption === 'year'">
+        <div *ngFor="let year of years" class='snippet-group-div'>
+            <div class='snippet-group-header-div'>{{year}}</div>
             <div *ngFor="let blogSnippetId of blogSnippetsByYear[year]">
-                {{blogSnippets[blogSnippetId].titleEng}} - {{blogSnippets[blogSnippetId].date}} - {{blogSnippets[blogSnippetId].category}}
+                <div *ngIf="language === 'english'">
+                    <app-blog-snippet [title]='blogSnippets[blogSnippetId].titleEng'
+                                      [date]='blogSnippets[blogSnippetId].date'
+                                      [keywords]='blogSnippets[blogSnippetId].keywordsEng'
+                                      [category]='blogSnippets[blogSnippetId].category'>
+                    </app-blog-snippet>
+                </div>
+                <div *ngIf="language === 'korean'">
+                    <app-blog-snippet [title]='blogSnippets[blogSnippetId].titleKor'
+                                      [date]='blogSnippets[blogSnippetId].date'
+                                      [keywords]='blogSnippets[blogSnippetId].keywordsKor'
+                                      [category]='blogSnippets[blogSnippetId].category'>
+                    </app-blog-snippet>
+                </div>
             </div>
         </div>
     </div>
     
-    <div *ngIf="listByOption == 'category'">
-        <div *ngFor="let category of categories">
-            <div>{{category}}</div>
+    <div *ngIf="listByOption === 'category'">
+        <div *ngFor="let category of categories" class='snippet-group-div'>
+            <div class='snippet-group-header-div'>{{category}}</div>
             <div *ngFor="let blogSnippetId of blogSnippetsByCategory[category]">
-                {{blogSnippets[blogSnippetId].titleEng}} - {{blogSnippets[blogSnippetId].date}} - {{blogSnippets[blogSnippetId].category}}
+                <div *ngIf="language === 'english'">
+                    <app-blog-snippet [title]='blogSnippets[blogSnippetId].titleEng'
+                                      [date]='blogSnippets[blogSnippetId].date'
+                                      [keywords]='blogSnippets[blogSnippetId].keywordsEng'
+                                      [category]='blogSnippets[blogSnippetId].category'>
+                    </app-blog-snippet>
+                </div>
+                <div *ngIf="language === 'korean'">
+                    <app-blog-snippet [title]='blogSnippets[blogSnippetId].titleKor'
+                                      [date]='blogSnippets[blogSnippetId].date'
+                                      [keywords]='blogSnippets[blogSnippetId].keywordsKor'
+                                      [category]='blogSnippets[blogSnippetId].category'>
+                    </app-blog-snippet>
+                </div>
+                
             </div>
         </div>
     </div>
