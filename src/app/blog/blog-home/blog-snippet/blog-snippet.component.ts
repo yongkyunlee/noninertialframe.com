@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { BlogSnippet } from '../../models/blog-snippet.model';
 
 @Component({
     selector: 'app-blog-snippet',
@@ -6,8 +7,6 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./blog-snippet.component.scss']
 })
 export class BlogSnippetComponent {
-    @Input() title: string;
-    @Input() date: string;
-    @Input() keywords: string[];
-    @Input() category: string;
+    @Input() language: string;
+    @Input() blogSnippet: BlogSnippet;
 }

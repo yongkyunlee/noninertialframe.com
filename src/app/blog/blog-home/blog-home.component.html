@@ -29,18 +29,9 @@
         <div *ngFor="let year of years" class='snippet-group-div'>
             <div class='snippet-group-header-div'>{{year}}</div>
             <div *ngFor="let blogSnippetId of blogSnippetsByYear[year]">
-                <div *ngIf="language === 'english'">
-                    <app-blog-snippet [title]='blogSnippets[blogSnippetId].titleEng'
-                                      [date]='blogSnippets[blogSnippetId].date'
-                                      [keywords]='blogSnippets[blogSnippetId].keywordsEng'
-                                      [category]='blogSnippets[blogSnippetId].category'>
-                    </app-blog-snippet>
-                </div>
-                <div *ngIf="language === 'korean'">
-                    <app-blog-snippet [title]='blogSnippets[blogSnippetId].titleKor'
-                                      [date]='blogSnippets[blogSnippetId].date'
-                                      [keywords]='blogSnippets[blogSnippetId].keywordsKor'
-                                      [category]='blogSnippets[blogSnippetId].category'>
+                <div>
+                    <app-blog-snippet [language]='language'
+                                      [blogSnippet]='blogSnippets[blogSnippetId]'>
                     </app-blog-snippet>
                 </div>
             </div>
@@ -51,21 +42,11 @@
         <div *ngFor="let category of categories" class='snippet-group-div'>
             <div class='snippet-group-header-div'>{{category}}</div>
             <div *ngFor="let blogSnippetId of blogSnippetsByCategory[category]">
-                <div *ngIf="language === 'english'">
-                    <app-blog-snippet [title]='blogSnippets[blogSnippetId].titleEng'
-                                      [date]='blogSnippets[blogSnippetId].date'
-                                      [keywords]='blogSnippets[blogSnippetId].keywordsEng'
-                                      [category]='blogSnippets[blogSnippetId].category'>
+                <div>
+                    <app-blog-snippet [language]='language'
+                                      [blogSnippet]='blogSnippets[blogSnippetId]'>
                     </app-blog-snippet>
                 </div>
-                <div *ngIf="language === 'korean'">
-                    <app-blog-snippet [title]='blogSnippets[blogSnippetId].titleKor'
-                                      [date]='blogSnippets[blogSnippetId].date'
-                                      [keywords]='blogSnippets[blogSnippetId].keywordsKor'
-                                      [category]='blogSnippets[blogSnippetId].category'>
-                    </app-blog-snippet>
-                </div>
-                
             </div>
         </div>
     </div>
