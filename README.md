@@ -30,3 +30,5 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 - Side Navbar sizing according to screen width
 - Adjust font size according to screen width
+- Make sure title does not contain /
+- Make sure the title does not have duplicate

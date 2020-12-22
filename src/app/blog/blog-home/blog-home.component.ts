@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { BlogService } from '../blog.service';
-import { BlogSnippet } from '../models/blog-snippet.model';
+import { BlogPost } from '../models/blog-post.model';
 
 @Component({
     selector: 'app-blog-home',
@@ -11,7 +11,7 @@ import { BlogSnippet } from '../models/blog-snippet.model';
 })
 export class BlogHomeComponent implements OnInit {
 
-    blogSnippets: { [key: string]: BlogSnippet } = {};
+    blogSnippets: { [key: string]: BlogPost } = {};
     blogSnippetsByYear: { [key: string]: string[] } = {};
     blogSnippetsByCategory: { [key: string]: string[] } = {};
     years: string[] = [];
@@ -24,7 +24,7 @@ export class BlogHomeComponent implements OnInit {
 
     ngOnInit() {
         this.blogSerivce.getBlogSnippets().subscribe(data => {
-            console.log(data)
+            console.log(data);
             for (const blogSnippet of data) {
                 const year = blogSnippet.date.substring(0, 4);
                 const category = blogSnippet.category;

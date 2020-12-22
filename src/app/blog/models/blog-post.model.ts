@@ -1,10 +1,11 @@
-export class BlogPost {
+export interface BlogPost {
+    id?: string;
     titleEng: string;
     titleKor: string;
-    contentEng: string;
-    contentKor: string;
     date: string;
-    category: string;
     keywordsEng: string[];
     keywordsKor: string[];
+    category: string;
+    contentEng: string;
+    contentKor: string;
 }
