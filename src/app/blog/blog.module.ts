@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { MarkdownModule } from 'ngx-markdown';
+import { FormsModule } from '@angular/forms';
 
 import { BlogRoutingModule } from './blog-routing.module';
 import { BlogHomeComponent } from './blog-home/blog-home.component';
@@ -15,8 +17,10 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     CommonModule,
+    FormsModule,
     BlogRoutingModule,
-    SharedModule
+    SharedModule,
+    MarkdownModule.forChild()
   ]
 })
 export class BlogModule { }

@@ -1,18 +1,22 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
+const decomposeDateStr = (dateStr: string) => {
+    const components = dateStr.split('-');
+    const year = components[0];
+    const month = components[1];
+    const day = components[2];
+    return { year, month, day };
+};
 
 @Pipe({
-    name: 'dateStr'
+    name: 'dateStrEng'
 })
-export class DateStrPipe implements PipeTransform {
+export class DateStrEngPipe implements PipeTransform {
     transform(value: any, full = false) {
-        const components = value.split('-');
-        const year = components[0];
-        const month = components[1];
-        const day = components[2];
+        const dateComponents = decomposeDateStr(value);
         let monthStr = '';
 
-        switch (month) {
+        switch (dateComponents.month) {
             case '01':
                 monthStr = full ? 'January' : 'Jan';
                 break;
@@ -51,6 +55,17 @@ export class DateStrPipe implements PipeTransform {
                 break;
         }
 
-        return monthStr + ' ' + day + ', ' + year;
+        return monthStr + ' ' + dateComponents.day + ', ' + dateComponents.year;
+    }
+}
+
+@Pipe({
+    name: 'dateStrKor'
+})
+export class DateStrKorPipe implements PipeTransform {
+    transform(value: any) {
+        const dateComponents = decomposeDateStr(value);
+
+        return dateComponents.year + '년 ' + dateComponents.month + '월 ' + dateComponents.day + '일';
     }
 }

@@ -26,13 +26,18 @@
         </ng-container>
     </div>
     <div class='footer-div'>
-        <div class='date-div'>
-            {{ blogSnippet.date | dateStr }}
-        </div>
+        <ng-container *ngIf='language === "english"'>
+            <div class='date-div'>
+                {{ blogSnippet.date | dateStrEng }}
+            </div>
+        </ng-container>
+        <ng-container *ngIf='language === "korean"'>
+            <div class='date-div'>
+                {{ blogSnippet.date | dateStrKor }}
+            </div>
+        </ng-container>
         <div class='category-div'>
-            <ng-container *ngIf='language === "english"'>
-                {{ blogSnippet.category }}
-            </ng-container>
+            {{ blogSnippet.category }}
         </div>
     </div>
 </div>

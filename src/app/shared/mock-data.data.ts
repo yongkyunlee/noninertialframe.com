@@ -7,7 +7,16 @@ export const mockBlogPostData = [
         keywordsKor: ['키워드1-1', '키워드1-2', '키워드1-3'],
         titleEng: 'title - abcde - 1',
         titleKor: '제목 - 가나다 - 1',
-        contentEng: `## Markdown __rulez__! ---  ### Syntax highlight \`\`\`typescript const language = 'typescript'; \`\`\`  ### Lists 1. Ordered list 2. Another bullet point   - Unordered list   - Another unordered bullet point  ### Blockquote > Blockquote to the max`,
+        contentEng: `
+        ## Markdown __rulez__!
+        ---
+
+        ### Syntax highlight
+        \`\`\`typescript
+        const language = 'typescript';
+        \`\`\`
+        <img src="https://www.google.co.kr/images/branding/googlelogo/2x/googlelogo_color_160x56dp.png" width="150" />
+        `,
         contentKor: `## Markdown __rulez__! ---  ### Syntax highlight \`\`\`typescript const language = 'typescript'; \`\`\`  ### 리스트 1. 순서 리스트 2. 두 번째 순서 리스트   - Unordered list   - Another unordered bullet point  ### Blockquote > Blockquote 최대치`
     },
     {
