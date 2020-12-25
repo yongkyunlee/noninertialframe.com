@@ -11,6 +11,9 @@ import 'prismjs/components/prism-typescript.min.js';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
 import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
 
+const md = require('markdown-it');
+const emoji = require('markdown-it-emoji');
+
 @Component({
   selector: 'app-blog-post',
   templateUrl: './blog-post.component.html',
@@ -19,8 +22,10 @@ import 'prismjs/plugins/line-highlight/prism-line-highlight.js';
 export class BlogPostComponent implements OnInit {
     titleEng: string;
     blogPost: BlogPost;
-    contentEng = '';
     language = 'english';
+
+    markdown: any;
+    contentMd: any;
 
     testData = '';
 
@@ -28,6 +33,8 @@ export class BlogPostComponent implements OnInit {
         const url = this.router.url;
         const urlComponent = url.split('/');
         this.titleEng = decodeURI(urlComponent[urlComponent.length - 1]);
+        this.markdown = md();
+        this.markdown.use(emoji);
     }
 
     ngOnInit() {
@@ -37,7 +44,8 @@ export class BlogPostComponent implements OnInit {
                 this.router.navigate(['/blog']);
             }
             this.blogPost = data[0] as BlogPost;
-            this.contentEng = this.blogPost.contentEng;
+            this.contentMd = this.markdown.render(this.blogPost.contentKor);
+            console.log(this.contentMd);
         });
     }
 
