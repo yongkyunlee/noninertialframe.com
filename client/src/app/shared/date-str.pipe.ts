@@ -13,6 +13,10 @@ const decomposeDateStr = (dateStr: string) => {
 })
 export class DateStrEngPipe implements PipeTransform {
     transform(value: any, full = false) {
+        if (!value) {
+            return value;
+        }
+
         const dateComponents = decomposeDateStr(value);
         let monthStr = '';
 
@@ -64,6 +68,9 @@ export class DateStrEngPipe implements PipeTransform {
 })
 export class DateStrKorPipe implements PipeTransform {
     transform(value: any) {
+        if (!value) {
+            return value;
+        }
         const dateComponents = decomposeDateStr(value);
 
         return dateComponents.year + '년 ' + dateComponents.month + '월 ' + dateComponents.day + '일';
