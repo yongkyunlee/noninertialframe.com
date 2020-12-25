@@ -1,0 +1,19 @@
+<div class='login-div' *ngIf="!(authService.afAuth.user | async)">
+    <div class='field-div'>
+        <div class='label-div'>
+            <label class='field-label'>Email</label>
+        </div>
+        <input [(ngModel)]="email" type="email">
+    </div>
+    <div class='field-div'>
+        <div class='label-div'>
+            <label>Password</label>
+        </div>
+        <input [(ngModel)]="password" type="password">
+    </div>
+    <button (click)="signIn()">Sign In</button>
+</div>
+
+<div class='logout-div' *ngIf="authService.afAuth.user | async">
+    <button (click)="signOut()">Sign Out</button>
+</div>

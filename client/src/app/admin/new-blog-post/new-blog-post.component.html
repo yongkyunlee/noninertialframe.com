@@ -1,0 +1,82 @@
+<div class='container-div'>
+    <div class='title-div'>
+        New Blog Post
+    </div>
+    <form [formGroup]="blogPostForm" class='new-blog-post-form'>
+        <table class='title-table form-field-full-width' cellspacing="0">
+            <tr>
+                <td class='first-td'>
+                    <mat-form-field class='form-field-full-width'>
+                        <mat-label>Title - English</mat-label>
+                        <input matInput formControlName='titleEng'>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class='form-field-full-width'>
+                        <mat-label>Title - Korean</mat-label>
+                        <input matInput formControlName='titleKor'>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td class='first-td'>
+                    <mat-form-field class='form-field-full-width'>
+                        <mat-label>Date (YYYY-MM-DD)</mat-label>
+                        <input matInput formControlName='date'>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class='form-field-full-width'>
+                        <mat-label>Category</mat-label>
+                        <mat-select formControlName='category'>
+                            <mat-option *ngFor="let category of categories" [value]="category">
+                                {{category}}
+                            </mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <mat-form-field class='form-field-full-width'>
+                        <mat-label>Keywords - English</mat-label>
+                        <input matInput formControlName='keywordsEng'
+                               placeholder='English keywords separated by ;'>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <mat-form-field class='form-field-full-width'>
+                        <mat-label>Keywords - Korean</mat-label>
+                        <input matInput formControlName='keywordsKor'
+                               placeholder='Korean keywords separated by ;'>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <mat-form-field class="form-field-full-width">
+                        <mat-label>Content - English</mat-label>
+                        <textarea matInput formControlName='contentEng' rows="20"></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <mat-form-field class="form-field-full-width">
+                        <mat-label>Content - Korean</mat-label>
+                        <textarea matInput formControlName='contentKor' rows="20"></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+
+        <div class='button-div'>
+            <button mat-raised-button type="submit" (click)="uploadBlogPost()"
+                    [disabled]="blogPostForm.invalid">
+                Upload
+            </button>
+        </div>
+    </form>
+</div>

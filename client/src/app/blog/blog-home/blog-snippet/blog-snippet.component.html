@@ -1,0 +1,43 @@
+<div>
+    <div class='header-div'>
+        <div class='title-div'>
+            <ng-container *ngIf='language === "english"'>
+                <strong>
+                    <a [routerLink]='blogPostUrl'>{{blogSnippet.titleEng}}</a>
+                </strong>
+            </ng-container>
+            <ng-container *ngIf='language === "korean"'>
+                <strong>
+                    <a [routerLink]='blogPostUrl'>{{blogSnippet.titleKor}}</a>
+                </strong>
+            </ng-container>
+        </div>
+    </div>
+    <div class='keywords-div'>
+        <ng-container *ngIf='language === "english"'>
+            <span *ngFor="let keyword of blogSnippet.keywordsEng" class='keyword-span'>
+                #{{keyword}}
+            </span>
+        </ng-container>
+        <ng-container *ngIf='language === "korean"'>
+            <span *ngFor="let keyword of blogSnippet.keywordsKor" class='keyword-span'>
+                #{{keyword}}
+            </span>
+        </ng-container>
+    </div>
+    <div class='footer-div'>
+        <ng-container *ngIf='language === "english"'>
+            <div class='date-div'>
+                {{ blogSnippet.date | dateStrEng }}
+            </div>
+        </ng-container>
+        <ng-container *ngIf='language === "korean"'>
+            <div class='date-div'>
+                {{ blogSnippet.date | dateStrKor }}
+            </div>
+        </ng-container>
+        <div class='category-div'>
+            {{ blogSnippet.category }}
+        </div>
+    </div>
+</div>

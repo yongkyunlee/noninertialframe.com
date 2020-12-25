@@ -1,0 +1,41 @@
+.language-div {
+    color: #a7adba;
+    text-align: right;
+}
+
+.selected-language-span {
+    color: #343d46;
+}
+
+.language-span:hover {
+    color: #343d46;
+    cursor: pointer;
+}
+
+.kor-span {
+    padding-right: 0.8rem;
+}
+
+.title-div {
+    text-align: center;
+    font-size: 1.9rem;
+    padding-top: 0.5rem;
+}
+
+.date-div {
+    color: #4f5b66;
+    text-align: center;
+    padding-top: 1.2rem;
+    font-size: 0.9rem;
+}
+
+.content-div { 
+    padding-top: 1.2rem;
+    font-size: 1rem;
+}
+
+:host ::ng-deep a {
+    // text-decoration: none;
+    color: #0074D9;
+    text-decoration: none;
+}

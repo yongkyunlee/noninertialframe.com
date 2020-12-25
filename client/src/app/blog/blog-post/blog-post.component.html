@@ -1,0 +1,36 @@
+<div>
+    <div class='language-div'>
+        <span [ngClass]="{'selected-language-span': language === 'korean'}"
+              class='kor-span language-span' (click)="chooseLanguage('korean')">
+            한국어
+        </span>
+        <span [ngClass]="{'selected-language-span': language === 'english'}"
+              class='language-span' (click)="chooseLanguage('english')">
+            English
+        </span>
+    </div>
+    <div class='title-div'>
+        <ng-container *ngIf="language === 'english'">
+            <strong>{{blogPost?.titleEng}}</strong>
+        </ng-container>
+        <ng-container *ngIf="language === 'korean'">
+            <strong>{{blogPost?.titleKor}}</strong>
+        </ng-container>
+    </div>
+    <div class='date-div'>
+        <ng-container *ngIf="language === 'english'">
+            {{blogPost?.date | dateStrEng}}
+        </ng-container>
+        <ng-container *ngIf="language === 'korean'">
+            {{blogPost?.date | dateStrKor}}
+        </ng-container>
+    </div>
+    <div class='content-div'>
+        <ng-container *ngIf="language === 'english'">
+            <markdown class="variable-binding" [data]="blogPost?.contentEng"></markdown>
+        </ng-container>
+        <ng-container *ngIf="language === 'korean'">
+            <markdown class="variable-binding" [data]="blogPost?.contentKor"></markdown>
+        </ng-container>
+    </div>
+</div>
