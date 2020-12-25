@@ -1,27 +1,18 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { canActivate, hasCustomClaim } from '@angular/fire/auth-guard';
 
 import { NewBlogPostComponent } from './new-blog-post/new-blog-post.component';
 import { ManageBlogPostComponent } from './manage-blog-post/manage-blog-post.component';
 import { AdminComponent } from './admin/admin.component';
 import { AuthAdminGuard } from '../auth/auth-admin.guard';
 
+const adminOnly = () => hasCustomClaim('admin');
+
 const adminRoutes: Routes = [
-    {
-        path: '',
-        component: AdminComponent,
-        canActivate: [AuthAdminGuard],
-        children: [
-            {
-                path: '',
-                canActivateChild: [AuthAdminGuard],
-                children: [
-                    { path: 'new-blog-post', component: NewBlogPostComponent },
-                    { path: 'manage-blog-post', component: ManageBlogPostComponent }
-                ]
-            }
-        ]
-    }
+    { path: 'new-blog-post', component: NewBlogPostComponent, ...canActivate(adminOnly) },
+    { path: 'manage-blog-post', component: ManageBlogPostComponent, ...canActivate(adminOnly) },
+    { path: '', component: AdminComponent, ...canActivate(adminOnly) }
 ];
 
 @NgModule({
