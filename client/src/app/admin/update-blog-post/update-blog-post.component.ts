@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { NewBlogPost } from 'src/app/blog/models/blog-post.model';
+import { KEYWORDS_SEPARATOR } from 'src/app/shared/constants';
 import { EditBlogPostComponent } from '../edit-blog-post/edit-blog-post.component';
 
 @Component({
@@ -10,23 +12,38 @@ import { EditBlogPostComponent } from '../edit-blog-post/edit-blog-post.componen
 export class UpdateBlogPostComponent extends EditBlogPostComponent implements OnInit {
     pageTitle = 'Update Blog Post';
     buttonContent = 'Update';
+    postId: string;
 
     ngOnInit() {
         this.blogService.getBlogPostByTitle(this.titleEng).subscribe(data => {
-            if (data.length !== 1) {
-                alert('The page has an error');
-                this.router.navigate(['/blog']);
+            if (data.length > 1) {
+                alert('this page has an error');
+                console.error(data);
             }
-            this.blogPostForm.patchValue(data[0]);
+            this.postId = data[0].id;
+            this.blogPostForm.patchValue({
+                ...data[0],
+                keywordsEng: data[0].keywordsEng.join(KEYWORDS_SEPARATOR),
+                keywordsKor: data[0].keywordsKor.join(KEYWORDS_SEPARATOR)
+            });
         });
-    }
-
-    changeMode(mode: string) {
-        this.mode = mode;
     }
 
     uploadBlogPost() {
         console.log(this.blogPostForm.value);
+        const newBlogPost: NewBlogPost = {
+            ...this.blogPostForm.value,
+            keywordsEng: this.blogPostForm.value.keywordsEng.split(KEYWORDS_SEPARATOR)
+                            .map((x: string) => x.trim())
+                            .filter((x: string) => x !== ''),
+            keywordsKor: this.blogPostForm.value.keywordsKor.split(KEYWORDS_SEPARATOR)
+                            .map((x: string) => x.trim())
+                            .filter((x: string) => x !== ''),
+        };
+        this.blogService.updateBlogPost(this.postId, newBlogPost)
+            .then(() => {
+                this.router.navigate([`/blog/${newBlogPost.titleEng}`]);
+            });
     }
 
 }

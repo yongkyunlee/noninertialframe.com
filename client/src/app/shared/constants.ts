@@ -5,3 +5,5 @@ export const CATEGORIES = [
     'Event',
     'Life'
 ];
+
+export const KEYWORDS_SEPARATOR = ',';

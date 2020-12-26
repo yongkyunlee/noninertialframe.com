@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { BlogService } from 'src/app/blog/blog.service';
-import { CATEGORIES } from 'src/app/shared/constants';
+import { CATEGORIES, KEYWORDS_SEPARATOR } from 'src/app/shared/constants';
+
 
 @Component({
     selector: 'app-edit-blog-post',
@@ -10,10 +12,13 @@ import { CATEGORIES } from 'src/app/shared/constants';
     styleUrls: ['./edit-blog-post.component.scss']
 })
 export class EditBlogPostComponent {
+    // placeholder variables for inheritance
     pageTitle: string;
     buttonContent: string;
+
     mode = 'edit';
     categories = CATEGORIES;
+    keywordsSeparator = KEYWORDS_SEPARATOR;
     titleEng: string;
     blogPostForm = this.fb.group({
         titleEng: ['', [Validators.required]],
@@ -40,6 +45,7 @@ export class EditBlogPostComponent {
         this.mode = mode;
     }
 
+    // placeholder function for inheritance
     uploadBlogPost() { }
 
 }

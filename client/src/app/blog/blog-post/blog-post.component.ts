@@ -32,7 +32,9 @@ export class BlogPostComponent implements OnInit {
 
     ngOnInit() {
         this.blogService.getBlogPostByTitle(this.titleEng).subscribe(data => {
-            if (data.length !== 1) {
+            if (data.length === 0) {  // blog post with the title does not exist
+                this.router.navigate(['/blog']);
+            } else if (data.length > 1) {
                 alert('The page has an error');
                 this.router.navigate(['/blog']);
             }

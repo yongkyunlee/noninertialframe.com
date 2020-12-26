@@ -55,4 +55,8 @@ export class BlogService {
     uploadBlogPost(blogPost: NewBlogPost) {
         return this.afs.collection<NewBlogPost>(BLOG_COLLECTION).add(blogPost);
     }
+
+    updateBlogPost(docId: string, blogPost: NewBlogPost) {
+        return this.afs.collection<NewBlogPost>(BLOG_COLLECTION).doc(docId).set(blogPost);
+    }
 }
