@@ -5,17 +5,20 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 
 import { NewBlogPostComponent } from './new-blog-post/new-blog-post.component';
 import { ManageBlogPostComponent } from './manage-blog-post/manage-blog-post.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin/admin.component';
+import { EditBlogPostComponent } from './edit-blog-post/edit-blog-post.component';
 
 @NgModule({
     declarations: [
         NewBlogPostComponent,
         ManageBlogPostComponent,
-        AdminComponent
+        AdminComponent,
+        EditBlogPostComponent
     ],
     imports: [
         CommonModule,
@@ -24,6 +27,7 @@ import { AdminComponent } from './admin/admin.component';
         MatInputModule,
         MatSelectModule,
         MatButtonModule,
+        MatAutocompleteModule,
         AdminRoutingModule
     ]
 })

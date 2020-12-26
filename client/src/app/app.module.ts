@@ -36,7 +36,19 @@ import { AboutComponent } from './about/about.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
     HttpClientModule,
-    MarkdownModule.forRoot({ markedOptions: { provide: MarkedOptions, useValue: { gfm: true } } }),
+    MarkdownModule.forRoot({
+        markedOptions: {
+            provide: MarkedOptions,
+            useValue: {
+              gfm: true,
+              breaks: false,
+              pedantic: false,
+              smartLists: true,
+              smartypants: false,
+            },
+          },
+        }
+    ),
     AppRoutingModule,
     MatSidenavModule,
     MatButtonModule,
