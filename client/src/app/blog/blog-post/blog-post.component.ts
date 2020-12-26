@@ -37,7 +37,6 @@ export class BlogPostComponent implements OnInit {
                 this.router.navigate(['/blog']);
             }
             this.blogPost = data[0] as BlogPost;
-            this.contentEng = this.blogPost.contentEng;
         });
     }
 

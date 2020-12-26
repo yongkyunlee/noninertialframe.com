@@ -12,6 +12,9 @@ import { CATEGORIES } from '../../shared/constants';
     styleUrls: ['./new-blog-post.component.scss']
 })
 export class NewBlogPostComponent {
+    pageTitle = 'New Blog Post';
+    buttonContent = 'Upload';
+    mode = 'edit';
     categories = CATEGORIES;
     blogPostForm = this.fb.group({
         titleEng: ['', [Validators.required]],
@@ -30,13 +33,17 @@ export class NewBlogPostComponent {
         private router: Router
     ) { }
 
+    changeMode(mode: string) {
+        this.mode = mode;
+    }
+
     uploadBlogPost() {
         const newBlogPost: NewBlogPost = {
             ...this.blogPostForm.value,
-            keywordsEng: this.blogPostForm.value.keywordsEng.split(';')
+            keywordsEng: this.blogPostForm.value.keywordsEng.split(',')
                             .map((x: string) => x.trim())
                             .filter((x: string) => x !== ''),
-            keywordsKor: this.blogPostForm.value.keywordsKor.split(';')
+            keywordsKor: this.blogPostForm.value.keywordsKor.split(',')
                             .map((x: string) => x.trim())
                             .filter((x: string) => x !== ''),
         };
