@@ -5,3 +5,9 @@ export const CATEGORIES = [
     'Event',
     'Life'
 ];
+
+export const KEYWORDS_SEPARATOR = ',';
+
+export const SIDE_NAV_THRESHOLD = 600;
+
+export const LINE_NUBMERS_THRESHOLD = 600;
