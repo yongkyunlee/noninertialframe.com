@@ -1,37 +1,17 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
 
-import { BlogService } from 'src/app/blog/blog.service';
 import { NewBlogPost } from 'src/app/blog/models/blog-post.model';
-import { CATEGORIES } from '../../shared/constants';
+import { EditBlogPostComponent } from '../edit-blog-post/edit-blog-post.component';
 
 @Component({
     selector: 'app-new-blog-post',
-    templateUrl: './new-blog-post.component.html',
-    styleUrls: ['./new-blog-post.component.scss']
+    templateUrl: '../edit-blog-post/edit-blog-post.component.html',
+    styleUrls: ['../edit-blog-post/edit-blog-post.component.scss']
 })
-export class NewBlogPostComponent {
+export class NewBlogPostComponent extends EditBlogPostComponent {
     pageTitle = 'New Blog Post';
     buttonContent = 'Upload';
     mode = 'edit';
-    categories = CATEGORIES;
-    blogPostForm = this.fb.group({
-        titleEng: ['', [Validators.required]],
-        titleKor: ['', [Validators.required]],
-        date: ['', [Validators.required, Validators.pattern('^\\d\\d\\d\\d\-\\d\\d\-\\d\\d$')]],
-        category: ['', [Validators.required]],
-        keywordsEng: [''],
-        keywordsKor: [''],
-        contentKor: [''],
-        contentEng: ['']
-    });
-
-    constructor(
-        private fb: FormBuilder,
-        private blogService: BlogService,
-        private router: Router
-    ) { }
 
     changeMode(mode: string) {
         this.mode = mode;
@@ -53,5 +33,4 @@ export class NewBlogPostComponent {
                 this.router.navigate(['/blog']);
             });
     }
-
 }

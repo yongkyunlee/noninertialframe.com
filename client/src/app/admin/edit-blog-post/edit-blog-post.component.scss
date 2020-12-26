@@ -4,7 +4,7 @@
 }
 
 .mode-div {
-    padding-bottom: 0.5rem;
+    padding-bottom: 1rem;
     font-size: 1rem;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .selected-mode-span {
-    color: inherit;
+    color: #c60021;
 }
 
 .new-blog-post-form {
@@ -40,4 +40,9 @@
 
 .container-div {
     padding-bottom: 2rem;
+}
+
+:host ::ng-deep a {
+    color: #0074D9;
+    text-decoration: none;
 }

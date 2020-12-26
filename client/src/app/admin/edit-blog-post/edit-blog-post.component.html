@@ -93,5 +93,10 @@
             </div>
         </form>
     </ng-container>
-    
+    <ng-container *ngIf="mode === 'previewEng'">
+        <markdown emoji class="variable-binding" [data]="blogPostForm.value.contentKor"></markdown>
+    </ng-container>
+    <ng-container *ngIf="mode === 'previewKor'">
+        <markdown emoji class="variable-binding" [data]="blogPostForm.value.contentEng"></markdown>
+    </ng-container>
 </div>
