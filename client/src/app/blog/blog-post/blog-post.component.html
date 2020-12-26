@@ -27,10 +27,14 @@
     </div>
     <div class='content-div'>
         <ng-container *ngIf="language === 'english'">
-            <markdown emoji class="variable-binding" [data]="blogPost?.contentEng"></markdown>
+            <markdown class="variable-binding" [data]="blogPost?.contentEng"
+                      emoji katex [lineNumbers]="windowResizeService.screenWidth > lineNumbersThreshold">
+            </markdown>
         </ng-container>
         <ng-container *ngIf="language === 'korean'">
-            <markdown emoji class="variable-binding" [data]="blogPost?.contentKor"></markdown>
+            <markdown class="variable-binding" [data]="blogPost?.contentKor"
+                      emoji katex [lineNumbers]="windowResizeService.screenWidth > lineNumbersThreshold">
+            </markdown>
         </ng-container>
     </div>
 </div>

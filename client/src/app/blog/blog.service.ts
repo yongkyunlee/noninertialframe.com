@@ -33,6 +33,23 @@ export class BlogService {
         // return this.mockBlogSnippets$;
     }
 
+    getBlogFieldValues(fields: string[]) {
+        return this.afs.collection(BLOG_COLLECTION)
+            .snapshotChanges()
+            .pipe(
+                map(actions => {
+                    return actions.map(a => {
+                        const data = a.payload.doc.data() as any;
+                        const fieldValues: { [key: string]: string } = { };
+                        for (const field of fields) {
+                            fieldValues[field] = data[field];
+                        }
+                        return fieldValues;
+                    });
+                })
+            );
+    }
+
     getBlogPostByTitle(titleEng: string) {
         return this.afs.collection(
                 BLOG_COLLECTION, ref => ref.where('titleEng', '==', titleEng))

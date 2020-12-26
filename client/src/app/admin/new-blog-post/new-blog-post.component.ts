@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Validators } from '@angular/forms';
 
 import { NewBlogPost } from 'src/app/blog/models/blog-post.model';
 import { KEYWORDS_SEPARATOR } from 'src/app/shared/constants';
+import { uniqueValueValidator } from 'src/app/shared/custom-validators';
 import { EditBlogPostComponent } from '../edit-blog-post/edit-blog-post.component';
 
 @Component({
@@ -9,10 +11,24 @@ import { EditBlogPostComponent } from '../edit-blog-post/edit-blog-post.componen
     templateUrl: '../edit-blog-post/edit-blog-post.component.html',
     styleUrls: ['../edit-blog-post/edit-blog-post.component.scss']
 })
-export class NewBlogPostComponent extends EditBlogPostComponent {
+export class NewBlogPostComponent extends EditBlogPostComponent implements OnInit {
     pageTitle = 'New Blog Post';
     buttonContent = 'Upload';
     mode = 'edit';
+
+    ngOnInit() {
+        // apply validator to make sure that there is no duplicate title
+        this.blogService.getBlogFieldValues(['titleEng', 'titleKor']).subscribe(data => {
+            this.blogPostForm.get('titleEng')?.setValidators([
+                Validators.required,
+                uniqueValueValidator(data.map(item => item.titleEng))
+            ]);
+            this.blogPostForm.get('titleKor')?.setValidators([
+                Validators.required,
+                uniqueValueValidator(data.map(item => item.titleKor))
+            ]);
+        });
+    }
 
     uploadBlogPost() {
         const newBlogPost: NewBlogPost = {

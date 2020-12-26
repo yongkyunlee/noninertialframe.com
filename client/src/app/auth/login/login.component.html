@@ -1,4 +1,4 @@
-<div class='login-div' *ngIf="!(authService.afAuth.user | async)">
+<div class='login-div' *ngIf="(authService.afAuth.user | async) === null">
     <div class='field-div'>
         <div class='label-div'>
             <label class='field-label'>Email</label>

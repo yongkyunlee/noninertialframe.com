@@ -39,3 +39,7 @@
     color: #0074D9;
     text-decoration: none;
 }
+
+:host ::ng-deep pre {
+    font-size: 0.9rem;
+}
