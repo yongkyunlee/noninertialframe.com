@@ -14,6 +14,8 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin/admin.component';
 import { UpdateBlogPostComponent } from './blog/update-blog-post/update-blog-post.component';
 import { EditBlogPostComponent } from './blog/edit-blog-post/edit-blog-post.component';
+import { ManageProjectsComponent } from './projects/manage-projects/manage-projects.component';
+import { NewProjectComponent } from './projects/new-project/new-project.component';
 
 @NgModule({
     declarations: [
@@ -22,6 +24,8 @@ import { EditBlogPostComponent } from './blog/edit-blog-post/edit-blog-post.comp
         AdminComponent,
         UpdateBlogPostComponent,
         EditBlogPostComponent,
+        ManageProjectsComponent,
+        NewProjectComponent,
     ],
     imports: [
         CommonModule,

@@ -1,4 +1,7 @@
 import { Component, Input } from '@angular/core';
+import { LanguageService } from 'src/app/shared/services/language.service';
+import { faCheck } from '@fortawesome/free-solid-svg-icons';
+import { faGithubSquare } from '@fortawesome/free-brands-svg-icons';
 
 import { ProjectSnippet } from '../projects.model';
 
@@ -9,7 +12,9 @@ import { ProjectSnippet } from '../projects.model';
 })
 export class ProjectSnippetComponent {
     @Input() projectSnippet: ProjectSnippet;
+    faCheck = faCheck;
+    faGithub = faGithubSquare;
 
-    constructor() { }
+    constructor(public languageService: LanguageService) { }
 
 }

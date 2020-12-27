@@ -5,7 +5,7 @@ export interface ProjectSnippet {
     descriptionKor: string;
     notesKor: string[];
     notesEng: string[];
-    links: { [key: string]: string }[];
+    links: { [key: string]: string };
     date: string; // date is for ordering purpose
 }
 

@@ -22,6 +22,7 @@ export class ProjectsComponent implements OnInit {
             for (const project of data) {
                 this.projectSnippets.push(project);
             }
+            console.log(this.projectSnippets);
         });
     }
 
