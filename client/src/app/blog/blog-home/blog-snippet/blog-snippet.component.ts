@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { BlogPost } from '../../models/blog-post.model';
+import { BlogPost } from '../../blog-post.model';
 
 @Component({
     selector: 'app-blog-snippet',

@@ -39,7 +39,7 @@ mat-sidenav ul {
 }
 
 mat-sidenav ul li {
-    margin: 1.5rem 0 1.5rem 0;
+    margin: 1.8rem 0 1.8rem 0;
 }
 
 .sidenav-li-text:hover {
@@ -52,6 +52,21 @@ mat-sidenav ul li {
 
 .sidenav-li-icon {
     margin-left: 0.5rem;
+}
+
+.file-icon-span {
+    padding-right: 1.2rem;
+    font-size: 1.5rem;
+}
+
+.github-icon-span {
+    font-size: 1.6rem;
+}
+
+.linkedin-icon-span {
+    font-size: 1.6rem;
+    padding-right: 1.3rem;
+    color: #0077b5;
 }
 
 .small-screen-header-div {

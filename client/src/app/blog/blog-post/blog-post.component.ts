@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { filter, switchMap } from 'rxjs/operators';
 
 import { BlogService } from '../blog.service';
-import { BlogPost } from '../models/blog-post.model';
+import { BlogPost } from '../blog-post.model';
 import { LINE_NUBMERS_THRESHOLD } from 'src/app/shared/constants';
 import { WindowResizeService } from 'src/app/shared/window-resize.service';
 
@@ -31,7 +31,8 @@ export class BlogPostComponent implements OnInit {
     titleEng: string;
     blogPost: BlogPost;
     contentEng = '';
-    language = 'english';
+    language = localStorage.getItem('language') ? localStorage.getItem('language') as string
+                                                : 'english';
 
     testData = '';
 
@@ -59,6 +60,7 @@ export class BlogPostComponent implements OnInit {
 
     chooseLanguage(language: string) {
         this.language = language;
+        localStorage.setItem('language', language);
     }
 
     printData() {

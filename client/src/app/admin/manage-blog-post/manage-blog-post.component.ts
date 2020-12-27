@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { BlogService } from 'src/app/blog/blog.service';
-import { BlogPost } from 'src/app/blog/models/blog-post.model';
+import { BlogPost } from 'src/app/blog/blog-post.model';
 
 @Component({
   selector: 'app-manage-blog-post',

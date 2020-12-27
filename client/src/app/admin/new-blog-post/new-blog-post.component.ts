@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 
-import { NewBlogPost } from 'src/app/blog/models/blog-post.model';
+import { NewBlogPost } from 'src/app/blog/blog-post.model';
 import { KEYWORDS_SEPARATOR } from 'src/app/shared/constants';
 import { uniqueValueValidator } from 'src/app/shared/custom-validators';
 import { EditBlogPostComponent } from '../edit-blog-post/edit-blog-post.component';
