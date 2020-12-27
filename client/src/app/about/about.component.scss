@@ -25,3 +25,29 @@
     color: #0074D9;
     text-decoration: none;
 }
+
+.content-div {
+    line-height: 1.5rem;;
+}
+
+.content-div p {
+    padding-bottom: 0.5rem;
+}
+
+.version-div {
+    padding-bottom: 2rem;
+}
+
+.version-title-div {
+    font-size: 1.1rem;
+    padding-bottom: 0.7rem;
+}
+
+.version-row-div {
+    display: flex;
+    padding-bottom: 0.5rem;
+}
+
+.item-key-div {
+    width: 11rem;
+}
