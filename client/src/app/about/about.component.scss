@@ -1,0 +1,27 @@
+.container-div {
+    font-size: 1rem;
+}
+
+.language-div {
+    color: #a7adba;
+    text-align: right;
+    font-size: 1rem;
+}
+
+.selected-language-span {
+    color: #343d46;
+}
+
+.language-span:hover {
+    color: #343d46;
+    cursor: pointer;
+}
+
+.kor-span {
+    padding-right: 0.8rem;
+}
+
+:host ::ng-deep a {
+    color: #0074D9;
+    text-decoration: none;
+}

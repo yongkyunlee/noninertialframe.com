@@ -3,7 +3,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { filter, map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 
-import { BlogPost, NewBlogPost } from './models/blog-post.model';
+import { BlogPost, NewBlogPost } from './blog-post.model';
 import { mockBlogPostData } from '../shared/mock-data.data';
 import { BLOG_COLLECTION } from '../shared/constants';
 

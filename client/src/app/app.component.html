@@ -33,12 +33,19 @@
                 </a>
             </li>
             <li>
-                <a (click)="(screenWidth <= sideNavThreshold) && sidenav.close()">
-                    <span class="sidenav-li-text" [ngClass]="{'selected-page': url === '/resume'}">
-                        Resume
-                    </span>
-                    <span class="sidenav-li-icon">📄</span>
-                </a>
+                <span class='file-icon-span'>
+                    <a href="https://firebasestorage.googleapis.com/v0/b/noninertialframe-dffc3.appspot.com/o/Resume_YongkyunLee.pdf?alt=media&token=5135e857-b3ed-49da-bb01-cc1a6ebf8655" target="_blank">📄</a>
+                </span>
+                <span class='linkedin-icon-span'>
+                    <a href="https://www.linkedin.com/in/yongkyunlee" target="_blank">
+                        <fa-icon [icon]="faLinkedin"></fa-icon>
+                    </a>
+                </span>
+                <span class='github-icon-span'>
+                    <a href="https://www.github.com/yongkyunlee" target="_blank">
+                        <fa-icon [icon]="faGithub"></fa-icon>
+                    </a>
+                </span>
             </li>
         </ul>
     </mat-sidenav>
@@ -50,7 +57,11 @@
                    mat-icon-button (click)="sidenav.open()">
                <mat-icon>menu</mat-icon>
            </button>
-           <span class='title-span'>Noninertial Frame</span>
+           <span class='title-span'>
+               <a routerLink="/">
+                    Noninertial Frame
+               </a>
+            </span>
        </div>
        <div class='mat-content'>
             <router-outlet></router-outlet>

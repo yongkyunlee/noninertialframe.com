@@ -7,12 +7,12 @@
               (click)="changeMode('edit')">
             Edit
         </span>
-        <span [ngClass]="{'selected-mode-span': mode === 'previewKor'}" class='mode-span'
-              (click)="changeMode('previewKor')">
-            Preview (English)
-        </span>
         <span [ngClass]="{'selected-mode-span': mode === 'previewEng'}" class='mode-span'
               (click)="changeMode('previewEng')">
+            Preview (English)
+        </span>
+        <span [ngClass]="{'selected-mode-span': mode === 'previewKor'}" class='mode-span'
+              (click)="changeMode('previewKor')">
             Preview (Korean)
         </span>
     </div>
@@ -94,12 +94,12 @@
         </form>
     </ng-container>
     <ng-container *ngIf="mode === 'previewEng'">
-        <markdown class="variable-binding" [data]="blogPostForm.value.contentKor"
+        <markdown class="variable-binding" [data]="blogPostForm.value.contentEng"
                   emoji katex>
         </markdown>
     </ng-container>
     <ng-container *ngIf="mode === 'previewKor'">
-        <markdown class="variable-binding" [data]="blogPostForm.value.contentEng"
+        <markdown class="variable-binding" [data]="blogPostForm.value.contentKor"
                   emoji katex>
         </markdown>
     </ng-container>

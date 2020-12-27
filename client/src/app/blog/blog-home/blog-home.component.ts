@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 
 import { BlogService } from '../blog.service';
-import { BlogPost } from '../models/blog-post.model';
+import { BlogPost } from '../blog-post.model';
 
 @Component({
     selector: 'app-blog-home',
@@ -18,7 +18,7 @@ export class BlogHomeComponent implements OnInit {
     categories: string[] = [];
 
     listByOption = 'year';
-    language = 'english';
+    language = localStorage.getItem('language') ? localStorage.getItem('language') as string : 'english';
 
     constructor(private blogSerivce: BlogService) { }
 
@@ -48,6 +48,7 @@ export class BlogHomeComponent implements OnInit {
 
     chooseLanguage(language: string) {
         this.language = language;
+        localStorage.setItem('language', language);
     }
 
 }

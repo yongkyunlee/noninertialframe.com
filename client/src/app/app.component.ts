@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { filter } from 'rxjs/operators';
 
 import { SIDE_NAV_THRESHOLD } from './shared/constants';
@@ -15,6 +16,8 @@ export class AppComponent implements OnInit{
     screenWidth: number;
     sideNavThreshold = SIDE_NAV_THRESHOLD;
     faUser = faUser;
+    faGithub = faGithubSquare;
+    faLinkedin = faLinkedin;
     url: string;
 
     constructor(private router: Router, private windowResizeService: WindowResizeService) {

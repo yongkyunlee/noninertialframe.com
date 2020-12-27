@@ -1,5 +1,7 @@
 export const BLOG_COLLECTION = 'blog-snippets';
 
+export const ABOUT_COLLECTION = 'about';
+
 export const CATEGORIES = [
     'Project',
     'Event',

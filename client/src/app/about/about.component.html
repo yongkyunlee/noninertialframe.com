@@ -1,1 +1,22 @@
-<p>about works!</p>
+<div class='container-div'>
+    <div class='language-div'>
+        <span [ngClass]="{'selected-language-span': language === 'korean'}"
+              class='language-span kor-span' (click)="chooseLanguage('korean')">
+            한국어
+        </span>
+        <span [ngClass]="{'selected-language-span': language === 'english'}"
+              class='language-span' (click)="chooseLanguage('english')">
+            English
+        </span>
+    </div>
+    <ng-container *ngIf="language === 'english'">
+        <markdown class="variable-binding" [data]="aboutContent?.contentEng"
+            emoji katex>
+        </markdown>
+    </ng-container>
+    <ng-container *ngIf="language === 'korean'">
+        <markdown class="variable-binding" [data]="aboutContent?.contentKor"
+            emoji katex>
+        </markdown>
+    </ng-container>
+</div>

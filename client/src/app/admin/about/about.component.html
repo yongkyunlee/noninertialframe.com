@@ -1,0 +1,57 @@
+<div class='container-div'>
+    <div class='title-div'>
+        About
+    </div>
+    <div class='mode-div'>
+        <span [ngClass]="{'selected-mode-span': mode === 'edit'}" class='mode-span'
+              (click)="changeMode('edit')">
+            Edit
+        </span>
+        <span [ngClass]="{'selected-mode-span': mode === 'previewEng'}" class='mode-span'
+              (click)="changeMode('previewEng')">
+            Preview (English)
+        </span>
+        <span [ngClass]="{'selected-mode-span': mode === 'previewKor'}" class='mode-span'
+              (click)="changeMode('previewKor')">
+            Preview (Korean)
+        </span>
+    </div>
+    <ng-container *ngIf="mode === 'edit'">
+        <form [formGroup]="aboutForm" class="about-form">
+            <table class='form-field-full-width'>
+                <tr>
+                    <td>
+                        <mat-form-field class='form-field-full-width'>
+                            <mat-label>Content - English</mat-label>
+                            <textarea matInput formControlName='contentEng' rows="20"></textarea>
+                        </mat-form-field>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <mat-form-field class='form-field-full-width'>
+                            <mat-label>Content - Korean</mat-label>
+                            <textarea matInput formControlName='contentKor' rows="20"></textarea>
+                        </mat-form-field>
+                    </td>
+                </tr>
+            </table>
+
+            <div class='button-div'>
+                <button mat-raised-button type="submit" (click)="uploadAbout()">
+                    Update
+                </button>
+            </div>
+        </form>
+    </ng-container>
+    <ng-container *ngIf="mode === 'previewEng'">
+        <markdown class="variable-binding" [data]="aboutForm.value.contentEng"
+                  emoji katex>
+        </markdown>
+    </ng-container>
+    <ng-container *ngIf="mode === 'previewKor'">
+        <markdown class="variable-binding" [data]="aboutForm.value.contentKor"
+                  emoji katex>
+        </markdown>
+    </ng-container>
+</div>
