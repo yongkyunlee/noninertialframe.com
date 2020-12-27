@@ -14,7 +14,6 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin/admin.component';
 import { UpdateBlogPostComponent } from './update-blog-post/update-blog-post.component';
 import { EditBlogPostComponent } from './edit-blog-post/edit-blog-post.component';
-import { AboutComponent } from './about/about.component';
 
 @NgModule({
     declarations: [
@@ -23,7 +22,6 @@ import { AboutComponent } from './about/about.component';
         AdminComponent,
         UpdateBlogPostComponent,
         EditBlogPostComponent,
-        AboutComponent
     ],
     imports: [
         CommonModule,

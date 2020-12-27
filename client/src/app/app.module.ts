@@ -20,6 +20,7 @@ import { AdminModule } from './admin/admin.module';
 import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutComponent } from './about/about.component';
+import { TimelineComponent } from './about/timeline/timeline.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { AboutComponent } from './about/about.component';
     HomeComponent,
     PageNotFoundComponent,
     AboutComponent,
+    TimelineComponent,
   ],
   imports: [
     BrowserModule,
