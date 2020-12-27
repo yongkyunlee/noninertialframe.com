@@ -11,7 +11,6 @@ export class TimelineComponent implements OnInit {
     faMedal = faMedal;
     faLink = faExternalLinkAlt;
     faPencil = faPencilAlt;
-    @Input() language: string;
 
     constructor() { }
 
