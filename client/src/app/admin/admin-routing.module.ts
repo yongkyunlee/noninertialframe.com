@@ -2,10 +2,10 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { canActivate, hasCustomClaim } from '@angular/fire/auth-guard';
 
-import { NewBlogPostComponent } from './new-blog-post/new-blog-post.component';
-import { ManageBlogPostComponent } from './manage-blog-post/manage-blog-post.component';
+import { NewBlogPostComponent } from './blog/new-blog-post/new-blog-post.component';
+import { ManageBlogPostComponent } from './blog/manage-blog-post/manage-blog-post.component';
 import { AdminComponent } from './admin/admin.component';
-import { UpdateBlogPostComponent } from './update-blog-post/update-blog-post.component';
+import { UpdateBlogPostComponent } from './blog/update-blog-post/update-blog-post.component';
 
 const adminOnly = () => hasCustomClaim('admin');
 

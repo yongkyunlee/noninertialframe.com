@@ -8,12 +8,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MarkdownModule } from 'ngx-markdown';
 
-import { NewBlogPostComponent } from './new-blog-post/new-blog-post.component';
-import { ManageBlogPostComponent } from './manage-blog-post/manage-blog-post.component';
+import { NewBlogPostComponent } from './blog/new-blog-post/new-blog-post.component';
+import { ManageBlogPostComponent } from './blog/manage-blog-post/manage-blog-post.component';
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin/admin.component';
-import { UpdateBlogPostComponent } from './update-blog-post/update-blog-post.component';
-import { EditBlogPostComponent } from './edit-blog-post/edit-blog-post.component';
+import { UpdateBlogPostComponent } from './blog/update-blog-post/update-blog-post.component';
+import { EditBlogPostComponent } from './blog/edit-blog-post/edit-blog-post.component';
 
 @NgModule({
     declarations: [
