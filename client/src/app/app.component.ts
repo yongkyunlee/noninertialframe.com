@@ -5,7 +5,7 @@ import { faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { filter } from 'rxjs/operators';
 
 import { SIDE_NAV_THRESHOLD } from './shared/constants';
-import { WindowResizeService } from './shared/window-resize.service';
+import { WindowResizeService } from './shared/services/window-resize.service';
 
 @Component({
     selector: 'app-root',

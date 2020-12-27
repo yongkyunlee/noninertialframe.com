@@ -1,1 +1,19 @@
-<p>projects works!</p>
+<div class='container-div'>
+    <div class='language-div'>
+        <span [ngClass]="{'selected-language-span': languageService.language === 'korean'}"
+              class='kor-span language-span' (click)="languageService.chooseLanguage('korean')">
+            한국어
+        </span>
+        <span [ngClass]="{'selected-language-span': languageService.language === 'english'}"
+              class='language-span' (click)="languageService.chooseLanguage('english')">
+            English
+        </span>
+    </div>
+    <div class='title-div'>Projects</div>
+    <div class='subtitle-div'>Snippets of my work!</div>
+    <div class='snippet-list-div'>
+        <div *ngFor="let projectSnippet of projectSnippets">
+            <app-project-snippet [projectSnippet]='projectSnippet'></app-project-snippet>
+        </div>
+    </div>
+</div>

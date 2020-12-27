@@ -1,37 +1,37 @@
 <div>
     <div class='language-div'>
-        <span [ngClass]="{'selected-language-span': language === 'korean'}"
-              class='kor-span language-span' (click)="chooseLanguage('korean')">
+        <span [ngClass]="{'selected-language-span': languageService.language === 'korean'}"
+              class='kor-span language-span' (click)="languageService.chooseLanguage('korean')">
             한국어
         </span>
-        <span [ngClass]="{'selected-language-span': language === 'english'}"
-              class='language-span' (click)="chooseLanguage('english')">
+        <span [ngClass]="{'selected-language-span': languageService.language === 'english'}"
+              class='language-span' (click)="languageService.chooseLanguage('english')">
             English
         </span>
     </div>
     <div class='title-div'>
-        <ng-container *ngIf="language === 'english'">
+        <ng-container *ngIf="languageService.language === 'english'">
             <strong>{{blogPost?.titleEng}}</strong>
         </ng-container>
-        <ng-container *ngIf="language === 'korean'">
+        <ng-container *ngIf="languageService.language === 'korean'">
             <strong>{{blogPost?.titleKor}}</strong>
         </ng-container>
     </div>
     <div class='date-div'>
-        <ng-container *ngIf="language === 'english'">
+        <ng-container *ngIf="languageService.language === 'english'">
             {{blogPost?.date | dateStrEng}}
         </ng-container>
-        <ng-container *ngIf="language === 'korean'">
+        <ng-container *ngIf="languageService.language === 'korean'">
             {{blogPost?.date | dateStrKor}}
         </ng-container>
     </div>
     <div class='content-div'>
-        <ng-container *ngIf="language === 'english'">
+        <ng-container *ngIf="languageService.language === 'english'">
             <markdown class="variable-binding" [data]="blogPost?.contentEng"
                       emoji katex [lineNumbers]="windowResizeService.screenWidth > lineNumbersThreshold">
             </markdown>
         </ng-container>
-        <ng-container *ngIf="language === 'korean'">
+        <ng-container *ngIf="languageService.language === 'korean'">
             <markdown class="variable-binding" [data]="blogPost?.contentKor"
                       emoji katex [lineNumbers]="windowResizeService.screenWidth > lineNumbersThreshold">
             </markdown>

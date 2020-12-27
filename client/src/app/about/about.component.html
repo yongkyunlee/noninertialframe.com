@@ -1,15 +1,15 @@
 <div class='container-div'>
     <div class='language-div'>
-        <span [ngClass]="{'selected-language-span': language === 'korean'}"
-              class='language-span kor-span' (click)="chooseLanguage('korean')">
+        <span [ngClass]="{'selected-language-span': languageService.language === 'korean'}"
+              class='language-span kor-span' (click)="languageService.chooseLanguage('korean')">
             한국어
         </span>
-        <span [ngClass]="{'selected-language-span': language === 'english'}"
-              class='language-span' (click)="chooseLanguage('english')">
+        <span [ngClass]="{'selected-language-span': languageService.language === 'english'}"
+              class='language-span' (click)="languageService.chooseLanguage('english')">
             English
         </span>
     </div>
-    <div *ngIf="language === 'english'" class='content-div'>
+    <div *ngIf="languageService.language === 'english'" class='content-div'>
         <h2>Why Noninertial Frame?</h2>
         <p>
             Noninertial frame, by definition, is a frame of reference that moves with the object, 
@@ -44,7 +44,7 @@
             Enhance the educational system of Korea.
         </p>
     </div>
-    <div *ngIf="language === 'korean'">
+    <div *ngIf="languageService.language === 'korean'">
 
     </div>
     <h2>What have I been up to?</h2>

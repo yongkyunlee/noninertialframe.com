@@ -14,12 +14,12 @@
             </select>
         </div>
         <div class='language-div'>
-            <span [ngClass]="{'selected-language-span': language === 'korean'}"
-                  class='kor-span language-span' (click)="chooseLanguage('korean')">
+            <span [ngClass]="{'selected-language-span': languageService.language === 'korean'}"
+                  class='kor-span language-span' (click)="languageService.chooseLanguage('korean')">
                 한국어
             </span>
-            <span [ngClass]="{'selected-language-span': language === 'english'}"
-                  class='language-span' (click)="chooseLanguage('english')">
+            <span [ngClass]="{'selected-language-span': languageService.language === 'english'}"
+                  class='language-span' (click)="languageService.chooseLanguage('english')">
                 English
             </span>
         </div>
@@ -30,7 +30,7 @@
             <div class='snippet-group-header-div'>{{year}}</div>
             <div *ngFor="let blogSnippetId of blogSnippetsByYear[year]">
                 <div>
-                    <app-blog-snippet [language]='language'
+                    <app-blog-snippet [language]='languageService.language'
                                       [blogSnippet]='blogSnippets[blogSnippetId]'>
                     </app-blog-snippet>
                 </div>
@@ -43,7 +43,7 @@
             <div class='snippet-group-header-div'>{{category}}</div>
             <div *ngFor="let blogSnippetId of blogSnippetsByCategory[category]">
                 <div>
-                    <app-blog-snippet [language]='language'
+                    <app-blog-snippet [language]='languageService.language'
                                       [blogSnippet]='blogSnippets[blogSnippetId]'>
                     </app-blog-snippet>
                 </div>

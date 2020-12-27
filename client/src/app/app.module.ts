@@ -21,6 +21,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutComponent } from './about/about.component';
 import { TimelineComponent } from './about/timeline/timeline.component';
+import { ProjectSnippetComponent } from './projects/project-snippet/project-snippet.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { TimelineComponent } from './about/timeline/timeline.component';
     PageNotFoundComponent,
     AboutComponent,
     TimelineComponent,
+    ProjectSnippetComponent,
   ],
   imports: [
     BrowserModule,

@@ -3,14 +3,14 @@ import { Observable } from 'rxjs';
 
 import { BlogService } from '../blog.service';
 import { BlogPost } from '../blog-post.model';
+import { LanguageService } from 'src/app/shared/services/language.service';
 
 @Component({
     selector: 'app-blog-home',
     templateUrl: './blog-home.component.html',
-    styleUrls: ['./blog-home.component.scss']
+    styleUrls: ['./blog-home.component.scss', '../../shared/styles/languages.scss']
 })
 export class BlogHomeComponent implements OnInit {
-
     blogSnippets: { [key: string]: BlogPost } = {};
     blogSnippetsByYear: { [key: string]: string[] } = {};
     blogSnippetsByCategory: { [key: string]: string[] } = {};
@@ -18,9 +18,11 @@ export class BlogHomeComponent implements OnInit {
     categories: string[] = [];
 
     listByOption = 'year';
-    language = localStorage.getItem('language') ? localStorage.getItem('language') as string : 'english';
 
-    constructor(private blogSerivce: BlogService) { }
+    constructor(
+        private blogSerivce: BlogService,
+        public languageService: LanguageService
+    ) { }
 
     ngOnInit() {
         this.blogSerivce.getBlogSnippets().subscribe(data => {
@@ -44,11 +46,6 @@ export class BlogHomeComponent implements OnInit {
 
     changeListByOption(event: any) {
         this.listByOption = event.target.value;
-    }
-
-    chooseLanguage(language: string) {
-        this.language = language;
-        localStorage.setItem('language', language);
     }
 
 }

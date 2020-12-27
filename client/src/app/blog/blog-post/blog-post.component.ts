@@ -6,7 +6,7 @@ import { filter, switchMap } from 'rxjs/operators';
 import { BlogService } from '../blog.service';
 import { BlogPost } from '../blog-post.model';
 import { LINE_NUBMERS_THRESHOLD } from 'src/app/shared/constants';
-import { WindowResizeService } from 'src/app/shared/window-resize.service';
+import { WindowResizeService } from 'src/app/shared/services/window-resize.service';
 
 import 'prismjs';
 import 'prismjs/components/prism-typescript.min.js';
@@ -19,6 +19,7 @@ import 'node_modules/prismjs/components/prism-java.min.js';
 import 'node_modules/prismjs/components/prism-css.min.js';
 import 'node_modules/prismjs/components/prism-typescript.min.js';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
+import { LanguageService } from 'src/app/shared/services/language.service';
 
 @Component({
   selector: 'app-blog-post',
@@ -30,16 +31,12 @@ export class BlogPostComponent implements OnInit {
     lineNumbersThreshold = LINE_NUBMERS_THRESHOLD;
     titleEng: string;
     blogPost: BlogPost;
-    contentEng = '';
-    language = localStorage.getItem('language') ? localStorage.getItem('language') as string
-                                                : 'english';
-
-    testData = '';
 
     constructor(
         private router: Router,
         private blogService: BlogService,
-        public windowResizeService: WindowResizeService
+        public windowResizeService: WindowResizeService,
+        public languageService: LanguageService
     ){
         const url = this.router.url;
         const urlComponent = url.split('/');
@@ -56,15 +53,6 @@ export class BlogPostComponent implements OnInit {
             }
             this.blogPost = data[0] as BlogPost;
         });
-    }
-
-    chooseLanguage(language: string) {
-        this.language = language;
-        localStorage.setItem('language', language);
-    }
-
-    printData() {
-        console.log(this.testData);
     }
 
 }
