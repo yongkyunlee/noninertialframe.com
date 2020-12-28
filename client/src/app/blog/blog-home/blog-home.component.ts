@@ -26,6 +26,11 @@ export class BlogHomeComponent implements OnInit {
 
     ngOnInit() {
         this.blogSerivce.getBlogSnippets().subscribe(data => {
+            this.years = [];
+            this.categories = [];
+            this.blogSnippets = {};
+            this.blogSnippetsByYear = {};
+            this.blogSnippetsByCategory = {};
             for (const blogSnippet of data) {
                 const year = blogSnippet.date.substring(0, 4);
                 const category = blogSnippet.category;

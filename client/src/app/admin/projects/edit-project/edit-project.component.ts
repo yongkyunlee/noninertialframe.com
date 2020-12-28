@@ -13,6 +13,7 @@ export class EditProjectComponent {
     pageTitle: string;
     buttonContent: string;
 
+    titleEng: string;
     projectForm = this.fb.group({
         titleEng: ['', [Validators.required]],
         titleKor: ['', [Validators.required]],
@@ -20,16 +21,16 @@ export class EditProjectComponent {
         descriptionKor: ['', [Validators.required]],
         date: ['', [Validators.required, Validators.pattern('^\\d\\d\\d\\d\-\\d\\d\-\\d\\d$')]],
         notesKor: this.fb.array([
-            this.fb.control('', [Validators.required])
+            // this.fb.control('', [Validators.required])
         ]),
         notesEng: this.fb.array([
-            this.fb.control('', [Validators.required])
+            // this.fb.control('', [Validators.required])
         ]),
         links: this.fb.array([
-            this.fb.group({
-                website: ['', [Validators.required]],
-                url: ['', [Validators.required]]
-            })
+            // this.fb.group({
+            //     website: ['', [Validators.required]],
+            //     url: ['', [Validators.required]]
+            // })
         ])
     });
 
@@ -37,7 +38,11 @@ export class EditProjectComponent {
         protected fb: FormBuilder,
         protected router: Router,
         protected projectService: ProjectsService
-    ) { }
+    ) {
+        const url = this.router.url;
+        const urlComponent = url.split('/');
+        this.titleEng = decodeURI(urlComponent[urlComponent.length - 1]);
+    }
 
     get notesEng() {
         return this.projectForm.get('notesEng') as FormArray;
@@ -64,7 +69,7 @@ export class EditProjectComponent {
     addLink() {
         this.links.push(this.fb.group({
             website: ['', [Validators.required]],
-            url: ['', [Validators.required]]
+            url: ['', [Validators.required, Validators.pattern('^http[s]?://.+')]]
         }));
     }
 

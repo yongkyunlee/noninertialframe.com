@@ -18,13 +18,15 @@
             </div>
             <div class='date-div'>
                 {{ blogPost.date }}
-            </div>        
+            </div>
         </div>
     </ng-container>
 
     <div *ngFor="let blogPost of filteredBlogPosts$ | async" class='blog-post-div'>
         <div class='title-div'>
-            <strong>{{ blogPost.titleEng }}</strong>
+            <strong><a [routerLink]="'/admin/manage-blog-post/' + blogPost.titleEng">
+                {{ blogPost.titleEng }}
+            </a></strong>
         </div>
         <div class='date-div'>
             {{ blogPost.date }}

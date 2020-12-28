@@ -20,6 +20,7 @@ export class ProjectsComponent implements OnInit {
 
     ngOnInit() {
         this.projectsService.getProjects().subscribe(data => {
+            this.projectSnippets = [];
             for (const project of data) {
                 this.projectSnippets.push(project);
             }

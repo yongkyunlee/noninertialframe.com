@@ -53,17 +53,17 @@ export class BlogService {
     getBlogPostByTitle(titleEng: string) {
         return this.afs.collection(
                 BLOG_COLLECTION, ref => ref.where('titleEng', '==', titleEng))
-                .snapshotChanges()
-                .pipe(
-                    map(actions => {
-                        return actions.map(a => {
-                            return {
-                                id: a.payload.doc.id,
-                                ...a.payload.doc.data() as NewBlogPost
-                            };
-                        });
-                    })
-                );
+            .snapshotChanges()
+            .pipe(
+                map(actions => {
+                    return actions.map(a => {
+                        return {
+                            id: a.payload.doc.id,
+                            ...a.payload.doc.data() as NewBlogPost
+                        };
+                    });
+                })
+            );
         // return this.mockBlogSnippets$.pipe(
         //     map(posts => [posts.find(post => post.titleEng === titleEng)])
         // );

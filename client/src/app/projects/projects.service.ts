@@ -28,7 +28,27 @@ export class ProjectsService {
             );
     }
 
+    getProjectByTitle(titleEng: string) {
+        return this.afs.collection(
+                PROJECTS_COLLECTION, ref => ref.where('titleEng', '==', titleEng))
+            .snapshotChanges()
+            .pipe(
+                map(actions => {
+                    return actions.map(a => {
+                        return {
+                            id: a.payload.doc.id,
+                            ...a.payload.doc.data() as ProjectSnippet
+                        };
+                    });
+                })
+            );
+    }
+
     uploadProject(project: ProjectSnippet) {
         return this.afs.collection(PROJECTS_COLLECTION).add(project);
+    }
+
+    updateProject(docId: string, project: ProjectSnippet) {
+        return this.afs.collection(PROJECTS_COLLECTION).doc(docId).set(project);
     }
 }

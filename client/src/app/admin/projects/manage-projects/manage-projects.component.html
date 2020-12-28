@@ -1,1 +1,29 @@
-<p>manage-projects works!</p>
+<div class='manage-project-div'>
+    <mat-form-field>
+        <input type="text" placeholder="Blog post title" [formControl]="searchControl"
+               matInput [matAutocomplete]="auto">
+        <mat-autocomplete #auto='matAutocomplete'>
+            <mat-option *ngFor="let option of filteredOptions$ | async" [value]="option">
+                {{ option }}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+
+    <ng-container *ngIf="searchControl.value === null">
+        <div *ngFor="let project of projects" class='project-div'>
+            <div class='title-div'>
+                <strong><a [routerLink]="'/admin/manage-projects/' + project.titleEng">
+                    {{ project.titleEng }}
+                </a></strong>
+            </div>
+        </div>
+    </ng-container>
+
+    <div *ngFor="let project of filteredProjects$ | async" class='project-div'>
+        <div class='title-div'>
+            <strong><a [routerLink]="'/admin/manage-projects/' + project.titleEng">
+                {{ project.titleEng }}
+            </a></strong>
+        </div>
+    </div>
+</div>
