@@ -16,6 +16,8 @@ import { UpdateBlogPostComponent } from './blog/update-blog-post/update-blog-pos
 import { EditBlogPostComponent } from './blog/edit-blog-post/edit-blog-post.component';
 import { ManageProjectsComponent } from './projects/manage-projects/manage-projects.component';
 import { NewProjectComponent } from './projects/new-project/new-project.component';
+import { EditProjectComponent } from './projects/edit-project/edit-project.component';
+import { EditProjectLinksComponent } from './projects/edit-project/edit-project-links/edit-project-links.component';
 
 @NgModule({
     declarations: [
@@ -26,6 +28,8 @@ import { NewProjectComponent } from './projects/new-project/new-project.componen
         EditBlogPostComponent,
         ManageProjectsComponent,
         NewProjectComponent,
+        EditProjectComponent,
+        EditProjectLinksComponent,
     ],
     imports: [
         CommonModule,
