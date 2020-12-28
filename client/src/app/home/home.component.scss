@@ -1,0 +1,71 @@
+.intro-div {
+    font-size: 1.1rem;
+    line-height: 1.2rem;
+    padding-bottom: 0.2rem;
+}
+
+hr {
+    border: 1px solid #EAEAEC;
+    margin: 1.2rem 0 1.7rem 0;
+}
+
+.header-div {
+    font-size: 1.4rem;
+    padding-bottom: 1.2rem;
+}
+
+.blog-snippet-title-div {
+    font-size: 1.2rem;
+    padding-bottom: 0.2rem;
+}
+
+.blog-snippet-date-div {
+    font-size: 0.8rem;
+    padding-bottom: 0.6rem;
+}
+
+.project-snippet-title-div {
+    font-size: 1.2rem;
+    padding-bottom: 0.2rem;
+}
+
+.project-snippet-description-div {
+    font-size: 0.9rem;
+    padding-bottom: 0.8rem;
+}
+
+:host ::ng-deep a {
+    color: #0074D9;
+    text-decoration: none;
+}
+
+.timeline-div {
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+}
+
+.timeline-gradient-div {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.life-update-div {
+    padding-bottom: 1rem;
+}
+
+.see-all-div {
+    font-size: 0.9rem;
+    padding-bottom: 1rem;
+}
+
+.see-all-a {
+    color: #c60021;
+}
+
+.blog-link-a {
+    color: #343d46;
+}
+.see-all-a:hover {
+    cursor: pointer;
+}

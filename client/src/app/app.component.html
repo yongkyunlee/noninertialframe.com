@@ -10,7 +10,7 @@
         <ul>
             <li>
                 <a routerLink="/about" (click)="(screenWidth <= sideNavThreshold) && sidenav.close()">
-                    <span class="sidenav-li-text" [ngClass]="{'selected-page': url === '/about'}">
+                    <span class="sidenav-li-text" [ngClass]="{'selected-page': url?.startsWith('/about')}">
                         About
                     </span>
                     <span class="sidenav-li-icon"> <fa-icon [icon]="faUser"></fa-icon></span>
