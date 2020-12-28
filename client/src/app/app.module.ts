@@ -10,6 +10,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -57,6 +58,7 @@ import { ProjectSnippetComponent } from './projects/project-snippet/project-snip
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
+    FlexLayoutModule,
     BlogModule,
     AdminModule,
     FontAwesomeModule,

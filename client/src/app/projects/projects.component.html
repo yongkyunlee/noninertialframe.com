@@ -11,9 +11,13 @@
     </div>
     <div class='title-div'>Projects</div>
     <div class='subtitle-div'>Snippets of my work!</div>
-    <div class='snippet-list-div'>
-        <div *ngFor="let projectSnippet of projectSnippets">
+    <div class='snippet-list-div' fxLayout="row" fxLayout.xs="column" fxLayoutAlign="space-around"
+         fxLayout="row wrap" fxLayoutGap="20px grid">
+        <div *ngFor="let projectSnippet of projectSnippets" class='snippet-div' fxFlex="33%" fxFlex.md="50%" fxFlex.sm="100%">
             <app-project-snippet [projectSnippet]='projectSnippet'></app-project-snippet>
+        </div>
+        <div *ngFor=" let item of [].constructor(nAdditionalDivs)" fxFlex="33%" fxFlex.md="50%" fxFlex.sm="100%">
+            <div></div>
         </div>
     </div>
 </div>

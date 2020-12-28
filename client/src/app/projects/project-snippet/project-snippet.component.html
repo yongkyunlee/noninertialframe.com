@@ -1,6 +1,6 @@
 <div class='container-div'>
     <ng-container *ngIf="languageService.language === 'english'">
-        <div class='title-div'>{{projectSnippet.titleEng}}</div>
+        <div class='title-div'><strong>{{projectSnippet.titleEng}}</strong></div>
         <div class='description-div'>{{projectSnippet.descriptionEng}}</div>
         <div class='note-list-div'>
             <div *ngFor="let note of projectSnippet.notesEng" class='note-div'>

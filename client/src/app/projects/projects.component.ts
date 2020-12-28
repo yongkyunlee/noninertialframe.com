@@ -11,6 +11,7 @@ import { ProjectsService } from './projects.service';
 })
 export class ProjectsComponent implements OnInit {
     projectSnippets: ProjectSnippet[] = [];
+    nAdditionalDivs = 0;
 
     constructor(
         private projectsService: ProjectsService,
@@ -22,7 +23,9 @@ export class ProjectsComponent implements OnInit {
             for (const project of data) {
                 this.projectSnippets.push(project);
             }
-            console.log(this.projectSnippets);
+            if (this.projectSnippets.length % 6 !== 0) {
+                this.nAdditionalDivs = 6 - this.projectSnippets.length % 6;
+            }
         });
     }
 
