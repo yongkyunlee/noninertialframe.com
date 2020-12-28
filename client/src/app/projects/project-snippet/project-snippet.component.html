@@ -1,0 +1,50 @@
+<div class='container-div'>
+    <ng-container *ngIf="languageService.language === 'english'">
+        <div class='title-div'><strong>{{projectSnippet.titleEng}}</strong></div>
+        <div class='description-div'>{{projectSnippet.descriptionEng}}</div>
+        <div class='note-list-div'>
+            <div *ngFor="let note of projectSnippet.notesEng" class='note-div'>
+                <div class='check-icon-div'>
+                    <fa-icon [icon]="faCheck"></fa-icon>
+                </div>
+                <div>
+                    {{note}}
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="languageService.language === 'korean'">
+        <div class='title-div'>{{projectSnippet.titleKor}}</div>
+        <div class='description-div'>{{projectSnippet.descriptionKor}}</div>
+        <div class='note-list-div'>
+            <div *ngFor="let note of projectSnippet.notesKor" class='note-div'>
+                <div class='check-icon-div'>
+                    <fa-icon [icon]="faCheck"></fa-icon>
+                </div>
+                <div>
+                    {{note}}
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <div class='link-list-div'>
+        <div *ngIf='projectSnippet.links.github' class='link-div'>
+            <a [href]='projectSnippet.links.github' target="_blank">
+                <fa-icon [icon]="faGithub" class='link-icon link-left' id='github-icon'></fa-icon>
+                <span class='link-span'>Github</span>
+            </a>
+        </div>
+        <div *ngIf='projectSnippet.links.devpost' class='link-div'>
+            <a [href]='projectSnippet.links.devpost' target="_blank">
+                <img src='../../../assets/devpost.png' class='link-img link-left' id='devpost-img'>
+                <span class='link-span'>Devpost</span>
+            </a>
+        </div>
+        <div *ngIf=projectSnippet.links.noninertialframe>
+            <a [href]='projectSnippet.links.noninertialframe' target="_blank">
+                <span class='emoji-span link-left'>✏️</span>
+                <span class='link-span'>Blog</span>
+            </a>
+        </div>
+    </div>
+</div>

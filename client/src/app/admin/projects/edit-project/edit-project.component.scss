@@ -1,0 +1,80 @@
+.title-div {
+    padding-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.new-project-form {
+    width: 100%;
+    font-size: 1rem;
+}
+
+.first-td {
+    padding-right: 1.5rem;
+}
+
+.form-field-full-width {
+    width: 100%;
+}
+
+.container-div {
+    padding-bottom: 2rem;
+    font-size: 1rem;
+}
+
+:host ::ng-deep a {
+    color: #0074D9;
+    text-decoration: none;
+}
+
+:host ::ng-deep pre {
+    font-size: 0.9rem;
+}
+
+.note-form-div {
+    display: flex;
+}
+
+.note-eng-div {
+    width: 100%;
+    padding-right: 1rem;
+}
+
+.note-kor-div {
+    width: 100%;
+}
+
+.note-row-div {
+    display: flex;
+}
+
+.remove-button-div {
+    padding-left: 1rem;
+}
+
+.remove-button {
+    position: relative;
+    top: 50%;
+    transform: translateY(-100%);
+}
+
+.add-button-div {
+    text-align: center;
+    padding-bottom: 1rem;
+}
+
+.link-array-div {
+    width: 100%;
+}
+
+.url-row-div {
+    display: flex;
+}
+
+.website-form-field {
+    width: 15rem;
+    padding-right: 1rem;
+}
+
+.url-form-field {
+    flex-grow: 1;
+}

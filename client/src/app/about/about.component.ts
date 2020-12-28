@@ -1,18 +1,12 @@
 import { Component } from '@angular/core';
+import { LanguageService } from '../shared/services/language.service';
 
 @Component({
     selector: 'app-about',
     templateUrl: './about.component.html',
-    styleUrls: ['./about.component.scss']
+    styleUrls: ['./about.component.scss', '../shared/styles/languages.scss']
 })
 export class AboutComponent {
-    language = localStorage.getItem('language') ? localStorage.getItem('language') as string
-                                                : 'english';
 
-    constructor() { }
-
-    chooseLanguage(language: string) {
-        this.language = language;
-        localStorage.setItem('language', language);
-    }
+    constructor(public languageService: LanguageService) { }
 }

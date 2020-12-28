@@ -10,6 +10,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 import { environment } from '../environments/environment';
 import { AppRoutingModule } from './app-routing.module';
@@ -21,6 +22,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutComponent } from './about/about.component';
 import { TimelineComponent } from './about/timeline/timeline.component';
+import { ProjectSnippetComponent } from './projects/project-snippet/project-snippet.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +32,7 @@ import { TimelineComponent } from './about/timeline/timeline.component';
     PageNotFoundComponent,
     AboutComponent,
     TimelineComponent,
+    ProjectSnippetComponent,
   ],
   imports: [
     BrowserModule,
@@ -55,6 +58,7 @@ import { TimelineComponent } from './about/timeline/timeline.component';
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
+    FlexLayoutModule,
     BlogModule,
     AdminModule,
     FontAwesomeModule,

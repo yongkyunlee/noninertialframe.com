@@ -36,3 +36,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Save language choice to localstorage
 - For Life update section on mobile, place date and item on separate lines
 - Link See All to exact place
+- making the fold of sidenav to 700px?

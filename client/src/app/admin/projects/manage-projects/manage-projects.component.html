@@ -1,4 +1,4 @@
-<div class='manage-blog-post-div'>
+<div class='manage-project-div'>
     <mat-form-field>
         <input type="text" placeholder="Blog post title" [formControl]="searchControl"
                matInput [matAutocomplete]="auto">
@@ -8,28 +8,22 @@
             </mat-option>
         </mat-autocomplete>
     </mat-form-field>
-    
+
     <ng-container *ngIf="searchControl.value === null">
-        <div *ngFor="let blogPost of blogPosts" class='blog-post-div'>
+        <div *ngFor="let project of projects" class='project-div'>
             <div class='title-div'>
-                <strong><a [routerLink]="'/admin/manage-blog-post/' + blogPost.titleEng">
-                    {{ blogPost.titleEng }}
+                <strong><a [routerLink]="'/admin/manage-projects/' + project.titleEng">
+                    {{ project.titleEng }}
                 </a></strong>
-            </div>
-            <div class='date-div'>
-                {{ blogPost.date }}
             </div>
         </div>
     </ng-container>
 
-    <div *ngFor="let blogPost of filteredBlogPosts$ | async" class='blog-post-div'>
+    <div *ngFor="let project of filteredProjects$ | async" class='project-div'>
         <div class='title-div'>
-            <strong><a [routerLink]="'/admin/manage-blog-post/' + blogPost.titleEng">
-                {{ blogPost.titleEng }}
+            <strong><a [routerLink]="'/admin/manage-projects/' + project.titleEng">
+                {{ project.titleEng }}
             </a></strong>
         </div>
-        <div class='date-div'>
-            {{ blogPost.date }}
-        </div>        
     </div>
 </div>

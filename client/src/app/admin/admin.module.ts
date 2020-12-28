@@ -14,6 +14,11 @@ import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin/admin.component';
 import { UpdateBlogPostComponent } from './blog/update-blog-post/update-blog-post.component';
 import { EditBlogPostComponent } from './blog/edit-blog-post/edit-blog-post.component';
+import { ManageProjectsComponent } from './projects/manage-projects/manage-projects.component';
+import { NewProjectComponent } from './projects/new-project/new-project.component';
+import { EditProjectComponent } from './projects/edit-project/edit-project.component';
+import { EditProjectLinksComponent } from './projects/edit-project/edit-project-links/edit-project-links.component';
+import { UpdateProjectComponent } from './projects/update-project/update-project.component';
 
 @NgModule({
     declarations: [
@@ -22,6 +27,11 @@ import { EditBlogPostComponent } from './blog/edit-blog-post/edit-blog-post.comp
         AdminComponent,
         UpdateBlogPostComponent,
         EditBlogPostComponent,
+        ManageProjectsComponent,
+        NewProjectComponent,
+        EditProjectComponent,
+        EditProjectLinksComponent,
+        UpdateProjectComponent,
     ],
     imports: [
         CommonModule,

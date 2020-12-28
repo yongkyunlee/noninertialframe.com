@@ -1,0 +1,82 @@
+$content-padding-side: 1rem;
+$content-padding-bottom: 0.6rem;
+
+.container-div {
+    border: 1px solid #a7adba;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.snippet-ng-container {
+    padding: 50px;
+}
+
+.title-div {
+    font-size: 1.2rem;
+    padding: 1rem $content-padding-side $content-padding-bottom $content-padding-side;
+
+}
+
+.description-div {
+    font-size: 1.1rem;
+    padding: 0 $content-padding-side $content-padding-bottom $content-padding-side;
+}
+
+.note-list-div {
+    padding: 0 $content-padding-side 2.3rem $content-padding-side
+}
+
+.note-div {
+    display: flex;
+    padding-bottom: 0.4rem;
+}
+
+.check-icon-div {
+    font-size: 0.8rem;
+    padding-right: 0.5rem;
+}
+
+.link-list-div {
+    display: flex;
+    font-size: 1rem;
+    position: absolute;
+    bottom: 0;
+    padding: 0 $content-padding-side 0.7rem $content-padding-side
+}
+
+.link-div {
+    padding-right: 0.5rem;
+    vertical-align: bottom;
+}
+
+.link-span {
+    color: #0074D9;
+}
+
+a {
+    text-decoration: none;
+}
+
+.link-icon {
+    font-size: 1.1rem;
+}
+
+#github-icon {
+    color: #000000;
+}
+
+#devpost-img {
+    margin-bottom: -0.1rem;
+    height: 0.95rem;
+}
+
+.link-left {
+    padding-right: 0.2rem;
+}
+
+@media only screen and (max-width: 600px) {
+    .container-div {
+        width: auto;
+    }
+}

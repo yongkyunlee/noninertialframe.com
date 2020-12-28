@@ -1,0 +1,95 @@
+<div class='container-div'>
+    <div class='title-div'>
+        {{ pageTitle }}
+    </div>
+    <form [formGroup]="projectForm" class='new-project-form'>
+        <table class='form-field-full-width' cellspacing="0">
+            <tr>
+                <td class='first-td'>
+                    <mat-form-field class='form-field-full-width'>
+                        <mat-label>Title - English</mat-label>
+                        <input matInput formControlName='titleEng'>
+                    </mat-form-field>
+                </td>
+                <td class='first-td'>
+                    <mat-form-field class='form-field-full-width'>
+                        <mat-label>Title - Korean</mat-label>
+                        <input matInput formControlName='titleKor'>
+                    </mat-form-field>
+                </td>
+                <td>
+                    <mat-form-field class='form-field-full-width'>
+                        <mat-label>Date (YYYY-MM-DD)</mat-label>
+                        <input matInput formControlName='date'>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <mat-form-field class='form-field-full-width'>
+                        <mat-label>Description - English</mat-label>
+                        <textarea matInput formControlName='descriptionEng'></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="3">
+                    <mat-form-field class='form-field-full-width'>
+                        <mat-label>Description - Korean</mat-label>
+                        <textarea matInput formControlName='descriptionKor'></textarea>
+                    </mat-form-field>
+                </td>
+            </tr>
+        </table>
+        <div class='note-form-div'>
+            <div formArrayName="notesEng" class='note-eng-div first-td'>
+                <div *ngFor="let noteEng of notesEng.controls; let i=index">
+                    <mat-form-field class='form-field-full-width'>
+                        <mat-label>Notes - English</mat-label>
+                        <textarea matInput [formControlName]="i" rows="2"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+            <div formArrayName="notesKor" class='note-kor-div'>
+                <div *ngFor="let noteKor of notesKor.controls; let i=index" class='note-row-div'>
+                    <mat-form-field class='form-field-full-width'>
+                        <mat-label>Notes - Korean</mat-label>
+                        <textarea matInput [formControlName]="i" rows="2"></textarea>
+                    </mat-form-field>
+                    <div class='remove-button-div'>
+                        <button (click)="removeNote(i)" class='remove-button'>-</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='add-button-div'>
+            <button mat-raised-button (click)="addNote()">Add Note</button>
+        </div>
+        <div formArrayName='links' class='link-array-div'>
+            <div *ngFor="let _ of links.controls; let i=index" class='url-row-div'>
+                <ng-container [formGroupName]="i">
+                    <mat-form-field class='website-form-field'>
+                        <mat-label>Website</mat-label>
+                        <input matInput formControlName="website">
+                    </mat-form-field>
+                    <mat-form-field class='url-form-field'>
+                        <mat-label>URL</mat-label>
+                        <input matInput formControlName="url">
+                    </mat-form-field>
+                    <div class='remove-button-div'>
+                        <button (click)="removeLink(i)" class='remove-button'>-</button>
+                    </div>
+                </ng-container>
+            </div>
+        </div>
+        <div class='add-button-div'>
+            <button mat-raised-button (click)="addLink()">Add Link</button>
+        </div>
+    </form>
+    <div class='button-div'>
+        <button mat-raised-button type="submit" (click)="uploadProject()"
+                [disabled]="projectForm.invalid">
+            {{ buttonContent }}
+        </button>
+    </div>
+</div>
