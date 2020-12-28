@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -22,6 +23,7 @@ import { HomeComponent } from './home/home.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { AboutComponent } from './about/about.component';
 import { TimelineComponent } from './about/timeline/timeline.component';
+import { SharedModule } from './shared/shared.module';
 import { ProjectSnippetComponent } from './projects/project-snippet/project-snippet.component';
 
 @NgModule({
@@ -37,6 +39,7 @@ import { ProjectSnippetComponent } from './projects/project-snippet/project-snip
   imports: [
     BrowserModule,
     FormsModule,
+    RouterModule,
     BrowserAnimationsModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
@@ -62,6 +65,7 @@ import { ProjectSnippetComponent } from './projects/project-snippet/project-snip
     BlogModule,
     AdminModule,
     FontAwesomeModule,
+    SharedModule
   ],
   bootstrap: [AppComponent]
 })

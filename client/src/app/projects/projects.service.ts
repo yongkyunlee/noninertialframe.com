@@ -44,6 +44,22 @@ export class ProjectsService {
             );
     }
 
+    getRecentProjects(count: number) {
+        return this.afs.collection(
+                PROJECTS_COLLECTION, ref => ref.orderBy('date', 'desc').limit(count))
+            .snapshotChanges()
+            .pipe(
+                map(actions => {
+                    return actions.map(a => {
+                        return {
+                            id: a.payload.doc.id,
+                            ...a.payload.doc.data() as ProjectSnippet
+                        };
+                    });
+                })
+            );
+    }
+
     uploadProject(project: ProjectSnippet) {
         return this.afs.collection(PROJECTS_COLLECTION).add(project);
     }

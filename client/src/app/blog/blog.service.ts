@@ -69,6 +69,22 @@ export class BlogService {
         // );
     }
 
+    getRecentBlogPosts(count: number) {
+        return this.afs.collection(
+                BLOG_COLLECTION, ref => ref.orderBy('date', 'desc').limit(count))
+            .snapshotChanges()
+            .pipe(
+                map(actions => {
+                    return actions.map(a => {
+                        return {
+                            id: a.payload.doc.id,
+                            ...a.payload.doc.data() as NewBlogPost
+                        };
+                    });
+                })
+            );
+    }
+
     uploadBlogPost(blogPost: NewBlogPost) {
         return this.afs.collection<NewBlogPost>(BLOG_COLLECTION).add(blogPost);
     }

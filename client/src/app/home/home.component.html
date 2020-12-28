@@ -1,1 +1,88 @@
-<p>home works!</p>
+<div class='container-div'>
+    <div class='language-div'>
+        <span [ngClass]="{'selected-language-span': languageService.language === 'korean'}"
+              class='kor-span language-span' (click)="languageService.chooseLanguage('korean')">
+            한국어
+        </span>
+        <span [ngClass]="{'selected-language-span': languageService.language === 'english'}"
+              class='language-span' (click)="languageService.chooseLanguage('english')">
+            English
+        </span>
+    </div>
+
+    <div class='header-div'>Welcome</div>
+    <div class='intro-div' *ngIf="languageService.language === 'english'">
+        <p>Hi, I am Yongkyun (or Daniel)!</p>
+        <p>I write about my work, life, and ideas to stay in the noninertial reference frame.</p>
+        <p>Any comments, thoughts, and insight are welcome.</p>
+    </div>
+    <div class='intro-div' *ngIf="languageService.language === 'korean'">
+        
+    </div>
+
+    <hr>
+
+    <div class='blog-snippet-div' *ngIf="languageService.language === 'english'">
+        <div class='header-div'>Blog</div>
+        <div *ngFor="let blogSnippet of blogSnippetArr">
+            <div class='blog-snippet-title-div'>
+                <a [routerLink]="'/blog/' + blogSnippet.titleEng" class='blog-link-a'>
+                    {{ blogSnippet.titleEng }}
+                </a>
+            </div>
+            <div class='blog-snippet-date-div'>{{ blogSnippet.date | dateStrEng }}</div>
+        </div>
+    </div>
+    <div class='blog-snippet-div' *ngIf="languageService.language === 'korean'">
+        <div class='header-div'>Blog</div>
+        <div *ngFor="let blogSnippet of blogSnippetArr">
+            <div class='blog-snippet-title-div'>
+                <a [routerLink]="'/blog/' + blogSnippet.titleEng" class='blog-link-a'>
+                    {{ blogSnippet.titleKor }}
+                </a>
+            </div>
+            <div class='blog-snippet-date-div'>{{ blogSnippet.date | dateStrKor }}</div>
+        </div>
+    </div>
+    <div class='see-all-div'>
+        <a routerLink="/blog" class='see-all-a'>... See All</a>
+    </div>
+
+    <hr>
+
+    <div class='project-snippet-div' *ngIf="languageService.language === 'english'">
+        <div class='header-div'>Projects</div>
+        <div *ngFor="let projectSnippet of projectSnippetArr">
+            <div class='project-snippet-title-div'>
+                {{ projectSnippet.titleEng }}
+            </div>
+            <div class='project-snippet-description-div'>{{ projectSnippet.descriptionEng }}</div>
+        </div>
+    </div>
+    <div class='project-snippet-div' *ngIf="languageService.language === 'korean'">
+        <div class='header-div'>Projects</div>
+        <div *ngFor="let projectSnippet of projectSnippetArr">
+            <div class='project-snippet-title-div'>{{ projectSnippet.titleKor }}</div>
+            <div class='project-snippet-description-div'>{{ projectSnippet.descriptionKor }}</div>
+        </div>
+    </div>
+    <div class='see-all-div'>
+        <a routerLink="/projects" class='see-all-a'>... See All</a>
+    </div>
+
+    <hr>
+
+    <div class='life-update-div'>
+        <div class='header-div'>Life Updates</div>
+        <div class='timeline-div'>
+            <app-timeline></app-timeline>
+        </div>
+        <div class='timeline-gradient-div'>
+            <fa-icon [icon]="faEllipsisV"></fa-icon>
+        </div>
+    </div>
+    <div class='see-all-div'>
+        <a routerLink="/about" fragment='life-update' class='see-all-a'>See All</a>
+    </div>
+
+</div>
