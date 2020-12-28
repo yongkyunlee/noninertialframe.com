@@ -11,15 +11,21 @@
                         <input matInput formControlName='titleEng'>
                     </mat-form-field>
                 </td>
-                <td>
+                <td class='first-td'>
                     <mat-form-field class='form-field-full-width'>
                         <mat-label>Title - Korean</mat-label>
                         <input matInput formControlName='titleKor'>
                     </mat-form-field>
                 </td>
+                <td>
+                    <mat-form-field class='form-field-full-width'>
+                        <mat-label>Date (YYYY-MM-DD)</mat-label>
+                        <input matInput formControlName='date'>
+                    </mat-form-field>
+                </td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                     <mat-form-field class='form-field-full-width'>
                         <mat-label>Description - English</mat-label>
                         <textarea matInput formControlName='descriptionEng'></textarea>
@@ -27,7 +33,7 @@
                 </td>
             </tr>
             <tr>
-                <td colspan="2">
+                <td colspan="3">
                     <mat-form-field class='form-field-full-width'>
                         <mat-label>Description - Korean</mat-label>
                         <textarea matInput formControlName='descriptionKor'></textarea>
@@ -80,4 +86,10 @@
             <button mat-raised-button (click)="addLink()">Add Link</button>
         </div>
     </form>
+    <div class='button-div'>
+        <button mat-raised-button type="submit" (click)="uploadProject()"
+                [disabled]="projectForm.invalid">
+            {{ buttonContent }}
+        </button>
+    </div>
 </div>

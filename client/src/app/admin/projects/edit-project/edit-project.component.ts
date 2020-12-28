@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { ProjectsService } from 'src/app/projects/projects.service';
 
 @Component({
@@ -10,29 +11,31 @@ import { ProjectsService } from 'src/app/projects/projects.service';
 export class EditProjectComponent {
     // placeholder used by inherited components
     pageTitle: string;
+    buttonContent: string;
 
     projectForm = this.fb.group({
         titleEng: ['', [Validators.required]],
         titleKor: ['', [Validators.required]],
         descriptionEng: ['', [Validators.required]],
         descriptionKor: ['', [Validators.required]],
-        date: ['', [Validators.required]],
+        date: ['', [Validators.required, Validators.pattern('^\\d\\d\\d\\d\-\\d\\d\-\\d\\d$')]],
         notesKor: this.fb.array([
-            this.fb.control('')
+            this.fb.control('', [Validators.required])
         ]),
         notesEng: this.fb.array([
-            this.fb.control('')
+            this.fb.control('', [Validators.required])
         ]),
         links: this.fb.array([
             this.fb.group({
-                website: [''],
-                url: ['']
+                website: ['', [Validators.required]],
+                url: ['', [Validators.required]]
             })
         ])
     });
 
     constructor(
         protected fb: FormBuilder,
+        protected router: Router,
         protected projectService: ProjectsService
     ) { }
 
@@ -45,8 +48,8 @@ export class EditProjectComponent {
     }
 
     addNote() {
-        this.notesEng.push(this.fb.control(''));
-        this.notesKor.push(this.fb.control(''));
+        this.notesEng.push(this.fb.control('', [Validators.required]));
+        this.notesKor.push(this.fb.control('', [Validators.required]));
     }
 
     removeNote(idx: number) {
@@ -60,12 +63,14 @@ export class EditProjectComponent {
 
     addLink() {
         this.links.push(this.fb.group({
-            website: [''],
-            url: ['']
+            website: ['', [Validators.required]],
+            url: ['', [Validators.required]]
         }));
     }
 
     removeLink(idx: number) {
         this.links.removeAt(idx);
     }
+
+    uploadProject() { }
 }

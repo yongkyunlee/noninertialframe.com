@@ -27,4 +27,8 @@ export class ProjectsService {
                 })
             );
     }
+
+    uploadProject(project: ProjectSnippet) {
+        return this.afs.collection(PROJECTS_COLLECTION).add(project);
+    }
 }
