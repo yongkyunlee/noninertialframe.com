@@ -33,7 +33,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Make sure title does not contain /
 - Make sure the title does not have duplicate
 - limit number of data loaded at blog home
-- Save language choice to localstorage
 - For Life update section on mobile, place date and item on separate lines
 - Link See All to exact place
 - making the fold of sidenav to 700px?
@@ -42,6 +41,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - If the website grows, paginate comment queries
 - Use reCAPTCHA
 - Refactor sign-in to allow linking providers
+- User history save
 
 References
 

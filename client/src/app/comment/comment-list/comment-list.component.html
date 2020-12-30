@@ -1,0 +1,5 @@
+<div *ngFor="let comment of comments" class='comment-div'>
+    <app-comment-item [comment]="comment" [collection]="collection" 
+                      [docId]="docId">
+    </app-comment-item>
+</div>

@@ -34,7 +34,7 @@ import { ProjectSnippetComponent } from './projects/project-snippet/project-snip
     PageNotFoundComponent,
     AboutComponent,
     TimelineComponent,
-    ProjectSnippetComponent
+    ProjectSnippetComponent,
   ],
   imports: [
     BrowserModule,

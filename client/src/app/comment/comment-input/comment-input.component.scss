@@ -44,7 +44,7 @@ textarea {
 }
 
 .comment-button {
-    background-color: black;
+    background-color: #343d46;
     color: white;
     border: none;
     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
@@ -58,4 +58,8 @@ textarea {
 
 .comment-button:disabled {
     background-color: #a7adba;
+}
+
+.error-message-div {
+    color: #c60021;
 }

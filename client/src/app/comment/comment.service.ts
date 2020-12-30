@@ -17,9 +17,11 @@ export class CommentSerivce {
             .pipe(
                 map(actions => {
                     return actions.map(a => {
+                        const comment = a.payload.doc.data();
+                        comment.timestamp = comment.timestamp.toDate();
                         return {
                             id: a.payload.doc.id,
-                            ...a.payload.doc.data() as Comment
+                            ...comment as Comment
                         };
                     });
                 })
@@ -31,13 +33,13 @@ export class CommentSerivce {
                        .add(comment);
     }
 
-    updateComment(collection: string, docId: string, commentId: string, comment: Comment) {
+    updateComment(collection: string, docId: string, comment: CommentDoc) {
         return this.afs.collection(collection).doc(docId).collection('comments')
-                       .doc(commentId).set(comment);
+                       .doc(comment.id).set(comment);
     }
 
     deleteComment(collection: string, docId: string, commentId: string) {
         return this.afs.collection(collection).doc(docId).collection('comments')
-                       .doc(docId).delete();
+                       .doc(commentId).delete();
     }
 }

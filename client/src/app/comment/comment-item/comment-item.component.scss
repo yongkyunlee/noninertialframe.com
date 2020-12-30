@@ -1,0 +1,115 @@
+$border-radius: 5px;
+$content-font-size: 1rem;
+
+.comment-header-div {
+    display: flex;
+    align-items: baseline;
+}
+
+.comment-nickname-div {
+    font-size: 1.2rem;
+    padding-right: 1.5rem;
+}
+
+.comment-date-div {
+    font-size: 0.9rem;
+}
+
+.comment-edit-div {
+    color: #a7adba;
+}
+
+.edit-span {
+    padding-right: 1rem;
+}
+
+.edit-span:hover {
+    color: #343d46;
+    cursor: pointer;
+}
+
+.selected-mode-span {
+    color: #343d46;
+}
+
+.delete-span:hover {
+    color: #343d46;
+    cursor: pointer;
+}
+
+.comment-edit-div {
+    margin-left: auto;
+}
+
+.comment-content-div {
+    padding-top: 0.5rem;
+    font-size: $content-font-size;
+}
+
+.comment-content-span {
+    white-space: pre-wrap;
+}
+
+.comment-new-content-div {
+    padding-top: 0.5rem;
+    font-size: $content-font-size;
+    padding-bottom: 1rem;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+    border: 1px solid #a7adba;
+    font-size: $content-font-size;
+    font: inherit;
+
+    -webkit-border-radius: $border-radius;
+    -moz-border-radius: $border-radius;
+    border-radius: $border-radius;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.comment-update-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.error-message-div {
+    color: #c60021;
+    font-size: 1rem;
+}
+
+.update-button {
+    background-color: #343d46;
+    color: white;
+    border: none;
+    font-size: 0.9rem;
+    text-align: middle;
+    padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+}
+
+.update-button {
+    cursor: pointer;
+}
+
+.comment-delete-div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete-button {
+    background-color: #343d46;
+    color: white;
+    border: none;
+    font-size: 0.9rem;
+    text-align: middle;
+    padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+}
