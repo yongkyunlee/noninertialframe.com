@@ -1,0 +1,53 @@
+$div-padding-bottom: 0.7rem;
+$border-radius: 5px;
+
+
+.comment-input-div {
+    padding-bottom: $div-padding-bottom;
+}
+
+textarea {
+    width: 100%;
+    resize: none;
+    border: 1px solid #a7adba;
+    font-size: 1rem;
+    font: inherit;
+
+    -webkit-border-radius: $border-radius;
+    -moz-border-radius: $border-radius;
+    border-radius: $border-radius;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.comment-submit-div {
+    display: flex;
+}
+
+.nickname-span {
+    padding-right: 1rem;
+}
+
+.nickname-input {
+    width: 15rem;
+    font-size: 1.1rem;
+    border: 1px solid #a7adba;
+    -webkit-border-radius: $border-radius;
+    -moz-border-radius: $border-radius;
+    border-radius: $border-radius;
+}
+
+.comment-button-div {
+    margin-left: auto;
+}
+
+.comment-button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    font-size: 1rem;
+    text-align: middle;
+}

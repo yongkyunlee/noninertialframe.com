@@ -1,0 +1,16 @@
+<form [formGroup]="commentForm">
+    <div class='comment-input-div'>
+        <textarea rows="3"></textarea>
+    </div>
+    <div class='comment-submit-div'>
+        <div class='nickname-input-div'>
+            <span class="nickname-span">Nickname</span>
+            <input class="nickname-input" [(ngModel)]="nicknameInput">
+        </div>
+        <div class='comment-button-div'>
+            <button class='comment-button' type="submit" (click)="submitComment()">
+                <strong>Comment</strong>
+            </button>
+        </div>
+    </div>
+</form>

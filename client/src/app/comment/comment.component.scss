@@ -9,36 +9,13 @@ $div-padding-bottom: 0.7rem;
 .header-div {
     padding-bottom: $div-padding-bottom;
     font-size: 1.3rem;
-}
-
-.sign-in-div {
-    margin: 1rem 0 1.5rem 0;
-    padding: 0.5rem 1rem 1rem 0.5rem;
-    border: dashed 2px #a7adba;
-    font-size: 1rem;
-}
-
-.subheader-div {
-    padding-bottom: $div-padding-bottom;
     display: flex;
     justify-content: space-between;
 }
 
-.nickname-span {
-    padding-right: 1rem;
-}
-
-.nickname-input {
-    width: 15rem;
-    font-size: 1.1rem;
-    border: 1px solid #a7adba;
-    -webkit-border-radius: $border-radius;
-    -moz-border-radius: $border-radius;
-    border-radius: $border-radius;
-}
-
 .sign-out-span {
     color: #a7adba;
+    font-size: 1rem;
 }
 
 .sign-out-span:hover {
@@ -46,44 +23,10 @@ $div-padding-bottom: 0.7rem;
     color: #343d46;
 }
 
-.comment-input-div {
+.app-comment-div {
     padding-bottom: $div-padding-bottom;
 }
 
-textarea {
-    width: 100%;
-    resize: none;
-    border: 1px solid #a7adba;
-    font-size: 1rem;
-    font: inherit;
-
-    -webkit-border-radius: $border-radius;
-    -moz-border-radius: $border-radius;
-    border-radius: $border-radius;
-
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-.comment-button-div {
-    margin-left: auto;
-}
-
-.comment-button {
-    background-color: black;
-    color: white;
-    border: none;
-    // height: 2.2rem;
-    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
-    font-size: 1rem;
-    text-align: middle;
-}
-.comment-submit-div {
-    display: flex;
-}
-
-.comment-warning-div {
-    padding-bottom: 2rem;
-    font-size: 0.9rem;
+.app-comment-input-div {
+    padding-bottom: $div-padding-bottom;
 }

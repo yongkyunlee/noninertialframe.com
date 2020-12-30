@@ -10,14 +10,13 @@ import { BlogHomeComponent } from './blog-home/blog-home.component';
 import { BlogPostComponent } from './blog-post/blog-post.component';
 import { BlogSnippetComponent } from './blog-home/blog-snippet/blog-snippet.component';
 import { SharedModule } from '../shared/shared.module';
-import { CommentComponent } from '../comment/comment.component';
+import { CommentModule } from '../comment/comment.module';
 
 @NgModule({
   declarations: [
     BlogHomeComponent,
     BlogPostComponent,
     BlogSnippetComponent,
-    CommentComponent
   ],
   imports: [
     CommonModule,
@@ -28,6 +27,7 @@ import { CommentComponent } from '../comment/comment.component';
     BlogRoutingModule,
     SharedModule,
     MarkdownModule.forChild(),
+    CommentModule
   ]
 })
 export class BlogModule { }
