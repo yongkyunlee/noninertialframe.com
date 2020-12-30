@@ -1,0 +1,64 @@
+<div class='container-div'>
+    <div class='header-div'>
+        <strong>Comments</strong> ({{ comments.length }})
+    </div>
+    <div class='sign-in-div'>
+        <div class='auth-div'>
+            <div class='auth-intro-div'>To share your thoughts, <strong>sign in</strong> with</div>
+            <button mat-raised-button class='auth-button' (click)="authService.signInViaGoogle()">
+                <img class='oauth-img' src='../../assets/google.svg'>
+                <span>Google</span>
+            </button>
+            <button mat-raised-button class='auth-button' (click)="toggleEmailAuth()">
+                <fa-icon class='auth-icon' [icon]="faEnvelope"></fa-icon>
+                <span>Email</span>
+            </button>
+        </div>
+        <form [formGroup]="authGroup" class='email-signin-form' *ngIf="emailAuth">
+            <div class='email-input-div'>
+                <label class='email-label'>Email</label>
+                <input formControlName="email" class='email-input'>
+            </div>
+            <div class='password-input-div'>
+                <label class='password-label'>Password</label>
+                <input formControlName="password" type="password" class='password-input'>
+            </div>
+            <div class='email-sign-in-div'>
+                <button color="black" (click)="signInViaEmail()" type="submit"
+                        class='email-sign-in-button'>
+                    Sign In
+                </button>
+            </div>
+            <div class='reset-div' *ngIf="emailAuth">
+                <span *ngIf='!forgotPassword' (click)="toggleForgotPassword()"
+                      class='forgot-password-span' >
+                    Forgot Password?
+                </span>
+                <button class='reset-password-button' *ngIf="forgotPassword" (click)="resetPassword()">
+                    Reset Password
+                </button>
+            </div>
+        </form>
+        <div class='auth-warning-div'>
+            * Authentication is powered by Firebase.
+        </div>    
+    </div>
+    <div class="subheader-div">
+        
+        <div *ngIf='(windowSizeService.screenWidth > windowSizeService.smallScreenMaxWidth) && (authService.afAuth.user | async)'>
+            <span class='sign-out-span' (click)="authService.signOut()">Sign Out</span>
+        </div>
+    </div>
+    <div class='comment-input-div'>
+        <textarea rows="3"></textarea>
+    </div>
+    <div class='comment-submit-div'>
+        <div class='nickname-input-div'>
+            <span class="nickname-span">Nickname</span>
+            <input class="nickname-input" [(ngModel)]="nicknameInput">
+        </div>
+        <div class='comment-button-div'>
+            <button class='comment-button'><strong>Comment</strong></button>
+        </div>
+    </div>
+</div>

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
+import firebase from 'firebase/app';
 
 import { environment } from '../../environments/environment';
 
@@ -13,29 +14,18 @@ export class AuthService {
 
     constructor(public afAuth: AngularFireAuth, private router: Router) { }
 
-    signIn(email: string, password: string, successRedirectUrl = '', errorRedirectUrl = '') {
-        return this.afAuth.signInWithEmailAndPassword(email, password)
-            .then(res => {
-                if (res.user && successRedirectUrl !== '') {
-                        this.router.navigate([successRedirectUrl]);
-                } else {
-                    alert('Failed to sign in');
-                    if (errorRedirectUrl !== '') {
-                        this.router.navigate([errorRedirectUrl]);
-                    }
-                }
-            })
-            .catch(error => {
-                console.log(error);
-                if (errorRedirectUrl !== '') {
-                    this.router.navigate([errorRedirectUrl]);
-                }
-            });
+    signIn(email: string, password: string) {
+        return this.afAuth.signInWithEmailAndPassword(email, password);
+    }
+
+    signInViaGoogle() {
+        return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     }
 
     signOut() {
-        this.afAuth.signOut();
-        this.router.navigate(['/']);
+        console.log(this.afAuth.user);
+        console.log('sign out');
+        return this.afAuth.signOut();
     }
 
     isAdmin() {
