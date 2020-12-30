@@ -13,6 +13,9 @@ export class CommentSignInComponent implements OnInit {
     faEnvelope = faEnvelope;
     emailAuth = false;
     forgotPassword = false;
+    errorMessage = '';
+    authMessage = '';
+
     authForm = this.fb.group({
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required]]
@@ -26,6 +29,10 @@ export class CommentSignInComponent implements OnInit {
     ngOnInit() {
     }
 
+    get email() {
+        return this.authForm.get('email');
+    }
+
     toggleEmailAuth() {
         this.emailAuth = !this.emailAuth;
     }
@@ -35,11 +42,50 @@ export class CommentSignInComponent implements OnInit {
     }
 
     signInViaEmail() {
-        alert('sign in ');
+        this.authService.signInViaEmail(this.authForm.value.email, this.authForm.value.password)
+            .then(() => {
+                this.authMessage = '';
+                this.errorMessage = '';
+            })
+            .catch(err => {
+                this.authMessage = '';
+                switch (err.code) {
+                    case 'auth/invalid-email':
+                        this.errorMessage = 'The email is badly formatted.';
+                        break;
+                    case 'auth/user-not-found':
+                        this.errorMessage = 'A user with the email does not exist.';
+                        break;
+                    case 'auth/wrong-password':
+                        this.errorMessage = 'The password or authenitcation method is wrong.';
+                        break;
+                    case 'auth/user-disabled':
+                        this.errorMessage = 'The account is disabled.';
+                        break;
+                    default:
+                        this.errorMessage = 'An error occurred during sign-in.';
+                        break;
+                }
+            });
     }
 
     resetPassword() {
-        confirm('Reset Password via Email');
+        this.authService.resetPassword(this.authForm.value.email)
+            .then(() => {
+                this.authMessage = 'The password reset email has been sent.';
+            })
+            .catch(err => {
+                this.authMessage = '';
+                switch (err.code) {
+                    case 'auth/invalid-email':
+                        this.errorMessage = 'The email is badly formatted.';
+                        break;
+                    case 'auth/user-not-found':
+                        this.errorMessage = 'A user with the email does not exist.';
+                        break;
+                    default:
+                        this.errorMessage = 'An error occurred while sending a password reset email.';
+                }
+            });
     }
-
 }

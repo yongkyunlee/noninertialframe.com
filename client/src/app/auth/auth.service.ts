@@ -14,7 +14,7 @@ export class AuthService {
 
     constructor(public afAuth: AngularFireAuth, private router: Router) { }
 
-    signIn(email: string, password: string) {
+    signInViaEmail(email: string, password: string) {
         return this.afAuth.signInWithEmailAndPassword(email, password);
     }
 
@@ -22,45 +22,19 @@ export class AuthService {
         return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
     }
 
+    signInViaFacebook() {
+        return this.afAuth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+    }
+
+    signInViaGithub() {
+        return this.afAuth.signInWithPopup(new firebase.auth.GithubAuthProvider());
+    }
+
     signOut() {
-        console.log(this.afAuth.user);
-        console.log('sign out');
         return this.afAuth.signOut();
     }
 
-    isAdmin() {
-        // return this.afAuth.authState.subscribe(user => {
-        //     if (user) {
-        //         if (user.email === environment.adminEmail) {
-        //             return true;
-        //         } else {
-        //             return false;
-        //         }
-        //     } else {
-        //         return false;
-        //     }
-        // });
-        return this.afAuth.authState.pipe(
-            map(user => {
-                if (user && user.email === environment.adminEmail) {
-                    return true;
-                } else {
-                    return false;
-                }
-            })
-        );
-    }
-
-    isLoggedIn() {
-        return this.afAuth.authState.pipe(
-            map(user => {
-                console.log(user);
-                if (user) {
-                    return true;
-                } else {
-                    return false;
-                }
-            })
-        );
+    resetPassword(email: string) {
+        return this.afAuth.sendPasswordResetEmail(email);
     }
 }

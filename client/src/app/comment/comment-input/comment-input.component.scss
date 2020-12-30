@@ -51,3 +51,11 @@ textarea {
     font-size: 1rem;
     text-align: middle;
 }
+
+.comment-button:hover {
+    cursor: pointer;
+}
+
+.comment-button:disabled {
+    background-color: #a7adba;
+}

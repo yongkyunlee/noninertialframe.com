@@ -99,6 +99,14 @@ $border-radius: 5px;
     cursor: pointer;
 }
 
+.email-sign-in-button:disabled {
+    background-color: #a7adba
+}
+
+.email-sign-in-button:disabled:hover {
+    cursor: default;
+}
+
 .reset-div {
     margin-left: 0.7rem;
 }
@@ -113,11 +121,34 @@ $border-radius: 5px;
 }
 
 .reset-password-button {
-    background-color: #a7adba;
+    background-color: #eb6c6b;
     color: black;
     font-size: 1rem;
     border: none;
     padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+}
+
+.reset-password-button:hover {
+    cursor: pointer;
+}
+
+.reset-password-button:disabled {
+    background-color: #f4b3b3;
+}
+
+.reset-password-button:disabled:hover {
+    cursor: default;
+}
+
+.auth-error-div {
+    // padding-top: 0.5rem;
+    font-size: 1rem;
+    color: #c60021;
+}
+
+.auth-message-div {
+    font-size: 1rem;
+    color: #1d1bf9;
 }
 
 .auth-warning-div {

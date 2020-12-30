@@ -8,7 +8,6 @@ import { AuthService } from 'src/app/auth/auth.service';
     styleUrls: ['./comment-input.component.scss']
 })
 export class CommentInputComponent {
-    nicknameInput: string;
     commentForm = this.fb.group({
         nickname: ['', [Validators.required]],
         content: ['', [Validators.required]]

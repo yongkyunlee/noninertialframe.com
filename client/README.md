@@ -41,6 +41,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - gradient for life updates of hompage
 - If the website grows, paginate comment queries
 - Use reCAPTCHA
+- Refactor sign-in to allow linking providers
 
 References
 

@@ -31,7 +31,7 @@ export class ManageProjectsComponent implements OnInit {
 
         this.filteredProjects$ = this.searchControl.valueChanges.pipe(
             map(value => this._filterProject(value))
-        )
+        );
     }
 
     private _filterOption(value: string): string[] {

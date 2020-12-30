@@ -5,7 +5,7 @@
             <span class='sign-out-span' (click)="authService.signOut()">Sign Out</span>
         </div>
     </div>
-    <div class='app-comment-div'>
+    <div class='app-comment-div' *ngIf="(authService.afAuth.user | async) == null">
         <app-comment-sign-in></app-comment-sign-in>
     </div>
     <div class='app-comment-input-div'>
