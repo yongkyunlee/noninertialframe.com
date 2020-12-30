@@ -1,0 +1,56 @@
+<div class='sign-in-div'>
+    <div class='auth-div'>
+        <div class='auth-intro-div'>To share your thoughts, <strong>sign in</strong> with</div>
+        <button mat-raised-button class='auth-button' (click)="authService.signInViaGoogle()">
+            <img class='oauth-img' src='../../assets/logos/google.svg'>
+            <span>Google</span>
+        </button>
+        <button mat-raised-button class='auth-button' (click)="authService.signInViaFacebook()">
+            <img class='oauth-img' src='../../assets/logos/facebook.png'>
+            <span>Facebook</span>
+        </button>
+        <button mat-raised-button class='auth-button' (click)="authService.signInViaGithub()">
+            <img class='oauth-img' src='../../assets/logos/github.png'>
+            <span>Github</span>
+        </button>
+        <button mat-raised-button class='auth-button' (click)="toggleEmailAuth()">
+            <fa-icon class='auth-icon' [icon]="faEnvelope"></fa-icon>
+            <span>Email</span>
+        </button>
+    </div>
+    <form [formGroup]="authForm" class='email-sign-in-form' *ngIf="emailAuth">
+        <div class='email-input-div'>
+            <label class='email-label'>Email</label>
+            <input formControlName="email" class='email-input'>
+        </div>
+        <div class='password-input-div'>
+            <label class='password-label'>Password</label>
+            <input formControlName="password" type="password" class='password-input'>
+        </div>
+        <div class='email-sign-in-button-div'>
+            <button color="black" (click)="signInViaEmail()" type="submit"
+                    [disabled]="!authForm.valid"  class='email-sign-in-button'>
+                Sign In
+            </button>
+        </div>
+        <div class='reset-div' *ngIf="emailAuth">
+            <span *ngIf='!forgotPassword' (click)="toggleForgotPassword()"
+                  class='forgot-password-span'>
+                Forgot Password?
+            </span>
+            <button class='reset-password-button' *ngIf="forgotPassword"
+                    [disabled]="!email?.valid" (click)="resetPassword()">
+                Reset Password
+            </button>
+        </div>
+    </form>
+    <div class='auth-error-div' *ngIf="errorMessage !== ''">
+        {{ errorMessage }}
+    </div>
+    <div class='auth-message-div' *ngIf="authMessage !== ''">
+        {{ authMessage }}
+    </div>
+    <div class='auth-warning-div'>
+        * Authentication is powered by Google Firebase.
+    </div>    
+</div>

@@ -1,0 +1,20 @@
+<form [formGroup]="commentForm">
+    <div class='comment-input-div'>
+        <textarea rows="3" formControlName="content"></textarea>
+    </div>
+    <div class='comment-submit-div'>
+        <div class='nickname-input-div'>
+            <span class="nickname-span">Nickname</span>
+            <input class="nickname-input" formControlName="nickname">
+        </div>
+        <div class='comment-button-div'>
+            <button class='comment-button' type="submit" (click)="submitComment()"
+                    [disabled]="(authService.afAuth.user | async) == null">
+                <strong>Comment</strong>
+            </button>
+        </div>
+    </div>
+    <div class='error-message-div' *ngIf="errorMessage !== ''">
+        {{ errorMessage }}
+    </div>
+</form>

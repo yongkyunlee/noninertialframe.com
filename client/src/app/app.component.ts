@@ -5,7 +5,7 @@ import { faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { filter } from 'rxjs/operators';
 
 import { SIDE_NAV_THRESHOLD } from './shared/constants';
-import { WindowResizeService } from './shared/services/window-resize.service';
+import { WindowSizeService } from './shared/services/window-size.service';
 
 @Component({
     selector: 'app-root',
@@ -20,10 +20,10 @@ export class AppComponent implements OnInit{
     faLinkedin = faLinkedin;
     url: string;
 
-    constructor(private router: Router, private windowResizeService: WindowResizeService) {
+    constructor(private router: Router, private windowSizeService: WindowSizeService) {
         this.screenWidth = window.innerWidth;
         window.onresize = () => {
-            this.windowResizeService.screenWidth = window.innerWidth;
+            this.windowSizeService.screenWidth = window.innerWidth;
             this.screenWidth = window.innerWidth;
         };
     }

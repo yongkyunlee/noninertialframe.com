@@ -5,8 +5,8 @@ import { filter, switchMap } from 'rxjs/operators';
 
 import { BlogService } from '../blog.service';
 import { BlogPost } from '../blog-post.model';
-import { LINE_NUBMERS_THRESHOLD } from 'src/app/shared/constants';
-import { WindowResizeService } from 'src/app/shared/services/window-resize.service';
+import { BLOG_COLLECTION, LINE_NUBMERS_THRESHOLD } from 'src/app/shared/constants';
+import { WindowSizeService } from 'src/app/shared/services/window-size.service';
 
 import 'prismjs';
 import 'prismjs/components/prism-typescript.min.js';
@@ -31,11 +31,12 @@ export class BlogPostComponent implements OnInit {
     lineNumbersThreshold = LINE_NUBMERS_THRESHOLD;
     titleEng: string;
     blogPost: BlogPost;
+    blogCollection = BLOG_COLLECTION;
 
     constructor(
         private router: Router,
         private blogService: BlogService,
-        public windowResizeService: WindowResizeService,
+        public windowSizeService: WindowSizeService,
         public languageService: LanguageService
     ){
         const url = this.router.url;

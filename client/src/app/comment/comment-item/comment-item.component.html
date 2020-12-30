@@ -1,0 +1,31 @@
+<div class='comment-header-div'>
+    <div class='comment-nickname-div'><strong>{{ comment.nickname }}</strong></div>
+    <div class='comment-date-div'>{{ comment.timestamp | date: 'MMM d, y, h:mm a' }}</div>
+    <div class='comment-edit-div' *ngIf="comment.userId === (authService.afAuth.user | async)?.uid">
+        <span class='edit-span' (click)="changeMode('edit')"
+              [ngClass]="{'selected-mode-span': mode === 'edit'}">
+            Edit
+        </span>
+        <span class='delete-span' (click)="changeMode('delete')"
+              [ngClass]="{'selected-mode-span': mode === 'delete'}">
+            Delete
+        </span>
+    </div>
+</div>
+<div class='comment-content-div' *ngIf="mode === 'read' || mode === 'delete'">
+    <span class='comment-content-span'>{{ comment.content }}</span>
+    <div class='comment-delete-div' *ngIf="mode === 'delete'">
+        <button class='delete-button' (click)="deleteComment()">
+            Confirm
+        </button>
+    </div>
+</div>
+<div class='comment-new-content-div' *ngIf="mode === 'edit'">
+    <textarea *ngIf="mode === 'edit'" [(ngModel)]="newContent"></textarea>
+    <div class='comment-update-div'>
+        <div class='error-message-div'>
+            {{ errorMessage }}
+        </div>
+        <button class='update-button' (click)="updateComment()">Update</button>
+    </div>
+</div>

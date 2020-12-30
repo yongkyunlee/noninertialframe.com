@@ -33,9 +33,18 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Make sure title does not contain /
 - Make sure the title does not have duplicate
 - limit number of data loaded at blog home
-- Save language choice to localstorage
 - For Life update section on mobile, place date and item on separate lines
 - Link See All to exact place
 - making the fold of sidenav to 700px?
 - keywords for project and blog
 - gradient for life updates of hompage
+- If the website grows, paginate comment queries
+- Use reCAPTCHA
+- Refactor sign-in to allow linking providers
+- User history save
+
+References
+
+Authentication
+- https://indepth.dev/posts/1215/implement-google-sign-in-oauth-in-your-angular-app-in-under-15-minutes-2
+- https://fireship.io/lessons/angularfire-google-oauth/

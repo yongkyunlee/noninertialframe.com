@@ -1,0 +1,157 @@
+$border-radius: 5px;
+
+.sign-in-div {
+    padding: 0.5rem 1rem 0.8rem 0.5rem;
+    border: dashed 2px #a7adba;
+    font-size: 1rem;
+}
+
+.auth-div {
+    display: flex;
+    align-items: center;
+}
+
+.auth-intro-div {
+    text-align: middle;
+    font-size: 1.1rem;
+}
+
+.auth-button {
+    font-size: 0.8rem;
+    height: 2rem;
+    margin-left: 1rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+}
+
+.oauth-img {
+    vertical-align: middle;
+    display: inline-block;
+    padding-right: 0.5rem;
+    height: 1rem;
+    width: 1rem;
+}
+
+.auth-icon {
+    padding-right: 0.5rem;
+    font-size: 1rem;
+}
+
+
+.email-sign-in-form {
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    padding-bottom: 0.7rem;
+    width: 100%;
+}
+
+.email-label {
+    padding-right: 1rem;
+}
+
+.email-input-div {
+    padding-right: 1rem;
+}
+
+.email-input {
+    width: 8rem;
+    font-size: 1rem;
+    height: 1.4rem;
+    border: 1px solid #a7adba;
+    -webkit-border-radius: $border-radius;
+    -moz-border-radius: $border-radius;
+    border-radius: $border-radius;
+}
+
+.password-label {
+    padding-right: 1rem;
+}
+
+.password-input-div {
+    padding-right: 1rem;
+}
+
+.password-input {
+    width: 8rem;
+    font-size: 1rem;
+    height: 1.4rem;
+    border: 1px solid #a7adba;
+    -webkit-border-radius: $border-radius;
+    -moz-border-radius: $border-radius;
+    border-radius: $border-radius;
+}
+
+.email-sign-in-button-div {
+    padding-left: 0.7rem;
+    padding-right: 0.7rem;
+}
+
+.email-sign-in-button {
+    font-size: 1rem;
+    background-color: #343d46;
+    border: none;
+    color: white;
+    padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+}
+
+.email-sign-in-button:hover {
+    cursor: pointer;
+}
+
+.email-sign-in-button:disabled {
+    background-color: #a7adba
+}
+
+.email-sign-in-button:disabled:hover {
+    cursor: default;
+}
+
+.reset-div {
+    margin-left: 0.7rem;
+}
+
+.forgot-password-span {
+    color: #a7adba;
+}
+
+.forgot-password-span:hover {
+    cursor: pointer;
+    color: #343d46;
+}
+
+.reset-password-button {
+    background-color: #eb6c6b;
+    color: black;
+    font-size: 1rem;
+    border: none;
+    padding: 0.2rem 0.8rem 0.2rem 0.8rem;
+}
+
+.reset-password-button:hover {
+    cursor: pointer;
+}
+
+.reset-password-button:disabled {
+    background-color: #f4b3b3;
+}
+
+.reset-password-button:disabled:hover {
+    cursor: default;
+}
+
+.auth-error-div {
+    // padding-top: 0.5rem;
+    font-size: 1rem;
+    color: #c60021;
+}
+
+.auth-message-div {
+    font-size: 1rem;
+    color: #1d1bf9;
+}
+
+.auth-warning-div {
+    padding-top: 0.5rem;
+    font-size: 0.9rem;
+}

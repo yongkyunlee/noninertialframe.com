@@ -1,0 +1,32 @@
+$border-radius: 5px;
+$div-padding-bottom: 0.7rem;
+
+.container-div {
+    font-size: 1rem;
+    padding-top: $div-padding-bottom;
+}
+
+.header-div {
+    padding-bottom: $div-padding-bottom;
+    font-size: 1.3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.sign-out-span {
+    color: #a7adba;
+    font-size: 1rem;
+}
+
+.sign-out-span:hover {
+    cursor: pointer;
+    color: #343d46;
+}
+
+.app-comment-div {
+    padding-bottom: $div-padding-bottom;
+}
+
+.app-comment-input-div {
+    padding-bottom: 3rem;
+}
