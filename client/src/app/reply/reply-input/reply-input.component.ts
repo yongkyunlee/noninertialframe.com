@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ReplyService } from '../reply.service';
@@ -12,6 +12,7 @@ export class ReplyInputComponent {
     @Input() collection: string;
     @Input() docId: string;
     @Input() commentId: string;
+    @Output() replyUpdateEvent = new EventEmitter<boolean>();
     errorMessage = '';
     replyForm = this.fb.group({
         nickname: ['', [Validators.required]],
@@ -35,6 +36,7 @@ export class ReplyInputComponent {
                 this.replyService.createReply(this.collection, this.docId, this.commentId, newReply)
                     .then(() => {
                         this.errorMessage = '';
+                        this.replyUpdateEvent.emit(true);
                     })
                     .catch(err => {
                         console.error(err);

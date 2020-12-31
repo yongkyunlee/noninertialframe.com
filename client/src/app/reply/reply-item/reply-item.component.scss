@@ -1,0 +1,83 @@
+.reply-header-div {
+    display: flex;
+    align-items: baseline;
+    padding-bottom: 0.3rem;
+    width: 100%;
+}
+
+.reply-nickname-div {
+    font-size: 1.1rem;
+    padding-right: 1rem;
+}
+
+.reply-date-div {
+    font-size: 0.9rem;
+}
+
+.reply-mode-div {
+    margin-left: auto;
+}
+
+.edit-span {
+    color: #717786;
+    padding-right: 0.7rem;
+}
+
+.edit-span:hover {
+    color: #343d46;
+    cursor: pointer;
+}
+
+.delete-span {
+    color: #717786;
+}
+
+.delete-span:hover {
+    color: #343d46;
+    cursor: pointer;
+}
+
+.selected-mode-span {
+    color: #343d46;
+}
+
+.reply-content-div {
+    font-size: 1rem;
+}
+
+.reply-update-div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.update-button {
+    background-color: #343d46;
+    color: white;
+    border: none;
+    font-size: 0.9rem;
+    text-align: middle;
+    padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+}
+
+.update-button {
+    cursor: pointer;
+}
+
+.reply-delete-div {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.delete-button {
+    background-color: #343d46;
+    color: white;
+    border: none;
+    font-size: 0.9rem;
+    text-align: middle;
+    padding: 0.4rem 0.6rem 0.4rem 0.6rem;
+}
+
+.delete-button:hover {
+    cursor: pointer;
+}

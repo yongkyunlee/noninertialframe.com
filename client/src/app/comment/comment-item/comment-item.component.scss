@@ -8,7 +8,7 @@ $content-font-size: 1rem;
 
 .comment-nickname-div {
     font-size: 1.2rem;
-    padding-right: 1.5rem;
+    padding-right: 1rem;
 }
 
 .comment-date-div {
@@ -17,11 +17,11 @@ $content-font-size: 1rem;
 
 .comment-edit-div {
     color: #717786;
-    ;
+    margin-left: auto;
 }
 
 .edit-span {
-    padding-right: 1rem;
+    padding-right: 0.7rem;
 }
 
 .edit-span:hover {
@@ -38,10 +38,6 @@ $content-font-size: 1rem;
     cursor: pointer;
 }
 
-.comment-edit-div {
-    margin-left: auto;
-}
-
 .comment-content-div {
     padding-top: 0.5rem;
     font-size: $content-font-size;
@@ -55,22 +51,6 @@ $content-font-size: 1rem;
     padding-top: 0.5rem;
     font-size: $content-font-size;
     padding-bottom: 1rem;
-}
-
-textarea {
-    width: 100%;
-    resize: none;
-    border: 1px solid #a7adba;
-    font-size: $content-font-size;
-    font: inherit;
-
-    -webkit-border-radius: $border-radius;
-    -moz-border-radius: $border-radius;
-    border-radius: $border-radius;
-
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
 }
 
 .comment-update-div {

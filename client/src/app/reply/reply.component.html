@@ -1,14 +1,40 @@
 <div class='new-reply-div'>
-    <div class='reply-span-div'>↳ 
-        <span class='reply-span' (click)="toggleReply('write')">Reply</span>
+    <div class='reply-span-div' *ngIf="replies?.length === 0">
+        ↳ <span class='reply-span' (click)="toggleReply()" *ngIf="mode === 'read'">
+            Reply
+        </span>
+        <span class='reply-span' (click)="toggleReply()" *ngIf="mode === 'write'">
+            Hide
+        </span>
     </div>
-    <div class='reply-input-div' *ngIf="mode === 'write'">
+    <div class='reply-input-div' *ngIf="mode === 'write' && replies?.length === 0">
         <app-reply-input [collection]="collection" [docId]="docId"
-                         [commentId]="commentId" *ngIf="signedIn">
+                         [commentId]="commentId" *ngIf="signedIn"
+                         (replyUpdateEvent)="updateMode($event)">
         </app-reply-input>
         <div class='sign-in-message' *ngIf="!signedIn">Please sign in to leave a reply.</div>
     </div>
-    <div class='reply-list-div'>
-        <app-reply-list></app-reply-list>
+    <div class='reply-list-div' *ngIf="replies?.length !== 0">
+        <div *ngFor="let reply of replies" class='reply-item-div'>
+            <app-reply-item [collection]="collection" [docId]="docId" [commentId]="commentId"
+                            [reply]="reply">
+            </app-reply-item>
+        </div>
     </div>
 </div>
+<div class='reply-list-span-div' *ngIf="replies && replies?.length !== 0">
+    ↳ <span class='reply-list-span' (click)="toggleReply()" *ngIf="mode === 'read'">
+        Reply
+    </span>
+    <span class='reply-list-span' (click)="toggleReply()" *ngIf="mode === 'write'">
+        Hide
+    </span>
+    <div class='reply-list-input-div' *ngIf="mode === 'write' && replies?.length !== 0">
+        <app-reply-input [collection]="collection" [docId]="docId"
+                         [commentId]="commentId" *ngIf="signedIn"
+                         (replyUpdateEvent)="updateMode($event)">
+        </app-reply-input>
+        <div class='sign-in-message' *ngIf="!signedIn">Please sign in to leave a reply.</div>
+    </div>
+</div>
+

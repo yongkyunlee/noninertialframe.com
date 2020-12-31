@@ -1,5 +1,5 @@
 <div *ngFor="let comment of comments" class='comment-div'>
     <app-comment-item [comment]="comment" [collection]="collection" 
-                      [docId]="docId">
+                      [docId]="docId" [signedIn]="signedIn">
     </app-comment-item>
 </div>

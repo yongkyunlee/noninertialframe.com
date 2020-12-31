@@ -13,7 +13,7 @@ export class ReplyService {
 
     getReplies(collection: string, docId: string, commentId: string) {
         return this.afs.collection(collection).doc(docId).collection(COMMENTS_COLLECTION)
-                       .doc(commentId).collection(REPLIES_COLLECTION, ref => ref.orderBy('timestamp', 'desc'))
+                       .doc(commentId).collection(REPLIES_COLLECTION, ref => ref.orderBy('timestamp', 'asc'))
                     .snapshotChanges()
                     .pipe(
                         map(actions => {

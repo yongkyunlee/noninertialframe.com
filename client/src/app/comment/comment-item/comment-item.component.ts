@@ -6,12 +6,13 @@ import { CommentSerivce } from '../comment.service';
 @Component({
     selector: 'app-comment-item',
     templateUrl: './comment-item.component.html',
-    styleUrls: ['./comment-item.component.scss']
+    styleUrls: ['./comment-item.component.scss', '../../shared/styles/textarea.scss']
 })
 export class CommentItemComponent implements OnInit {
     @Input() comment: CommentDoc;
     @Input() collection: string;
     @Input() docId: string;
+    @Input() signedIn: boolean;
     mode = 'read';
     newContent: string;
     errorMessage = '';
