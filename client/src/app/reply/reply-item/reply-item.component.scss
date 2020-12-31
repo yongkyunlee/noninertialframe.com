@@ -1,26 +1,25 @@
-$border-radius: 5px;
-$content-font-size: 1rem;
-
-.comment-header-div {
+.reply-header-div {
     display: flex;
     align-items: baseline;
+    padding-bottom: 0.3rem;
+    width: 100%;
 }
 
-.comment-nickname-div {
-    font-size: 1.2rem;
+.reply-nickname-div {
+    font-size: 1.1rem;
     padding-right: 1rem;
 }
 
-.comment-date-div {
+.reply-date-div {
     font-size: 0.9rem;
 }
 
-.comment-edit-div {
-    color: #717786;
+.reply-mode-div {
     margin-left: auto;
 }
 
 .edit-span {
+    color: #717786;
     padding-right: 0.7rem;
 }
 
@@ -29,8 +28,8 @@ $content-font-size: 1rem;
     cursor: pointer;
 }
 
-.selected-mode-span {
-    color: #343d46;
+.delete-span {
+    color: #717786;
 }
 
 .delete-span:hover {
@@ -38,30 +37,18 @@ $content-font-size: 1rem;
     cursor: pointer;
 }
 
-.comment-content-div {
-    padding-top: 0.5rem;
-    font-size: $content-font-size;
+.selected-mode-span {
+    color: #343d46;
 }
 
-.comment-content-span {
-    white-space: pre-wrap;
+.reply-content-div {
+    font-size: 1rem;
 }
 
-.comment-new-content-div {
-    padding-top: 0.5rem;
-    font-size: $content-font-size;
-    padding-bottom: 1rem;
-}
-
-.comment-update-div {
+.reply-update-div {
     display: flex;
     justify-content: space-between;
     align-items: center;
-}
-
-.error-message-div {
-    color: #c60021;
-    font-size: 1rem;
 }
 
 .update-button {
@@ -77,7 +64,7 @@ $content-font-size: 1rem;
     cursor: pointer;
 }
 
-.comment-delete-div {
+.reply-delete-div {
     display: flex;
     justify-content: flex-end;
 }

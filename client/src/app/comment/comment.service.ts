@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
+import { COMMENTS_COLLECTION } from '../shared/constants';
 
 import { Comment, CommentDoc } from './comment.model';
 
@@ -12,7 +13,7 @@ export class CommentSerivce {
 
     getComments(collection: string, docId: string) {
         return this.afs.collection(collection).doc(docId).collection(
-                'comments', ref => ref.orderBy('timestamp', 'desc'))
+                COMMENTS_COLLECTION, ref => ref.orderBy('timestamp', 'desc'))
             .snapshotChanges()
             .pipe(
                 map(actions => {
@@ -29,17 +30,19 @@ export class CommentSerivce {
     }
 
     createComment(collection: string, docId: string, comment: Comment) {
-        return this.afs.collection(collection).doc(docId).collection('comments')
+        return this.afs.collection(collection).doc(docId).collection(COMMENTS_COLLECTION)
                        .add(comment);
     }
 
-    updateComment(collection: string, docId: string, comment: CommentDoc) {
-        return this.afs.collection(collection).doc(docId).collection('comments')
-                       .doc(comment.id).set(comment);
+    updateComment(collection: string, docId: string, commentDoc: CommentDoc) {
+        return this.afs.collection(collection).doc(docId).collection(COMMENTS_COLLECTION)
+                       .doc(commentDoc.id).update({
+                           content: commentDoc.content
+                       });
     }
 
     deleteComment(collection: string, docId: string, commentId: string) {
-        return this.afs.collection(collection).doc(docId).collection('comments')
+        return this.afs.collection(collection).doc(docId).collection(COMMENTS_COLLECTION)
                        .doc(commentId).delete();
     }
 }

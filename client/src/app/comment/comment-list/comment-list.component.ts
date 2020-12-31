@@ -11,6 +11,7 @@ import { CommentSerivce } from '../comment.service';
 export class CommentListComponent implements OnInit {
     @Input() collection: string;
     @Input() docId: string;
+    @Input() signedIn: boolean;
     comments: CommentDoc[];
 
     constructor(

@@ -9,6 +9,7 @@ import { CommentSignInComponent } from './comment-sign-in/comment-sign-in.compon
 import { CommentComponent } from './comment.component';
 import { CommentListComponent } from './comment-list/comment-list.component';
 import { CommentItemComponent } from './comment-item/comment-item.component';
+import { ReplyModule } from '../reply/reply.module';
 
 @NgModule({
     declarations: [
@@ -23,7 +24,8 @@ import { CommentItemComponent } from './comment-item/comment-item.component';
         FormsModule,
         ReactiveFormsModule,
         FontAwesomeModule,
-        MatButtonModule
+        MatButtonModule,
+        ReplyModule
     ],
     exports: [
         CommentComponent

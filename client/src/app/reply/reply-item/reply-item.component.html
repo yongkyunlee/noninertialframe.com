@@ -1,0 +1,35 @@
+<div class='reply-header-div'>
+    <div class='reply-nickname-div'>
+        <strong>{{ reply.nickname }}</strong>
+    </div>
+    <div class='reply-date-div'>
+        {{ reply.timestamp | date: 'MMM d, y, h:mm a' }}
+    </div>
+    <div class='reply-mode-div' *ngIf="reply.userId === (authService.afAuth.user | async)?.uid">
+        <span class='edit-span' (click)="changeMode('edit')"
+              [ngClass]="{'selected-mode-span': mode === 'edit'}">
+            Edit
+        </span>
+        <span class='delete-span' (click)="changeMode('delete')"
+              [ngClass]="{'selected-mode-span': mode === 'delete'}">
+            Delete
+        </span>
+    </div>
+</div>
+<div class='reply-content-div' *ngIf="mode === 'read' || mode === 'delete'">
+    <span class='reply-content-span'>{{ reply.content }}</span>
+    <div class='reply-delete-div' *ngIf="mode === 'delete'">
+        <button class='delete-button' (click)="deleteReply()">
+            Confirm
+        </button>
+    </div>
+</div>
+<div class='reply-new-content-div' *ngIf="mode === 'edit'">
+    <textarea *ngIf="mode === 'edit'" [(ngModel)]="newContent"></textarea>
+    <div class='reply-update-div'>
+        <div class='error-message-div'>
+            {{ errorMessage }}
+        </div>
+        <button class='update-button' (click)="updateReply()">Update</button>
+    </div>
+</div>

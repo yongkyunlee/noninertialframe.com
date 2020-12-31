@@ -6,7 +6,7 @@ import { CommentSerivce } from '../comment.service';
 @Component({
     selector: 'app-comment-input',
     templateUrl: './comment-input.component.html',
-    styleUrls: ['./comment-input.component.scss']
+    styleUrls: ['./comment-input.component.scss', '../../shared/styles/textarea.scss']
 })
 export class CommentInputComponent {
     @Input() collection: string;

@@ -11,23 +11,25 @@ import { BlogPostComponent } from './blog-post/blog-post.component';
 import { BlogSnippetComponent } from './blog-home/blog-snippet/blog-snippet.component';
 import { SharedModule } from '../shared/shared.module';
 import { CommentModule } from '../comment/comment.module';
+import { ReplyModule } from '../reply/reply.module';
 
 @NgModule({
-  declarations: [
-    BlogHomeComponent,
-    BlogPostComponent,
-    BlogSnippetComponent,
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    MatButtonModule,
-    FontAwesomeModule,
-    BlogRoutingModule,
-    SharedModule,
-    MarkdownModule.forChild(),
-    CommentModule
-  ]
+    declarations: [
+        BlogHomeComponent,
+        BlogPostComponent,
+        BlogSnippetComponent,
+    ],
+    imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        FontAwesomeModule,
+        BlogRoutingModule,
+        SharedModule,
+        MarkdownModule.forChild(),
+        CommentModule,
+        ReplyModule
+    ]
 })
 export class BlogModule { }

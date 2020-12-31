@@ -42,6 +42,9 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Use reCAPTCHA
 - Refactor sign-in to allow linking providers
 - User history save
+- User nickname list
+- Reply user activity history
+- subscribing to service vs. passing through with input
 
 References
 
