@@ -1,25 +1,8 @@
 $div-padding-bottom: 0.7rem;
 $border-radius: 5px;
 
-
 .comment-input-div {
     padding-bottom: $div-padding-bottom;
-}
-
-textarea {
-    width: 100%;
-    resize: none;
-    border: 1px solid #a7adba;
-    font-size: 1rem;
-    font: inherit;
-
-    -webkit-border-radius: $border-radius;
-    -moz-border-radius: $border-radius;
-    border-radius: $border-radius;
-
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
 }
 
 .comment-submit-div {
@@ -58,6 +41,10 @@ textarea {
 
 .comment-button:disabled {
     background-color: #a7adba;
+}
+
+.comment-button:disabled:hover {
+    cursor: default;
 }
 
 .error-message-div {

@@ -1,0 +1,26 @@
+.new-reply-div {
+    display: flex;
+    padding-top: 0.5rem;
+    width: 100%;
+}
+
+.reply-span-div {
+    font-size: 0.9rem;
+    color: #717786;
+    flex: 0 0 4.5rem;
+}
+
+.reply-span:hover {
+    cursor: pointer;
+    color: #343d46;
+    text-decoration: underline;
+}
+
+.reply-input-div {
+    flex-grow: 1;
+    width: 100%;
+}
+
+.sign-in-message {
+    color: #c60021;
+}

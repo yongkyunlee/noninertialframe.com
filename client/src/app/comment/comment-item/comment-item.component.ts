@@ -52,5 +52,4 @@ export class CommentItemComponent implements OnInit {
                 this.errorMessage = 'An error occurred while updating the comment.';
             });
     }
-
 }

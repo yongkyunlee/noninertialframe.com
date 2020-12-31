@@ -2,6 +2,10 @@ export const BLOG_COLLECTION = 'blog-snippets';
 
 export const PROJECTS_COLLECTION = 'projects';
 
+export const COMMENTS_COLLECTION = 'comments';
+
+export const REPLIES_COLLECTION = 'replies';
+
 export const CATEGORIES = [
     'Project',
     'Event',

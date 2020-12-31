@@ -1,0 +1,57 @@
+$border-radius: 5px;
+
+input {
+    font-size: 1rem;
+    border: 1px solid #a7adba;
+
+    -webkit-border-radius: $border-radius;
+    -moz-border-radius: $border-radius;
+    border-radius: $border-radius;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.reply-input {
+    width: 100%;
+}
+
+.reply-submit-div {
+    display: flex;
+    align-items: center;
+    padding-top: 0.4rem;
+}
+
+.nickname-span {
+    padding-right: 1rem;
+}
+
+.nickname-input {
+    width: 15rem;
+}
+
+.reply-button {
+    margin-left: auto;
+    background-color: #343d46;
+    color: white;
+    border: none;
+    font-size: 0.85rem;
+    padding: 0.3rem;
+}
+
+.reply-button:hover {
+    cursor: pointer;
+}
+
+.reply-button:disabled {
+    background-color: #a7adba;
+}
+
+.reply-button:disabled:hover {
+    cursor: default;
+}
+
+.error-message-div {
+    color: #c60021;
+}

@@ -1,0 +1,11 @@
+<form [formGroup]='replyForm'>
+    <input class='reply-input' placeholder="Write your reply here." formControlName='content'>
+    <div class='reply-submit-div'>
+        <span class='nickname-span'>Nickname</span>
+        <input class='nickname-input' formControlName='nickname'>
+        <button class='reply-button' [disabled]="!replyForm.valid">Reply</button>
+    </div>
+    <div class='error-message-div' *ngIf="errorMessage !== ''">
+        {{ errorMessage }}
+    </div>
+</form>

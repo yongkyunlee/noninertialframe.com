@@ -1,0 +1,14 @@
+<div class='new-reply-div'>
+    <div class='reply-span-div'>↳ 
+        <span class='reply-span' (click)="toggleReply('write')">Reply</span>
+    </div>
+    <div class='reply-input-div' *ngIf="mode === 'write'">
+        <app-reply-input [collection]="collection" [docId]="docId"
+                         [commentId]="commentId" *ngIf="signedIn">
+        </app-reply-input>
+        <div class='sign-in-message' *ngIf="!signedIn">Please sign in to leave a reply.</div>
+    </div>
+    <div class='reply-list-div'>
+        <app-reply-list></app-reply-list>
+    </div>
+</div>
