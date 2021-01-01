@@ -29,7 +29,8 @@ export class CommentInputComponent {
                 const newComment = {
                     ...this.commentForm.value,
                     userId: data.uid as string,
-                    timestamp: new Date()
+                    timestamp: new Date(),
+                    nReplies: 0
                 };
                 this.commentService.createComment(this.collection, this.docId, newComment)
                     .then(res => {

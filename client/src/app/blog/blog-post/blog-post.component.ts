@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { filter, switchMap } from 'rxjs/operators';
 
 import { BlogService } from '../blog.service';
-import { BlogPost } from '../blog-post.model';
+import { BlogPostDoc } from '../blog-post.model';
 import { BLOG_COLLECTION, LINE_NUBMERS_THRESHOLD } from 'src/app/shared/constants';
 import { WindowSizeService } from 'src/app/shared/services/window-size.service';
 
@@ -30,7 +30,7 @@ export class BlogPostComponent implements OnInit {
     screenWidth: number;
     lineNumbersThreshold = LINE_NUBMERS_THRESHOLD;
     titleEng: string;
-    blogPost: BlogPost;
+    blogPost: BlogPostDoc;
     blogCollection = BLOG_COLLECTION;
 
     constructor(
@@ -52,7 +52,7 @@ export class BlogPostComponent implements OnInit {
                 alert('The page has an error');
                 this.router.navigate(['/blog']);
             }
-            this.blogPost = data[0] as BlogPost;
+            this.blogPost = data[0] as BlogPostDoc;
         });
     }
 

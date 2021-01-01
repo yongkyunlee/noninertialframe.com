@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 
-import { BlogPost } from '../blog/blog-post.model';
+import { BlogPostDoc } from '../blog/blog-post.model';
 import { BlogService } from '../blog/blog.service';
 import { ProjectSnippet } from '../projects/projects.model';
 import { ProjectsService } from '../projects/projects.service';
@@ -14,7 +14,7 @@ import { LanguageService } from '../shared/services/language.service';
     styleUrls: ['./home.component.scss', '../shared/styles/languages.scss', '../about/timeline/timeline.component.scss']
 })
 export class HomeComponent implements OnInit {
-    blogSnippetArr: BlogPost[];
+    blogSnippetArr: BlogPostDoc[];
     projectSnippetArr: ProjectSnippet[];
     faEllipsisV = faEllipsisV;
 

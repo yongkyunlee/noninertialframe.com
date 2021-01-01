@@ -4,7 +4,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { BlogService } from 'src/app/blog/blog.service';
-import { BlogPost } from 'src/app/blog/blog-post.model';
+import { BlogPostDoc } from 'src/app/blog/blog-post.model';
 
 @Component({
   selector: 'app-manage-blog-post',
@@ -12,11 +12,11 @@ import { BlogPost } from 'src/app/blog/blog-post.model';
   styleUrls: ['./manage-blog-post.component.scss']
 })
 export class ManageBlogPostComponent implements OnInit {
-    blogPosts: BlogPost[];
+    blogPosts: BlogPostDoc[];
     searchControl = new FormControl();
     options: string[];
     filteredOptions$: Observable<string[]>;
-    filteredBlogPosts$: Observable<BlogPost[]>;
+    filteredBlogPosts$: Observable<BlogPostDoc[]>;
 
     constructor(private blogService: BlogService) { }
 
@@ -42,7 +42,7 @@ export class ManageBlogPostComponent implements OnInit {
         );
     }
 
-    private _filterBlogPost(value: string): BlogPost[] {
+    private _filterBlogPost(value: string): BlogPostDoc[] {
         const filterValue = value.toLowerCase();
         return this.blogPosts.filter(blogPost =>
             blogPost.titleEng.toLowerCase().includes(filterValue)

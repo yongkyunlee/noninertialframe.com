@@ -1,10 +1,8 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { filter, map } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
-import { BlogPost, NewBlogPost } from './blog-post.model';
-import { mockBlogPostData } from '../shared/mock-data.data';
+import { BlogPost } from './blog-post.model';
 import { BLOG_COLLECTION } from '../shared/constants';
 
 @Injectable({
@@ -14,7 +12,7 @@ export class BlogService {
 
     constructor(private afs: AngularFirestore) { }
 
-    private mockBlogSnippets$: BehaviorSubject<BlogPost[]> = new BehaviorSubject<BlogPost[]>(mockBlogPostData);
+    // private mockBlogSnippets$: BehaviorSubject<BlogPost[]> = new BehaviorSubject<BlogPost[]>(mockBlogPostData);
 
     getBlogSnippets() {
         return this.afs.collection(
@@ -25,7 +23,7 @@ export class BlogService {
                     return actions.map(a => {
                         return {
                             id: a.payload.doc.id,
-                            ...a.payload.doc.data() as NewBlogPost
+                            ...a.payload.doc.data() as BlogPost
                         };
                     });
                 })
@@ -59,7 +57,7 @@ export class BlogService {
                     return actions.map(a => {
                         return {
                             id: a.payload.doc.id,
-                            ...a.payload.doc.data() as NewBlogPost
+                            ...a.payload.doc.data() as BlogPost
                         };
                     });
                 })
@@ -78,18 +76,18 @@ export class BlogService {
                     return actions.map(a => {
                         return {
                             id: a.payload.doc.id,
-                            ...a.payload.doc.data() as NewBlogPost
+                            ...a.payload.doc.data() as BlogPost
                         };
                     });
                 })
             );
     }
 
-    uploadBlogPost(blogPost: NewBlogPost) {
-        return this.afs.collection<NewBlogPost>(BLOG_COLLECTION).add(blogPost);
+    createBlogPost(blogPost: BlogPost) {
+        return this.afs.collection<BlogPost>(BLOG_COLLECTION).add(blogPost);
     }
 
-    updateBlogPost(docId: string, blogPost: NewBlogPost) {
-        return this.afs.collection<NewBlogPost>(BLOG_COLLECTION).doc(docId).set(blogPost);
+    updateBlogPost(docId: string, blogPost: BlogPost) {
+        return this.afs.collection<BlogPost>(BLOG_COLLECTION).doc(docId).update(blogPost);
     }
 }
