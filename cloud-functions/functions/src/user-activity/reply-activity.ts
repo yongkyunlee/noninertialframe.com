@@ -1,14 +1,15 @@
 import * as functions from 'firebase-functions';
 import * as admin from 'firebase-admin';
 import { BLOG_COLLECTION, REPLY_COLLECTION, USER_ACTIVITY_COLLECTION,
-         REPLY_ACTIVITY_COLLECTION } from './constants';
+         REPLY_ACTIVITY_COLLECTION, COMMENT_COLLECTION,
+         CREATE_ACTION, UPDATE_ACTION, DELETE_ACTION} from '../constants';
 
 export const recordCreateReply = functions.firestore
-    .document(`${BLOG_COLLECTION}/{postId}/comments/{commentId}/${REPLY_COLLECTION}/{replyId}`)
+    .document(`${BLOG_COLLECTION}/{postId}/${COMMENT_COLLECTION}/{commentId}/${REPLY_COLLECTION}/{replyId}`)
     .onCreate((snap, context) => {
         const newReply = snap.data();
         const newActivity = {
-            action: 'create',
+            action: CREATE_ACTION,
             timestamp: newReply.timestamp,
             postId: context.params.postId,
             commentId: context.params.commentId,
@@ -29,12 +30,12 @@ export const recordCreateReply = functions.firestore
     });
 
 export const recordUpdateReply = functions.firestore
-    .document(`${BLOG_COLLECTION}/{postId}/comments/{commentId}/${REPLY_COLLECTION}/{replyId}`)
+    .document(`${BLOG_COLLECTION}/{postId}/${COMMENT_COLLECTION}/{commentId}/${REPLY_COLLECTION}/{replyId}`)
     .onUpdate((change, context) => {
         const newReply = change.after.data();
         const previousReply = change.before.data();
         const newActivity = {
-            action: 'update',
+            action: UPDATE_ACTION,
             timestamp: admin.firestore.FieldValue.serverTimestamp(),
             postId: context.params.postId,
             commentId: context.params.commentId,
@@ -56,11 +57,11 @@ export const recordUpdateReply = functions.firestore
     });
 
 export const recordDeleteReply = functions.firestore
-    .document(`${BLOG_COLLECTION}/{postId}/comments/{commentId}/${REPLY_COLLECTION}/{replyId}`)
+    .document(`${BLOG_COLLECTION}/{postId}/${COMMENT_COLLECTION}/{commentId}/${REPLY_COLLECTION}/{replyId}`)
     .onDelete((snap, context) => {
         const deletedReply = snap.data();
         const newActivity = {
-            action: 'delete',
+            action: DELETE_ACTION,
             timestamp: admin.firestore.FieldValue.serverTimestamp(),
             postId: context.params.postId,
             commentId: context.params.commentId,
