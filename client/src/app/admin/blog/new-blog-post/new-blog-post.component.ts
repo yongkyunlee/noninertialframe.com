@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 
-import { NewBlogPost } from 'src/app/blog/blog-post.model';
+import { BlogPost } from 'src/app/blog/blog-post.model';
 import { KEYWORDS_SEPARATOR } from 'src/app/shared/constants';
 import { uniqueValueValidator } from 'src/app/shared/custom-validators';
 import { EditBlogPostComponent } from '../edit-blog-post/edit-blog-post.component';
@@ -31,7 +31,7 @@ export class NewBlogPostComponent extends EditBlogPostComponent implements OnIni
     }
 
     uploadBlogPost() {
-        const newBlogPost: NewBlogPost = {
+        const newBlogPost: BlogPost = {
             ...this.blogPostForm.value,
             keywordsEng: this.blogPostForm.value.keywordsEng.split(KEYWORDS_SEPARATOR)
                             .map((x: string) => x.trim())
@@ -39,8 +39,9 @@ export class NewBlogPostComponent extends EditBlogPostComponent implements OnIni
             keywordsKor: this.blogPostForm.value.keywordsKor.split(KEYWORDS_SEPARATOR)
                             .map((x: string) => x.trim())
                             .filter((x: string) => x !== ''),
+            nComments: 0
         };
-        this.blogService.uploadBlogPost(newBlogPost)
+        this.blogService.createBlogPost(newBlogPost)
             .then(res => {
                 console.log(res);
                 this.router.navigate(['/blog']);

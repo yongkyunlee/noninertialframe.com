@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators } from '@angular/forms';
 
-import { NewBlogPost } from 'src/app/blog/blog-post.model';
+import { BlogPost } from 'src/app/blog/blog-post.model';
 import { KEYWORDS_SEPARATOR } from 'src/app/shared/constants';
 import { uniqueValueValidator } from 'src/app/shared/custom-validators';
 import { EditBlogPostComponent } from '../edit-blog-post/edit-blog-post.component';
@@ -51,7 +51,7 @@ export class UpdateBlogPostComponent extends EditBlogPostComponent implements On
     }
 
     uploadBlogPost() {
-        const newBlogPost: NewBlogPost = {
+        const updatedBlogPost: BlogPost = {
             ...this.blogPostForm.value,
             keywordsEng: this.blogPostForm.value.keywordsEng.split(KEYWORDS_SEPARATOR)
                             .map((x: string) => x.trim())
@@ -60,9 +60,9 @@ export class UpdateBlogPostComponent extends EditBlogPostComponent implements On
                             .map((x: string) => x.trim())
                             .filter((x: string) => x !== ''),
         };
-        this.blogService.updateBlogPost(this.postId, newBlogPost)
+        this.blogService.updateBlogPost(this.postId, updatedBlogPost)
             .then(() => {
-                this.router.navigate([`/blog/${newBlogPost.titleEng}`]);
+                this.router.navigate([`/blog/${updatedBlogPost.titleEng}`]);
             });
     }
 

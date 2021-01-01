@@ -1,9 +1,9 @@
 <form [formGroup]='replyForm'>
-    <input class='reply-input' placeholder="Write your reply here." formControlName='content'>
+    <input class='reply-input' placeholder="Write your reply here." formControlName='content' [attr.disabled]="isUploading ? '' : null">
     <div class='reply-submit-div'>
         <span class='nickname-span'>Nickname</span>
-        <input class='nickname-input' formControlName='nickname'>
-        <button class='reply-button' [disabled]="!replyForm.valid" type="submit"
+        <input class='nickname-input' formControlName='nickname' [attr.disabled]="isUploading ? '' : null">
+        <button class='reply-button' [disabled]="!replyForm.valid || isUploading" type="submit"
                 (click)="submitReply()">
             Reply
         </button>

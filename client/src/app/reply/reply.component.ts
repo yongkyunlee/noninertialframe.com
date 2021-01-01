@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 import { AuthService } from '../auth/auth.service';
+import { ReplyModeService } from './reply-mode.service';
 import { ReplyDoc } from './reply.model';
 import { ReplyService } from './reply.service';
 
@@ -15,11 +16,11 @@ export class ReplyComponent implements OnInit {
     @Input() commentId: string;
     @Input() signedIn: boolean;
     replies: ReplyDoc[];
-    mode = 'read'; // 'read', 'write'
 
     constructor(
         public authService: AuthService,
-        private replyService: ReplyService
+        private replyService: ReplyService,
+        public replyModeService: ReplyModeService
     ) { }
 
     ngOnInit() {
@@ -29,16 +30,14 @@ export class ReplyComponent implements OnInit {
     }
 
     toggleReply() {
-        if (this.mode === 'read') {
-            this.mode = 'write';
-        } else if (this.mode === 'write') {
-            this.mode = 'read';
+        if (this.replyModeService.writeModeIdSet.has(this.commentId)) {
+            this.replyModeService.writeModeIdSet.delete(this.commentId);
+        } else {
+            this.replyModeService.writeModeIdSet.add(this.commentId);
         }
     }
 
-    updateMode($event: boolean) {
-        if ($event) {
-            this.mode = 'read';
-        }
+    trackByFn(index: number, reply: ReplyDoc) {
+        return reply.id;
     }
 }

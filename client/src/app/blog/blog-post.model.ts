@@ -1,4 +1,4 @@
-export interface NewBlogPost {
+export interface BlogPost {
     titleEng: string;
     titleKor: string;
     date: string;
@@ -7,8 +7,9 @@ export interface NewBlogPost {
     category: string;
     contentEng: string;
     contentKor: string;
+    nComments: number;
 }
 
-export interface BlogPost extends NewBlogPost {
+export interface BlogPostDoc extends BlogPost {
     id: string;
 }

@@ -1,6 +1,6 @@
 .new-reply-div {
     display: flex;
-    padding-top: 0.5rem;
+    padding-top: 0rem;
     width: 100%;
 }
 
@@ -28,33 +28,10 @@
 .reply-list-div {
     padding-left: 2.5rem;
     padding-top: 0.5rem;
-    width: 100%;
+    // width: 100%;
 }
 
 .reply-item-div {
     width: 100%;
-    padding-bottom: 0.5rem;
-}
-
-.reply-list-span-div {
-    font-size: 0.9rem;
-    color: #717786;
-    padding-left: 2.5rem;
-    display: flex;
-}
-
-.reply-list-span {
-    flex: 0 0 3rem;
-    padding-left: 0.2rem;
-    color: #717786;
-}
-
-.reply-list-span:hover {
-    cursor: pointer;
-    color: #343d46;
-    text-decoration: underline;
-}
-
-.reply-list-input-div{
-    flex-grow: 1;
+    padding-bottom: 0.7rem;
 }

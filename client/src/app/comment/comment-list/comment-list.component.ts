@@ -25,4 +25,7 @@ export class CommentListComponent implements OnInit {
         });
     }
 
+    trackByFn(index: number, comment: CommentDoc) {
+        return comment.id;
+    }
 }
