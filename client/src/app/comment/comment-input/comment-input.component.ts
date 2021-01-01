@@ -16,6 +16,7 @@ export class CommentInputComponent {
         nickname: ['', [Validators.required]],
         content: ['', [Validators.required]]
     });
+    isUploading = false;
 
     constructor(
         private fb: FormBuilder,
@@ -24,6 +25,7 @@ export class CommentInputComponent {
     ) { }
 
     submitComment() {
+        this.isUploading = true;
         this.authService.afAuth.user.subscribe(data => {
             if (data) {
                 const newComment = {
@@ -38,9 +40,11 @@ export class CommentInputComponent {
                             nickname: '',
                             content: ''
                         });
+                        this.isUploading = false;
                     })
                     .catch(err => {
                         console.error(err);
+                        this.isUploading = false;
                         this.errorMessage = 'There was an error while uploading the comment.';
                     });
                 this.errorMessage = '';

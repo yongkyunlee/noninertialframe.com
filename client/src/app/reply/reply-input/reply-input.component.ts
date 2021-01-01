@@ -18,6 +18,7 @@ export class ReplyInputComponent {
         nickname: ['', [Validators.required]],
         content: ['', [Validators.required]]
     });
+    isUploading = false;
 
     constructor(
         private fb: FormBuilder,
@@ -27,6 +28,7 @@ export class ReplyInputComponent {
     ) { }
 
     submitReply() {
+        this.isUploading = true;
         this.authService.afAuth.user.subscribe(data => {
             if (data) {
                 const newReply = {
@@ -42,10 +44,12 @@ export class ReplyInputComponent {
                             content: ''
                         });
                         this.replyModeService.writeModeIdSet.delete(this.commentId);
+                        this.isUploading = false;
                     })
                     .catch(err => {
                         console.error(err);
                         this.errorMessage = 'There was an error while uploading the reply';
+                        this.isUploading = false;
                     });
             } else {
                 this.errorMessage = 'There was an error while uploading the reply';

@@ -16,6 +16,7 @@ export class CommentItemComponent implements OnInit {
     mode = 'read';
     newContent: string;
     errorMessage = '';
+    isUploading = false;
 
     constructor(
         public authService: AuthService,
@@ -43,6 +44,7 @@ export class CommentItemComponent implements OnInit {
     }
 
     updateComment() {
+        this.isUploading = true;
         const updatedComment = {
             ...this.comment,
             content: this.newContent
@@ -50,9 +52,11 @@ export class CommentItemComponent implements OnInit {
         this.commentService.updateComment(this.collection, this.docId, updatedComment)
             .then(() => {
                 this.mode = 'read';
+                this.isUploading = false;
             })
             .catch(err => {
                 console.error(err);
+                this.isUploading = false;
                 this.errorMessage = 'An error occurred while updating the comment.';
             });
     }

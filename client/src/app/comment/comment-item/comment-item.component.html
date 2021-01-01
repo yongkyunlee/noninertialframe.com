@@ -21,12 +21,12 @@
     </div>
 </div>
 <div class='comment-new-content-div' *ngIf="mode === 'edit'">
-    <textarea *ngIf="mode === 'edit'" [(ngModel)]="newContent"></textarea>
+    <textarea *ngIf="mode === 'edit'" [(ngModel)]="newContent" [attr.disabled]="isUploading ? '' : null"></textarea>
     <div class='comment-update-div'>
         <div class='error-message-div'>
             {{ errorMessage }}
         </div>
-        <button class='update-button' (click)="updateComment()">Update</button>
+        <button class='update-button' (click)="updateComment()" [disabled]="newContent === '' || isUploading">Update</button>
     </div>
 </div>
 <app-reply [commentId]="comment.id" [collection]="collection" [docId]="docId" [signedIn]="signedIn">

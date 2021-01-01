@@ -17,6 +17,7 @@ export class ReplyItemComponent implements OnInit {
     mode = 'read';
     errorMessage = '';
     newContent: string;
+    isUploading = false;
 
     constructor(
         public authService: AuthService,
@@ -36,15 +37,18 @@ export class ReplyItemComponent implements OnInit {
     }
 
     updateReply() {
+        this.isUploading = true;
         const updatedReply = {
             ...this.reply,
             content: this.newContent
         };
         this.replyService.updateReply(this.collection, this.docId, this.commentId, updatedReply)
             .then(() => {
+                this.isUploading = false;
                 this.mode = 'read';
             })
             .catch(err => {
+                this.isUploading = false;
                 console.error(err);
                 this.errorMessage = 'An error occurred while updating the reply';
             });

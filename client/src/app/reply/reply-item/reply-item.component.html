@@ -25,11 +25,11 @@
     </div>
 </div>
 <div class='reply-new-content-div' *ngIf="mode === 'edit'">
-    <textarea *ngIf="mode === 'edit'" [(ngModel)]="newContent"></textarea>
+    <textarea *ngIf="mode === 'edit'" [(ngModel)]="newContent" [attr.disabled]="isUploading ? '' : null"></textarea>
     <div class='reply-update-div'>
         <div class='error-message-div'>
             {{ errorMessage }}
         </div>
-        <button class='update-button' (click)="updateReply()">Update</button>
+        <button class='update-button' (click)="updateReply()" [disabled]="newContent === '' || isUploading">Update</button>
     </div>
 </div>

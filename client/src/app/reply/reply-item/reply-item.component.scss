@@ -60,6 +60,11 @@
     padding: 0.4rem 0.6rem 0.4rem 0.6rem;
 }
 
+.update-button:disabled {
+    background-color: #a7adba;
+    cursor: default;
+}
+
 .update-button {
     cursor: pointer;
 }

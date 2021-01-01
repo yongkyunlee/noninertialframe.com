@@ -1,15 +1,15 @@
 <form [formGroup]="commentForm">
     <div class='comment-input-div'>
-        <textarea rows="3" formControlName="content"></textarea>
+        <textarea rows="3" formControlName="content" [attr.disabled]="isUploading ? '' : null"></textarea>
     </div>
     <div class='comment-submit-div'>
         <div class='nickname-input-div'>
             <span class="nickname-span">Nickname</span>
-            <input class="nickname-input" formControlName="nickname">
+            <input class="nickname-input" formControlName="nickname" [attr.disabled]="isUploading ? '' : null">
         </div>
         <div class='comment-button-div'>
             <button class='comment-button' type="submit" (click)="submitComment()"
-                    [disabled]="((authService.afAuth.user | async) == null) || (!commentForm.valid)">
+                    [disabled]="((authService.afAuth.user | async) == null) || (!commentForm.valid) || isUploading">
                 <strong>Comment</strong>
             </button>
         </div>
