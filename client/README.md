@@ -46,6 +46,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - Reply user activity history
 - subscribing to service vs. passing through with input
 - for replies, preserve the input
+- loading spinner after updating/deleting comments and replies
 
 References
 

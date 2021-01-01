@@ -36,4 +36,8 @@ export class ReplyComponent implements OnInit {
             this.replyModeService.writeModeIdSet.add(this.commentId);
         }
     }
+
+    trackByFn(index: number, reply: ReplyDoc) {
+        return reply.id;
+    }
 }

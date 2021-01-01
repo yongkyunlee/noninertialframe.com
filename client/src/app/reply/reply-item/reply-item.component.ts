@@ -41,6 +41,9 @@ export class ReplyItemComponent implements OnInit {
             content: this.newContent
         };
         this.replyService.updateReply(this.collection, this.docId, this.commentId, updatedReply)
+            .then(() => {
+                this.mode = 'read';
+            })
             .catch(err => {
                 console.error(err);
                 this.errorMessage = 'An error occurred while updating the reply';

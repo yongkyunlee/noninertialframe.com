@@ -48,6 +48,9 @@ export class CommentItemComponent implements OnInit {
             content: this.newContent
         };
         this.commentService.updateComment(this.collection, this.docId, updatedComment)
+            .then(() => {
+                this.mode = 'read';
+            })
             .catch(err => {
                 console.error(err);
                 this.errorMessage = 'An error occurred while updating the comment.';
