@@ -14,9 +14,9 @@ export const CATEGORIES = [
 
 export const KEYWORDS_SEPARATOR = ',';
 
-export const SIDE_NAV_THRESHOLD = 600;
+export const SIDE_NAV_THRESHOLD = 1024;
 
-export const LINE_NUBMERS_THRESHOLD = 600;
+export const LINE_NUBMERS_THRESHOLD = 1024;
 
 export const N_HOME_BLOG_SNIPPETS = 3;
 

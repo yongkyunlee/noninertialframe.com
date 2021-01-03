@@ -43,6 +43,21 @@
     font-size: 0.9rem;
 }
 
+:host ::ng-deep h1 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+:host ::ng-deep h2 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+:host ::ng-deep h3 {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
 .comment-div {
     padding-top: 1rem;
 }

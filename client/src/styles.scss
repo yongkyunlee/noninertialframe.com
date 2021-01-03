@@ -1,7 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+
 @import 'prismjs/themes/prism-okaidia.css';
 @import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 @import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
+@import '~@angular/material/theming';
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body {
+    margin: 0;
+    // font-family: 'Merriweather', serif;
+    color: black;
+}
+
+$custom-typography: mat-typography-config($font-family: '"Oxygen", serif;');
+@include mat-core($custom-typography);
+
+:root {
+    --mobile-width: 800;
+    --color-base: #343d46;
+    --title-background-color: rgba(101,115,126, 0.7);
+    --sidenav-background-color: rgba(192,197,206, 0.7);
+}
