@@ -45,12 +45,44 @@
         </p>
     </div>
     <div *ngIf="languageService.language === 'korean'">
+        <h2><strong>비관성계(Noninertial Frame)의 의미</strong></h2>
+        <p>
+            비관성계의 정의는 힘을 받지 않는 물체가 가속 운동을 하는 계(frame of reference)입니다 (출처: 네이버 지식백과). 
+            보통 매순간 속도가 변하는 계로 비관성계에서는 뉴턴의 제 1 법칙이 성립하지 않습니다. 
+            지구는 항상 자전과 공전을 하기 때문에 우리가 살고 있는 계이기도 합니다.
+        </p>
+        <p>
+            <strong>Noninertial Frame</strong> 블로그는 항상 가속 운동을 하는 삶을 살자는 취지로 만들었습니다. 
+            가속 운동은 속력이 증가하는 운동 뿐만 아니라 속력이 감소하는 운동과 속력은 일정하지만 방향이 바뀌는 운동을 포함합니다. 
+            매 순간 속력을 조절하거나 방향을 조금씩 바꾸면서 꿈에 가까워지는 삶을 살며 그 모습을 이 블로그에 담고자 합니다.
+        </p>
+        <p>
+            물어보고 싶은 질문이나 공유하고 싶은 아이디어나 생각이 있으면 yongkyun.daniel.lee@gmail.com로 연락주시거나 
+            댓글 달아주시길 바랍니다.
+        </p>
 
+        <h2>
+            <strong>나의 꿈</strong>
+        </h2>
+        <p>
+            사람들을 행복하게 만드는 기술이나 서비스 개발
+        </p>
+        <p>
+            롤러코스터나 놀이 공원 기획
+        </p>
+        <p>
+            한국의 교육 시스템 개선
+        </p>
     </div>
-    <h2 id='life-update'><strong>What have I been up to?</strong></h2>
+    <h2 id='life-update' *ngIf="languageService.language === 'english'">
+        <strong>What have I been up to?</strong>
+    </h2>
+    <h2 id='life-update' *ngIf="languageService.language === 'korean'">
+        <strong>근황</strong>
+    </h2>
     <app-timeline></app-timeline>
 
-    <h2>Site Info</h2>
+    <h2>홈페이지 정보</h2>
     <div class='version-div'>
         <div class='version-title-div'>Version 3</div>
         <div class='version-row-div'>
