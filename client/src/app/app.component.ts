@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
-import { faUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faPencilAlt, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
+import { faFile } from '@fortawesome/free-regular-svg-icons';
 import { faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { filter } from 'rxjs/operators';
 
@@ -16,9 +17,13 @@ export class AppComponent implements OnInit{
     screenWidth: number;
     sideNavThreshold = SIDE_NAV_THRESHOLD;
     faUser = faUser;
+    faFile = faFile;
+    faPencilAlt = faPencilAlt;
+    faProjectDiagram = faProjectDiagram;
     faGithub = faGithubSquare;
     faLinkedin = faLinkedin;
     url: string;
+    isSidenavExpanded = false;
 
     constructor(private router: Router, private windowSizeService: WindowSizeService) {
         this.screenWidth = window.innerWidth;
@@ -34,5 +39,9 @@ export class AppComponent implements OnInit{
         ).subscribe((event: any) => {
             this.url = event.url;
         });
+    }
+
+    toggleSidenav() {
+        this.isSidenavExpanded = !this.isSidenavExpanded;
     }
 }

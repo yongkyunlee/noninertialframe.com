@@ -45,6 +45,10 @@
     font-size: 1rem;
 }
 
+.reply-content-span {
+    white-space: pre-wrap;
+}
+
 .reply-update-div {
     display: flex;
     justify-content: space-between;
@@ -85,4 +89,20 @@
 
 .delete-button:hover {
     cursor: pointer;
+}
+
+@media only screen and (max-width: 720px) {
+    .reply-header-div {
+        flex-wrap: wrap;
+        padding-bottom: 0.5rem;
+    }
+
+    .reply-nickname-div {
+        width: 100%;
+        padding-bottom: 0.2rem;
+    }
+
+    .reply-date-div {
+        color: #717786;
+    }
 }

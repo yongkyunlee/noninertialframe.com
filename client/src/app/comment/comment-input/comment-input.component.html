@@ -17,4 +17,7 @@
     <div class='error-message-div' *ngIf="errorMessage !== ''">
         {{ errorMessage }}
     </div>
+    <div class='error-message-div' *ngIf="commentForm.value.nickname.length > nicknameMaxLength">
+        The nickname length must be less than {{ nicknameMaxLength + 1 }} characters.
+    </div>
 </form>

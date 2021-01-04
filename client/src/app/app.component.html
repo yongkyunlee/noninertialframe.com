@@ -1,71 +1,88 @@
-<mat-sidenav-container>
-    <mat-sidenav #sidenav [opened]="screenWidth > sideNavThreshold"
-                [mode]="(screenWidth > sideNavThreshold) ? 'side' : 'over'">
+<div [ngStyle]="{'display' : (screenWidth > sideNavThreshold) ? 'none' : 'block'}"
+    class='sm-header-div'>
+   <button class='menu-button' type="button"
+           mat-icon-button (click)="toggleSidenav()">
+       <mat-icon>menu</mat-icon>
+   </button>
+   <span class='sm-title-span'>
+       <a routerLink="/">
+            Noninertial Frame
+       </a>
+    </span>
+</div>
+<mat-sidenav-container autosize>
+    <mat-sidenav #sidenav [opened]="screenWidth > sideNavThreshold || isSidenavExpanded"
+                 mode='side' [ngClass]="{'sm-sidenav': screenWidth <= sideNavThreshold, 'sidenav': screenWidth > sideNavThreshold}">
         <div [ngStyle]="{'display' : (screenWidth > sideNavThreshold) ? 'block' : 'none'}"
              class='sidenav-title-div'>
             <a routerLink="/">
                 <span class='sidenav-title-span'><strong>Noninertial Frame</strong></span>
             </a>
         </div>
-        <ul>
-            <li>
+        <div class='sidenav-list-div'>
+            <div [ngClass]="{'sm-sidenav-item-div': screenWidth <= sideNavThreshold, 'sidenav-item-div': screenWidth > sideNavThreshold}">
                 <a routerLink="/about" (click)="(screenWidth <= sideNavThreshold) && sidenav.close()">
                     <span class="sidenav-li-text" [ngClass]="{'selected-page': url?.startsWith('/about')}">
                         About
                     </span>
-                    <span class="sidenav-li-icon"> <fa-icon [icon]="faUser"></fa-icon></span>
+                    <span class="sidenav-li-icon">
+                        <fa-icon [icon]="faUser"></fa-icon>
+                    </span>
                 </a>
-            </li>
-            <li>
+            </div>
+            <div [ngClass]="{'sm-sidenav-item-div': screenWidth <= sideNavThreshold, 'sidenav-item-div': screenWidth > sideNavThreshold}">
                 <a routerLink="/blog" (click)="(screenWidth <= sideNavThreshold) && sidenav.close()">
                     <span class="sidenav-li-text" [ngClass]="{'selected-page': url === '/blog'}">
                         Blog
                     </span>
-                    <span class="sidenav-li-icon">✏️</span>
+                    <span class="sidenav-li-icon">
+                        <fa-icon [icon]="faPencilAlt"></fa-icon>
+                        <!-- ✏️ -->
+                    </span>
                 </a>
-            </li>
-            <li>
+            </div>
+            <div [ngClass]="{'sm-sidenav-item-div': screenWidth <= sideNavThreshold, 'sidenav-item-div': screenWidth > sideNavThreshold}">
                 <a routerLink="/projects" (click)="(screenWidth <= sideNavThreshold) && sidenav.close()">
                     <span class="sidenav-li-text" [ngClass]="{'selected-page': url === '/projects'}">
                         Projects
                     </span>
-                    <span class="sidenav-li-icon">📌</span>
+                    <span class="sidenav-li-icon">
+                        <fa-icon [icon]="faProjectDiagram"></fa-icon>
+                    </span>
                 </a>
-            </li>
-            <li>
-                <span class='file-icon-span'>
-                    <a href="https://firebasestorage.googleapis.com/v0/b/noninertialframe-dffc3.appspot.com/o/Resume_YongkyunLee.pdf?alt=media&token=5135e857-b3ed-49da-bb01-cc1a6ebf8655" target="_blank">📄</a>
-                </span>
-                <span class='linkedin-icon-span'>
-                    <a href="https://www.linkedin.com/in/yongkyunlee" target="_blank">
-                        <fa-icon [icon]="faLinkedin"></fa-icon>
-                    </a>
-                </span>
-                <span class='github-icon-span'>
-                    <a href="https://www.github.com/yongkyunlee" target="_blank">
-                        <fa-icon [icon]="faGithub"></fa-icon>
-                    </a>
-                </span>
-            </li>
-        </ul>
-        <div class='signature-div'>
-            <span class='signature-span'><i>by Yongkyun Lee</i></span>
+            </div>
+            <div [ngClass]="{'sm-link-list-div': screenWidth <= sideNavThreshold, 'link-list-div': screenWidth > sideNavThreshold}">
+                <div [ngClass]="{'sm-file-icon-div': screenWidth <= sideNavThreshold, 'file-icon-div': screenWidth > sideNavThreshold}">
+                    <span>
+                        <a href="https://firebasestorage.googleapis.com/v0/b/noninertialframe-dffc3.appspot.com/o/Resume_YongkyunLee.pdf?alt=media&token=5135e857-b3ed-49da-bb01-cc1a6ebf8655" target="_blank">
+                            <fa-icon [icon]="faFile"></fa-icon>
+                        </a>
+                    </span>
+                </div>
+                <div [ngClass]="{'sm-linkedin-icon-div': screenWidth <= sideNavThreshold, 'linkedin-icon-div': screenWidth > sideNavThreshold}">
+                    <span>
+                        <a href="https://www.linkedin.com/in/yongkyunlee" target="_blank">
+                            <fa-icon [icon]="faLinkedin"></fa-icon>
+                        </a>
+                    </span>
+                </div>
+                <div [ngClass]="{'sm-github-icon-div': screenWidth <= sideNavThreshold, 'github-icon-div': screenWidth > sideNavThreshold}">
+                    <span class='github-icon-span'>
+                        <a href="https://www.github.com/yongkyunlee" target="_blank">
+                            <fa-icon [icon]="faGithub"></fa-icon>
+                        </a>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div [ngClass]="{'signature-div': screenWidth > sideNavThreshold, 'sm-signature-div': screenWidth <= sideNavThreshold}">
+            <span [ngClass]="{'signature-span': screenWidth > sideNavThreshold, 'sm-signature-span': screenWidth <= sideNavThreshold}">
+                <i>by Yongkyun Lee</i>
+            </span>
         </div>
     </mat-sidenav>
 
     <mat-sidenav-content>
-        <div [ngStyle]="{'display' : (screenWidth > sideNavThreshold) ? 'none' : 'block'}"
-            class='small-screen-header-div'>
-           <button class='menu-button' type="button"
-                   mat-icon-button (click)="sidenav.open()">
-               <mat-icon>menu</mat-icon>
-           </button>
-           <span class='title-span'>
-               <a routerLink="/">
-                    Noninertial Frame
-               </a>
-            </span>
-       </div>
        <div class='mat-content'>
             <router-outlet></router-outlet>
        </div>

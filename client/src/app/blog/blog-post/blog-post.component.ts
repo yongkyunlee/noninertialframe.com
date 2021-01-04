@@ -24,7 +24,7 @@ import { LanguageService } from 'src/app/shared/services/language.service';
 @Component({
   selector: 'app-blog-post',
   templateUrl: './blog-post.component.html',
-  styleUrls: ['./blog-post.component.scss']
+  styleUrls: ['./blog-post.component.scss', '../../shared/styles/languages.scss']
 })
 export class BlogPostComponent implements OnInit {
     screenWidth: number;

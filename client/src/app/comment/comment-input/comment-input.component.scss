@@ -7,6 +7,7 @@ $border-radius: 5px;
 
 .comment-submit-div {
     display: flex;
+    align-items: center;
 }
 
 .nickname-span {
@@ -14,7 +15,7 @@ $border-radius: 5px;
 }
 
 .nickname-input {
-    width: 15rem;
+    width: 16rem;
     font-size: 1.1rem;
     border: 1px solid #a7adba;
     -webkit-border-radius: $border-radius;
@@ -49,4 +50,29 @@ $border-radius: 5px;
 
 .error-message-div {
     color: #c60021;
+}
+
+@media only screen and (max-width: 600px) {
+    .comment-submit-div {
+        flex-direction: column;
+    }
+
+    .nickname-input-div {
+        width: 100%;
+        display: flex;
+        padding-bottom: $div-padding-bottom;
+    }
+
+    .nickname-input {
+        flex-grow: 1;
+    }
+
+    .comment-button-div {
+        width: 100%;
+    }
+
+    .comment-button {
+        width: 100%;
+    }
+
 }

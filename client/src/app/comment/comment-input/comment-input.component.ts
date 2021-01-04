@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
+import { NICKNAME_MAX_LENGTH } from 'src/app/shared/constants';
 import { CommentSerivce } from '../comment.service';
 
 @Component({
@@ -12,8 +13,9 @@ export class CommentInputComponent {
     @Input() collection: string;
     @Input() docId: string;
     errorMessage = '';
+    nicknameMaxLength = NICKNAME_MAX_LENGTH;
     commentForm = this.fb.group({
-        nickname: ['', [Validators.required]],
+        nickname: ['', [Validators.required, Validators.maxLength(NICKNAME_MAX_LENGTH)]],
         content: ['', [Validators.required]]
     });
     isUploading = false;

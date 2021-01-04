@@ -5,5 +5,5 @@ import { Injectable } from '@angular/core';
 })
 export class WindowSizeService {
     screenWidth: number = window.innerWidth;
-    smallScreenMaxWidth = 600;
+    smallScreenMaxWidth = 800;
 }

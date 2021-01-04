@@ -25,7 +25,7 @@
     </div>
 </div>
 <div class='reply-new-content-div' *ngIf="mode === 'edit'">
-    <textarea *ngIf="mode === 'edit'" [(ngModel)]="newContent" [attr.disabled]="isUploading ? '' : null"></textarea>
+    <textarea *ngIf="mode === 'edit'" [(ngModel)]="newContent" [attr.disabled]="isUploading ? '' : null" rows="3"></textarea>
     <div class='reply-update-div'>
         <div class='error-message-div'>
             {{ errorMessage }}
