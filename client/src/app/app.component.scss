@@ -62,6 +62,8 @@ mat-sidenav {
 .sm-sidenav-item-div {
     font-size: 1rem;
     padding: $sm-list-padding-top $sm-list-padding-right 0 0;
+    display: flex;
+    align-items: center;
 }
 
 .sidenav-li-text {
@@ -93,6 +95,11 @@ mat-sidenav {
     align-items: flex-end;
 }
 
+.sm-sidenav-link-text {
+    font-size: 1rem;
+    color: black;
+}
+
 .file-icon-div {
     padding-right: 1.3rem;
     font-size: 1.4rem;
@@ -111,17 +118,23 @@ mat-sidenav {
 .sm-file-icon-div {
     padding: $sm-list-padding-top $sm-list-padding-right 0 0;
     font-size: 1.4rem;
+    display: flex;
+    align-items: center;
 }
 
 .sm-linkedin-icon-div {
     padding: $sm-list-padding-top $sm-list-padding-right 0 0;
     font-size: 1.4rem;
-    color: $linkedin-icon-color
+    color: $linkedin-icon-color;
+    display: flex;
+    align-items: center;
 }
 
 .sm-github-icon-div {
     padding: $sm-list-padding-top $sm-list-padding-right 0 0;
     font-size: 1.4rem;
+    display: flex;
+    align-items: center;
 }
 
 .sm-header-div {
