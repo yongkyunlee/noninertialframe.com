@@ -21,3 +21,5 @@ export const LINE_NUBMERS_THRESHOLD = 1024;
 export const N_HOME_BLOG_SNIPPETS = 3;
 
 export const N_HOME_PROJECT_SINPPETS = 2;
+
+export const NICKNAME_MAX_LENGTH = 23;

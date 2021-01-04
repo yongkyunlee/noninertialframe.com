@@ -50,7 +50,6 @@ $content-font-size: 1rem;
 .comment-new-content-div {
     padding-top: 0.5rem;
     font-size: $content-font-size;
-    padding-bottom: 1rem;
 }
 
 .comment-update-div {
@@ -98,4 +97,34 @@ $content-font-size: 1rem;
 
 .delete-button:hover {
     cursor: pointer;
+}
+
+@media only screen and (max-width: 720px) {
+    .comment-header-div {
+        flex-wrap: wrap;
+    }
+
+    .comment-nickname-div {
+        width: 100%;
+        padding-bottom: 0.2rem;
+    }
+
+    .comment-date-div {
+        color: #717786;
+    }
+
+    .edit-button {
+        margin-top: 0.7rem;
+        width: 100%;
+    }
+
+    .delete-button {
+        margin-top: 0.5rem;
+        width: 100%;
+    }
+    
+    .update-button {
+        margin-top: 0.5rem;
+        width: 100%;
+    }
 }

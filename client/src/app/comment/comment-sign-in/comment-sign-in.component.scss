@@ -82,6 +82,11 @@ $border-radius: 5px;
     border-radius: $border-radius;
 }
 
+.email-input-button-div {
+    flex-grow: 1;
+    display: flex;
+}
+
 .email-sign-in-button-div {
     padding-left: 0.7rem;
     padding-right: 0.7rem;
@@ -154,4 +159,83 @@ $border-radius: 5px;
 .auth-warning-div {
     padding-top: 0.5rem;
     font-size: 0.9rem;
+}
+
+@media only screen and (max-width: 1200px) {
+    .auth-div {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-start;
+    }
+
+    .auth-intro-div {
+        font-size: 1rem;
+        text-align: left;
+        padding-bottom: 0.5rem;
+    }
+
+    .auth-button-div {
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .auth-button {
+        margin-right: 1rem;
+        margin-bottom: 0.5rem;
+        margin-left: 0rem;
+    }
+
+    .email-sign-in-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        margin-top: 0.5rem;
+        margin-left: -0.5rem;
+    }
+
+    .email-input-div {
+        display: flex;
+        padding: 0 0 0.5rem 1rem;
+        width: 100%;
+    }
+
+    .email-label {
+        width: 4.5rem;
+    }
+
+    .email-input {
+        flex-grow: 1;
+    }
+
+    .password-input-div {
+        display: flex;
+        width: 100%;
+        padding: 0 0 0.8rem 1rem;
+    }
+
+    .password-label {
+        width: 4.5rem;
+    }
+
+    .password-input {
+        flex-grow: 1;
+    }
+
+    .email-input-button-div {
+        justify-content: flex-start;
+        width: 100%;
+        align-items: center;
+    }
+
+    .email-sign-in-button-div {
+        padding: 0 0.5rem 0 0.5rem;
+    }
+
+    .auth-warning-div {
+        padding-top: 0.3rem;
+        font-size: 0.8rem;
+    }
 }

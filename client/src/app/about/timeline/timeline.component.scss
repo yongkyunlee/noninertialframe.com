@@ -10,6 +10,7 @@
 .time-div {
     width: 5.2rem;
     color: #c60021;
+    flex-shrink: 0;
 }
 
 .trophy-icon {
@@ -34,7 +35,3 @@
     padding-left: 1.2rem;
     font-size: 0.9rem;
 }
-
-// a {
-//     color: inherit;
-// }

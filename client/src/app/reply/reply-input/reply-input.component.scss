@@ -55,3 +55,27 @@ input {
 .error-message-div {
     color: #c60021;
 }
+
+@media only screen and (max-width: 720px) {
+    .reply-submit-div {
+        display: block;
+    }
+
+    .reply-nickname-div {
+        width: 100%;
+        display: flex;
+    }
+
+    .nickname-span {
+        width: 4.6rem;
+    }
+
+    .nickname-input {
+        flex-grow: 1;
+    }
+
+    .reply-button {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+}

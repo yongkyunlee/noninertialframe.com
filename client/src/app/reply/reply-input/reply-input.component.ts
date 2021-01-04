@@ -1,6 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from 'src/app/auth/auth.service';
+import { NICKNAME_MAX_LENGTH } from 'src/app/shared/constants';
 import { ReplyModeService } from '../reply-mode.service';
 import { ReplyService } from '../reply.service';
 
@@ -14,8 +15,9 @@ export class ReplyInputComponent {
     @Input() docId: string;
     @Input() commentId: string;
     errorMessage = '';
+    nicknameMaxLength = NICKNAME_MAX_LENGTH;
     replyForm = this.fb.group({
-        nickname: ['', [Validators.required]],
+        nickname: ['', [Validators.required, Validators.maxLength(NICKNAME_MAX_LENGTH)]],
         content: ['', [Validators.required]]
     });
     isUploading = false;

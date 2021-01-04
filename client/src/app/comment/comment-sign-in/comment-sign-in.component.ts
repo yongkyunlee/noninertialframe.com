@@ -3,6 +3,7 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 
 import { AuthService } from 'src/app/auth/auth.service';
+import { WindowSizeService } from 'src/app/shared/services/window-size.service';
 
 @Component({
     selector: 'app-comment-sign-in',
@@ -23,7 +24,8 @@ export class CommentSignInComponent implements OnInit {
 
     constructor(
         private fb: FormBuilder,
-        public authService: AuthService
+        public authService: AuthService,
+        public windowSizeService: WindowSizeService
     ) { }
 
     ngOnInit() {
