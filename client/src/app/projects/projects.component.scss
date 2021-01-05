@@ -21,3 +21,13 @@
 .snippet-div {
     flex-shrink: 0;
 }
+
+@media only screen and (max-width: 1024px) {
+    .title-div {
+        font-size: 1.5rem;
+    }
+
+    .subtitle-div {
+        font-size: 1.1rem;
+    }
+}

@@ -1,5 +1,6 @@
 <div class='container-div'>
-    <div class='event-div'>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
             Dec 2020
         </div>
@@ -8,7 +9,17 @@
             <fa-icon class="trophy-icon" [icon]="faTrophy"></fa-icon>)
         </div>
     </div>
-    <div class='event-div'>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2020년 12월
+        </div>
+        <div class='event-description-div'>
+            골드만 삭스 입사 예정자 해커톤 (1등 
+            <fa-icon class="trophy-icon" [icon]="faTrophy"></fa-icon>)
+        </div>
+    </div>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
             Nov 2020
         </div>
@@ -20,7 +31,20 @@
             </a>
         </div>
     </div>
-    <div class='event-div'>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2020년 11월
+        </div>
+        <div>
+            매경닷컴·KDX 주최 2020 인공지능 학습용 데이터 해커톤 (3등
+            <fa-icon class='medal-icon' [icon]="faMedal"></fa-icon>)
+            <a href="https://mbn.co.kr/news/economy/4346112" target="_blank">
+                <fa-icon class='link-icon' [icon]=faLink></fa-icon>
+            </a>
+        </div>
+    </div>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
             Sep 2020
         </div>
@@ -29,7 +53,18 @@
             <img class='company-img' src="../../../assets/logos/lablup.png">
         </div>
     </div>
-    <div class='event-div'>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2020년 09월
+        </div>
+        <div>
+            소프트웨어 엔지니어 인턴십 종료 @ <a href="https://www.lablup.com/home" target="_blank">래블업</a>
+            <img class='company-img' src="../../../assets/logos/lablup.png">
+        </div>
+    </div>
+
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
             Aug 2020
         </div>
@@ -38,15 +73,35 @@
             <img class='company-img' src="../../../assets/logos/lablup.png">
         </div>
     </div>
-    <div class='event-div'>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2020년 08월
+        </div>
+        <div>
+            소프트웨어 엔지니어 인턴십 시작 @ <a href="https://www.lablup.com/home" target="_blank">래블업</a>
+            <img class='company-img' src="../../../assets/logos/lablup.png">
+        </div>
+    </div>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
         </div>
         <div>
             End of SWE Internship @ <a href="https://www.goldmansachs.com/" target="_blank">Goldman Sachs</a>
             <img class='company-img gs-img' src='../../../assets/logos/gs.png'>
         </div>
+    </div>   
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+        </div>
+        <div>
+            소프트웨어 엔지니어 인턴십 종료 @ <a href="https://www.goldmansachs.com/" target="_blank">골드만 삭스</a>
+            <img class='company-img gs-img' src='../../../assets/logos/gs.png'>
+        </div>
     </div>
-    <div class='event-div'>
+
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
             Jul 2020
         </div>
@@ -55,7 +110,18 @@
             <img class='company-img gs-img' src='../../../assets/logos/gs.png'>
         </div>
     </div>
-    <div class='event-div'>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2020년 07월
+        </div>
+        <div>
+            소프트웨어 엔지니어 인턴십 시작 @ <a href="https://www.goldmansachs.com/" target="_blank">골드만 삭스</a>
+            <img class='company-img gs-img' src='../../../assets/logos/gs.png'>
+        </div>
+    </div>
+
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
             Mar 2020
         </div>
@@ -67,7 +133,20 @@
             </a>
         </div>
     </div>
-    <div class='event-div'>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2020년 03월
+        </div>
+        <div>
+            Hacktech 2020 (Best Use of Esri Technology 
+            <fa-icon class="trophy-icon" [icon]="faTrophy"></fa-icon>)
+            <a href="https://devpost.com/software/homes-reinvented" target="_blank">
+                <fa-icon class='link-icon' [icon]=faLink></fa-icon>
+            </a>
+        </div>
+    </div>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
             Feb 2020
         </div>
@@ -77,12 +156,22 @@
             <a href="https://www.credential.net/ffab9e53-d3fd-48ef-a09e-2a3aa9544da3#gs.oixrat" target="_blank">
                 <fa-icon class='link-icon' [icon]=faLink></fa-icon>
             </a>
-            <a href="" target="_blank">
-                <fa-icon class='link-icon' [icon]=faPencil></fa-icon>
+        </div>
+    </div>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2020년 02월
+        </div>
+        <div>
+            Citadel Terminal Live: SoCal 2020 (Semi-finalist 
+            <fa-icon class="medal-icon" [icon]="faMedal"></fa-icon>)
+            <a href="https://www.credential.net/ffab9e53-d3fd-48ef-a09e-2a3aa9544da3#gs.oixrat" target="_blank">
+                <fa-icon class='link-icon' [icon]=faLink></fa-icon>
             </a>
         </div>
     </div>
-    <div class='event-div'>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
         </div>
         <div>
@@ -90,9 +179,26 @@
             <a href="https://devpost.com/software/treehack" target="_blank">
                 <fa-icon class='link-icon' [icon]=faLink></fa-icon>
             </a>
+            <a href="" target="_blank">
+                <fa-icon class='link-icon' [icon]=faPencil></fa-icon>
+            </a>
         </div>
     </div>
-    <div class='event-div'>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+        </div>
+        <div>
+            TreeHacks 2020 🌴
+            <a href="https://devpost.com/software/treehack" target="_blank">
+                <fa-icon class='link-icon' [icon]=faLink></fa-icon>
+            </a>
+            <a href="" target="_blank">
+                <fa-icon class='link-icon' [icon]=faPencil></fa-icon>
+            </a>
+        </div>
+    </div>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
             Sep 2019
         </div>
@@ -104,7 +210,20 @@
             </a>
         </div>
     </div>
-    <div class='event-div'>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2019년 09월
+        </div>
+        <div>
+            소프트웨어 엔지니어 인턴십 종료 @ <a href="https://www.onclusive.com/" target="_blank">Onclusive</a>
+            <img class='company-img gs-img' src='../../../assets/logos/onclusive.png'>
+            <a href="" target="_blank">
+                <fa-icon class='link-icon' [icon]=faPencil></fa-icon>
+            </a>
+        </div>
+    </div>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
             Jun 2019
         </div>
@@ -113,9 +232,19 @@
             <img class='company-img gs-img' src='../../../assets/logos/onclusive.png'>
         </div>
     </div>
-    <div class='event-div'>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2019년 06월
+        </div>
+        <div>
+            소프트웨어 엔지니어 인턴십 시작 @ <a href="https://www.onclusive.com/" target="_blank">Onclusive</a>
+            <img class='company-img gs-img' src='../../../assets/logos/onclusive.png'>
+        </div>
+    </div>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
-            Jun 2019
+            Sep 2018
         </div>
         <div>
             End of AI Research Internship @ <a href="https://www.clova.ai/" target="_blank">Naver</a>
@@ -125,21 +254,50 @@
             </a>
         </div>
     </div>
-    <div class='event-div'>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2018년 09월
+        </div>
+        <div>
+            인공지능 연구 인턴십 종료 @ <a href="https://www.clova.ai/" target="_blank">네이버</a>
+            <img class='company-img gs-img' src='../../../assets/logos/naver.png'>
+            <a href="" target="_blank">
+                <fa-icon class='link-icon' [icon]=faPencil></fa-icon>
+            </a>
+        </div>
+    </div>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
-            Jun 2019
+            Jun 2018
         </div>
         <div>
             Start of AI Research Internship @ <a href="https://www.clova.ai/" target="_blank">Naver</a>
             <img class='company-img gs-img' src='../../../assets/logos/naver.png'>
         </div>
     </div>
-    <div class='event-div'>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2018년 06월
+        </div>
+        <div>
+            인공지능 연구 인턴십 시작 @ <a href="https://www.clova.ai/" target="_blank">네이버</a>
+            <img class='company-img gs-img' src='../../../assets/logos/naver.png'>
+        </div>
+    </div>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
-            Jun 2018
         </div>
         <div>
             Dischargement from ROK Army 🎉 
+        </div>
+    </div>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+        </div>
+        <div>
+            대한민국 육군 만기 전역 🎉 
         </div>
     </div>
 </div>

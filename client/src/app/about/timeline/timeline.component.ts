@@ -1,5 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { faTrophy, faMedal, faExternalLinkAlt, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
+
+import { LanguageService } from 'src/app/shared/services/language.service';
 
 @Component({
     selector: 'app-timeline',
@@ -12,7 +14,9 @@ export class TimelineComponent implements OnInit {
     faLink = faExternalLinkAlt;
     faPencil = faPencilAlt;
 
-    constructor() { }
+    constructor(
+        public languageService: LanguageService
+    ) { }
 
     ngOnInit(): void {
     }

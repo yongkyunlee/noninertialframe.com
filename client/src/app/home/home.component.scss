@@ -50,6 +50,10 @@ hr {
     text-align: center;
 }
 
+.ellipsis-icon {
+    font-size: 0.9rem;
+}
+
 .life-update-div {
     padding-bottom: 1rem;
 }
@@ -72,4 +76,23 @@ hr {
 
 .last-div {
     padding-bottom: 1rem;
+}
+
+@media only screen and (max-width: 720px) {
+    .header-div {
+        font-size: 1.3rem;
+    }
+    
+    .intro-div {
+        font-size: 1rem;
+        padding-bottom: 0;
+    }
+
+    .blog-snippet-title-div {
+        font-size: 1.1rem;
+    }
+
+    .project-snippet-title-div {
+        font-size: 1.1rem;
+    }
 }

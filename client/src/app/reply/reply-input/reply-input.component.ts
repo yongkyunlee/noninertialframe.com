@@ -1,5 +1,7 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
+
 import { AuthService } from 'src/app/auth/auth.service';
 import { NICKNAME_MAX_LENGTH } from 'src/app/shared/constants';
 import { ReplyModeService } from '../reply-mode.service';
@@ -31,7 +33,7 @@ export class ReplyInputComponent {
 
     submitReply() {
         this.isUploading = true;
-        this.authService.afAuth.user.subscribe(data => {
+        this.authService.afAuth.user.pipe(first()).subscribe(data => {
             if (data) {
                 const newReply = {
                     ...this.replyForm.value,
@@ -50,11 +52,11 @@ export class ReplyInputComponent {
                     })
                     .catch(err => {
                         console.error(err);
-                        this.errorMessage = 'There was an error while uploading the reply';
+                        this.errorMessage = 'There was an error while uploading the reply.';
                         this.isUploading = false;
                     });
             } else {
-                this.errorMessage = 'There was an error while uploading the reply';
+                this.errorMessage = 'You need to sign in to leave a reply.';
             }
         });
     }

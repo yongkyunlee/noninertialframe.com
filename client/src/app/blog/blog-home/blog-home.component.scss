@@ -34,3 +34,17 @@ select {
     font-size: 1.4rem;
     color: #c60021;
 }
+
+.post-list-div {
+    padding-bottom: 1.5rem;
+}
+
+@media only screen and (max-width: 1024px) {
+    .title-div {
+        font-size: 1.5rem;
+    }
+
+    .subtitle-div {
+        font-size: 1.1rem;
+    }
+}

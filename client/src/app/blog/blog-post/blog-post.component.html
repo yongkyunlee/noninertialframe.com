@@ -19,7 +19,7 @@
     </div>
     <div class='date-div'>
         <ng-container *ngIf="languageService.language === 'english'">
-            {{blogPost?.date | dateStrEng}}
+            {{blogPost?.date | dateStrEng : true}}
         </ng-container>
         <ng-container *ngIf="languageService.language === 'korean'">
             {{blogPost?.date | dateStrKor}}
