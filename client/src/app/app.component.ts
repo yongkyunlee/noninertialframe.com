@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { faUser, faPencilAlt, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
-import { faFile } from '@fortawesome/free-regular-svg-icons';
+import { faFileAlt } from '@fortawesome/free-regular-svg-icons';
 import { faGithubSquare, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { filter } from 'rxjs/operators';
 
@@ -17,7 +17,7 @@ export class AppComponent implements OnInit{
     screenWidth: number;
     sideNavThreshold = SIDE_NAV_THRESHOLD;
     faUser = faUser;
-    faFile = faFile;
+    faFile = faFileAlt;
     faPencilAlt = faPencilAlt;
     faProjectDiagram = faProjectDiagram;
     faGithub = faGithubSquare;

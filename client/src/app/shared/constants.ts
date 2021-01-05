@@ -1,4 +1,4 @@
-export const BLOG_COLLECTION = 'blog-snippets';
+export const BLOG_COLLECTION = 'blog-posts';
 
 export const PROJECTS_COLLECTION = 'projects';
 

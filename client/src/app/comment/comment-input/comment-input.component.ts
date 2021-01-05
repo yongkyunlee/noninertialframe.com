@@ -1,5 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
+import { first } from 'rxjs/operators';
+
 import { AuthService } from 'src/app/auth/auth.service';
 import { NICKNAME_MAX_LENGTH } from 'src/app/shared/constants';
 import { CommentSerivce } from '../comment.service';
@@ -28,7 +30,8 @@ export class CommentInputComponent {
 
     submitComment() {
         this.isUploading = true;
-        this.authService.afAuth.user.subscribe(data => {
+        this.authService.afAuth.user.pipe(first()).subscribe(data => {
+            console.log('subscribing to authservice');
             if (data) {
                 const newComment = {
                     ...this.commentForm.value,
@@ -51,7 +54,7 @@ export class CommentInputComponent {
                     });
                 this.errorMessage = '';
             } else {
-                this.errorMessage = 'There was an error while uploading the comment.';
+                this.errorMessage = 'You need to sign in to leave a comment.';
             }
         });
     }

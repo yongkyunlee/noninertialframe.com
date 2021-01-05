@@ -25,7 +25,7 @@
         </div>
     </div>
 
-    <div *ngIf="listByOption === 'year'">
+    <div *ngIf="listByOption === 'year'" class='post-list-div'>
         <div *ngFor="let year of years" class='snippet-group-div'>
             <div class='snippet-group-header-div'>{{year}}</div>
             <div *ngFor="let blogSnippetId of blogSnippetsByYear[year]">
@@ -38,7 +38,7 @@
         </div>
     </div>
     
-    <div *ngIf="listByOption === 'category'">
+    <div *ngIf="listByOption === 'category'" class='post-list-div'>
         <div *ngFor="let category of categories" class='snippet-group-div'>
             <div class='snippet-group-header-div'>{{category}}</div>
             <div *ngFor="let blogSnippetId of blogSnippetsByCategory[category]">

@@ -8,11 +8,11 @@
 html, body { height: 100%; }
 body {
     margin: 0;
-    // font-family: 'Merriweather', serif;
     color: black;
 }
 
-$custom-typography: mat-typography-config($font-family: '"Oxygen", serif;');
+// $custom-typography: mat-typography-config($font-family: '"Oxygen", serif;');
+$custom-typography: mat-typography-config($font-family: '"Merriweather", serif;');
 @include mat-core($custom-typography);
 
 :root {

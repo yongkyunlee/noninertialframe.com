@@ -68,6 +68,7 @@ mat-sidenav {
 
 .sidenav-li-text {
     font-family: 'Roboto', sans-serif;
+    flex-shrink: 1;
 }
 
 .sidenav-li-text:hover {
@@ -80,6 +81,18 @@ mat-sidenav {
 
 .sidenav-li-icon {
     margin-left: 0.5rem;
+    display: inline-block;
+    width: 1rem;
+}
+
+.sm-sidenav-li-icon:hover {
+    color: inherit;
+}
+
+.sm-sidenav-li-icon {
+    display: inline-block;
+    width: 1rem;
+    margin-left: 0.7rem;
 }
 
 .link-list-div {
@@ -101,7 +114,7 @@ mat-sidenav {
 }
 
 .file-icon-div {
-    padding-right: 1.3rem;
+    padding-right: 1rem;
     font-size: 1.4rem;
 }
 
