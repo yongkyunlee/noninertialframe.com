@@ -47,6 +47,8 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - subscribing to service vs. passing through with input
 - for replies, preserve the input
 - loading spinner after updating/deleting comments and replies
+- authentication of user by admin and agreement
+- Add a page to merge accounts
 
 References
 

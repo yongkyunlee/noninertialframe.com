@@ -15,21 +15,23 @@ $content-padding-bottom: 0.6rem;
 .title-div {
     font-size: 1.2rem;
     padding: 1rem $content-padding-side $content-padding-bottom $content-padding-side;
-
+    font-family: 'Roboto', sans-serif;
 }
 
 .description-div {
     font-size: 1.1rem;
-    padding: 0 $content-padding-side $content-padding-bottom $content-padding-side;
+    padding: 0.5rem $content-padding-side $content-padding-bottom $content-padding-side;
+    line-height: 1.7rem;
 }
 
 .note-list-div {
-    padding: 0 $content-padding-side 2.3rem $content-padding-side
+    padding: 0.2rem $content-padding-side 2.3rem $content-padding-side
 }
 
 .note-div {
     display: flex;
     padding-bottom: 0.4rem;
+    line-height: 1.5rem;
 }
 
 .check-icon-div {

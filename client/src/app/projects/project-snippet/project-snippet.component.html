@@ -14,7 +14,7 @@
         </div>
     </ng-container>
     <ng-container *ngIf="languageService.language === 'korean'">
-        <div class='title-div'>{{projectSnippet.titleKor}}</div>
+        <div class='title-div'><strong>{{projectSnippet.titleKor}}</strong></div>
         <div class='description-div'>{{projectSnippet.descriptionKor}}</div>
         <div class='note-list-div'>
             <div *ngFor="let note of projectSnippet.notesKor" class='note-div'>

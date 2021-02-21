@@ -54,11 +54,13 @@
 :host ::ng-deep h2 {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
+    font-size: 1.4rem;
 }
 
 :host ::ng-deep h3 {
     font-family: 'Roboto', sans-serif;
-    font-weight: 400;
+    font-weight: 700;
+    font-size: 1.15rem;
 }
 
 :host ::ng-deep p {
@@ -78,6 +80,10 @@
     margin-right: auto;
     display: block;
     padding-bottom: 1.5rem;
+}
+
+:host ::ng-deep code {
+    color: #e83e8c;
 }
 
 @media only screen and (max-width: 720px) {

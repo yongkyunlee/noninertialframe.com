@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
-import { Observable } from 'rxjs';
-import { filter, switchMap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { MarkdownService } from 'ngx-markdown';
 
 import { BlogService } from '../blog.service';
 import { BlogPostDoc } from '../blog-post.model';
@@ -21,6 +20,7 @@ import 'node_modules/prismjs/components/prism-typescript.min.js';
 import 'prismjs/plugins/line-numbers/prism-line-numbers.js';
 import { LanguageService } from 'src/app/shared/services/language.service';
 
+
 @Component({
   selector: 'app-blog-post',
   templateUrl: './blog-post.component.html',
@@ -37,7 +37,8 @@ export class BlogPostComponent implements OnInit {
         private router: Router,
         private blogService: BlogService,
         public windowSizeService: WindowSizeService,
-        public languageService: LanguageService
+        public languageService: LanguageService,
+        private markdownService: MarkdownService
     ){
         const url = this.router.url;
         const urlComponent = url.split('/');
@@ -54,6 +55,9 @@ export class BlogPostComponent implements OnInit {
             }
             this.blogPost = data[0] as BlogPostDoc;
         });
-    }
 
+        this.markdownService.renderer.link = (href, title, text) => {
+            return `<a href="${href}" target="_blank" rel="nofollow">${text}</a>`;
+        };
+    }
 }
