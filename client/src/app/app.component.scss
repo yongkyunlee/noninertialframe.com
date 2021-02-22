@@ -6,6 +6,8 @@ $sm-list-padding-right: 0.6rem;
 $list-padding-top: 1.5rem;
 $list-padding-right: 0.8rem;
 
+$icon-width: 1.2rem;
+
 $linkedin-icon-color: #0077b5;
 
 a {
@@ -82,7 +84,8 @@ mat-sidenav {
 .sidenav-li-icon {
     margin-left: 0.5rem;
     display: inline-block;
-    width: 1rem;
+    text-align: right;
+    width: $icon-width;
 }
 
 .sm-sidenav-li-icon:hover {
@@ -91,7 +94,7 @@ mat-sidenav {
 
 .sm-sidenav-li-icon {
     display: inline-block;
-    width: 1rem;
+    width: $icon-width;
     margin-left: 0.7rem;
 }
 
