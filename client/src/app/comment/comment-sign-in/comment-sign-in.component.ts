@@ -15,7 +15,7 @@ export class CommentSignInComponent implements OnInit {
     faEnvelope = faEnvelope;
     faGithub = faGithub;
     faFacebook = faFacebookSquare;
-    faGoogle = faGoogle
+    faGoogle = faGoogle;
     emailAuth = false;
     forgotPassword = false;
     errorMessage = '';
