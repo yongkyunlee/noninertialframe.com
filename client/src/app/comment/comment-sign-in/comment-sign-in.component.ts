@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faGithub, faFacebookSquare, faGoogle } from '@fortawesome/free-brands-svg-icons';
 
 import { AuthService } from 'src/app/auth/auth.service';
 import { WindowSizeService } from 'src/app/shared/services/window-size.service';
@@ -12,6 +13,9 @@ import { WindowSizeService } from 'src/app/shared/services/window-size.service';
 })
 export class CommentSignInComponent implements OnInit {
     faEnvelope = faEnvelope;
+    faGithub = faGithub;
+    faFacebook = faFacebookSquare;
+    faGoogle = faGoogle
     emailAuth = false;
     forgotPassword = false;
     errorMessage = '';

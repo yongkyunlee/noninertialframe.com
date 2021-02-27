@@ -22,19 +22,38 @@ $border-radius: 5px;
     margin-left: 1rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
+    vertical-align: middle;
 }
 
 .oauth-img {
-    vertical-align: middle;
-    display: inline-block;
     padding-right: 0.5rem;
+    padding-top: 0.5rem;
+    width: 5rem;
     height: 1rem;
     width: 1rem;
+    top: 25%;
+    float:left;
 }
 
 .auth-icon {
     padding-right: 0.5rem;
     font-size: 1rem;
+}
+
+.google-icon {
+    background: 
+        linear-gradient(to bottom left,transparent 49%,#fbbc05 50%) 0 25%/48% 40%,
+        linear-gradient(to top    left,transparent 49%,#fbbc05 50%) 0 75%/48% 40%,
+    
+        linear-gradient(-40deg ,transparent 53%,#ea4335 54%),
+        linear-gradient( 45deg ,transparent 46%,#4285f4 48%),
+        #34a853;
+    background-repeat:no-repeat;
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    // -webkit-text-fill-color: transparent;
+    // color: red;
 }
 
 
