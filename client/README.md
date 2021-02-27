@@ -35,7 +35,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - limit number of data loaded at blog home
 - For Life update section on mobile, place date and item on separate lines
 - Link See All to exact place
-- making the fold of sidenav to 700px?
 - keywords for project and blog
 - gradient for life updates of hompage
 - If the website grows, paginate comment queries
@@ -50,6 +49,7 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 - authentication of user by admin and agreement
 - Add a page to merge accounts
 - Add Facebook authorization after adding privacy page and data deletion page
+- Reduce size of the app by removing unnecessary applications and separating devand prod
 
 References
 

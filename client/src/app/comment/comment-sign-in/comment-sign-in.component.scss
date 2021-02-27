@@ -22,16 +22,17 @@ $border-radius: 5px;
     margin-left: 1rem;
     padding-left: 0.5rem;
     padding-right: 0.5rem;
-    vertical-align: middle;
+}
+
+.google-button-div {
+    display: flex;
+    align-content: center;
 }
 
 .oauth-img {
-    padding-right: 0.5rem;
-    padding-top: 0.5rem;
-    width: 5rem;
+    vertical-align: middle;
+    padding: 0.5rem 0.5rem 0.5rem 0;
     height: 1rem;
-    width: 1rem;
-    float:left;
 }
 
 .auth-icon {
