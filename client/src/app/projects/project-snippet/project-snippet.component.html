@@ -40,10 +40,34 @@
                 <span class='link-span'>Devpost</span>
             </a>
         </div>
-        <div *ngIf=projectSnippet.links.noninertialframe>
+        <div *ngIf=projectSnippet.links.noninertialframe class='link-div'>
             <a [href]='projectSnippet.links.noninertialframe' target="_blank">
                 <span class='emoji-span link-left'>✏️</span>
                 <span class='link-span'>Blog</span>
+            </a>
+        </div>
+        <div *ngIf='projectSnippet.links.colab' class='link-div'>
+            <a [href]='projectSnippet.links.colab' target="_blank">
+                <img src='../../../assets/logos/colab.png' class='link-img link-left' id='colab-img'>
+                <span class='link-span'>Colab</span>
+            </a>
+        </div>
+        <div *ngIf='projectSnippet.links.presentation' class='link-div'>
+            <a [href]='projectSnippet.links.presentation' target="_blank">
+                <img src='../../../assets/logos/presentation.png' class='link-img link-left' id='presentation-img'>
+                <span class='link-span'>Slides</span>
+            </a>
+        </div>
+        <div *ngIf='projectSnippet.links.youtube' class='link-div'>
+            <a [href]='projectSnippet.links.youtube' target="_blank">
+                <img src='../../../assets/logos/youtube.png' class='link-img link-left' id='youtube-img'>
+                <span class='link-span'>Youtube</span>
+            </a>
+        </div>
+        <div *ngIf='projectSnippet.links.news' class='link-div'>
+            <a [href]='projectSnippet.links.news' target="_blank">
+                <span class='emoji-span link-left'>📰</span>
+                <span class='link-span'>News</span>
             </a>
         </div>
     </div>

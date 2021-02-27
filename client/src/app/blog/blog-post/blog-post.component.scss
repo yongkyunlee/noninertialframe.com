@@ -1,3 +1,7 @@
+.post-div {
+    background-color: #FBFDFD;
+}
+
 .language-div {
     color: #a7adba;
     text-align: right;
@@ -40,6 +44,11 @@
 :host ::ng-deep a {
     color: #0074D9;
     text-decoration: none;
+}
+
+:host ::ng-deep a:hover {
+    color: #2431AB;
+    cursor: pointer;
 }
 
 :host ::ng-deep pre {
