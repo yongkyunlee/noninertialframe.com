@@ -8,6 +8,8 @@ import { filter } from 'rxjs/operators';
 import { SIDE_NAV_THRESHOLD } from './shared/constants';
 import { WindowSizeService } from './shared/services/window-size.service';
 
+declare let gtag: any;
+
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
@@ -31,6 +33,13 @@ export class AppComponent implements OnInit{
             this.windowSizeService.screenWidth = window.innerWidth;
             this.screenWidth = window.innerWidth;
         };
+        this.router.events.subscribe(event => {
+            if (event instanceof NavigationEnd) {
+                gtag('config', 'UA-131043814-1', {
+                    page_path: event.urlAfterRedirects
+                });
+            }
+        });
     }
 
     ngOnInit() {
