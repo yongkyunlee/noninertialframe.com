@@ -1,11 +1,27 @@
 <div class='container-div'>
+    <div class='event-div' *ngIf="languageService.language === 'english'">
+        <div class='time-div'>
+            Apr 2021
+        </div>
+        <div class='event-description-div'>
+            Hacktech 2021 Mentor
+        </div>
+    </div>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2021년 04월
+        </div>
+        <div class='event-description-div'>
+            Hacktech 2021 멘토
+        </div>
+    </div>
 
     <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
             Feb 2021
         </div>
         <div class='event-description-div'>
-            TreeHacks 2021 (<i>[Neo] Reinvent Social Networking</i> Runner-up 
+            TreeHacks 2021 🌴 (<i>[Neo] Reinvent Social Networking</i> Runner-up
             <fa-icon class="trophy-icon" [icon]="faTrophy" style="color: silver"></fa-icon>)
             <a href="https://devpost.com/software/pagechat" target="_blank">
                 <fa-icon class='link-icon' [icon]=faLink></fa-icon>
@@ -20,7 +36,7 @@
             2021년 02월
         </div>
         <div class='event-description-div'>
-            트리핵스 2021 (<i>[Neo] 소셜 네트워킹 재발명</i> 부문 2위 수상) 
+            TreeHacks 2021 🌴 (<i>[Neo] 소셜 네트워킹 재발명</i> 부문 2위 수상) 
             <fa-icon class="trophy-icon" [icon]="faTrophy" style="color: silver;"></fa-icon>)
             <a href="https://devpost.com/software/pagechat" target="_blank">
                 <fa-icon class='link-icon' [icon]=faLink></fa-icon>
