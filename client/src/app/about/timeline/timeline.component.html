@@ -1,6 +1,23 @@
 <div class='container-div'>
     <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
+            Jun 2021
+        </div>
+        <div class='event-description-div'>
+            Caltech Graduation (Bachelor's Degree in CS/BEM) 🎓 
+        </div>
+    </div>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2021년 06월
+        </div>
+        <div class='event-description-div'>
+            칼텍 학부 (컴퓨터 공학/경영 복수 전공) 졸업 🎓
+        </div>
+    </div>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
+        <div class='time-div'>
             Apr 2021
         </div>
         <div class='event-description-div'>
@@ -13,6 +30,23 @@
         </div>
         <div class='event-description-div'>
             Hacktech 2021 멘토
+        </div>
+    </div>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
+        <div class='time-div'>
+            Mar 2021
+        </div>
+        <div class='event-description-div'>
+            Head TA of IDS 157 (Statistical Inference 📈 ) with 100+ students enrolled
+        </div>
+    </div>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2021년 03월
+        </div>
+        <div class='event-description-div'>
+            IDS 157 (통계적 추론 📈 ) 헤드 조교 (100명 이상 수강)
         </div>
     </div>
 
