@@ -70,5 +70,11 @@
                 <span class='link-span'>News</span>
             </a>
         </div>
+        <div *ngIf='projectSnippet.links.paper' class='link-div'>
+            <a [href]='projectSnippet.links.paper' target="_blank">
+                <span class='emoji-span link-left'>📄</span>
+                <span class='link-span'>Paper</span>
+            </a>
+        </div>
     </div>
 </div>

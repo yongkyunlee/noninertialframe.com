@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ProjectSnippet } from 'src/app/projects/projects.model';
 import { EditProjectComponent } from '../edit-project/edit-project.component';
 
