@@ -1,3 +1,5 @@
+$component-padding-bottom: 1.3rem;
+
 .post-div {
     // background-color: #FBFDFD;
     background: #fafafa;
@@ -25,13 +27,14 @@
     text-align: center;
     font-size: 1.9rem;
     padding-top: 0.5rem;
+    line-height: 1.8rem;
     color: black;
 }
 
 .date-div {
     color: #4f5b66;
     text-align: center;
-    padding-top: 1.5rem;
+    padding-top: 1.2rem;
     font-size: 0.9rem;
 }
 
@@ -45,6 +48,7 @@
 :host ::ng-deep a {
     color: #0074D9;
     text-decoration: none;
+    word-break: break-word;
 }
 
 :host ::ng-deep a:hover {
@@ -54,6 +58,7 @@
 
 :host ::ng-deep pre {
     font-size: 0.9rem;
+    margin: -0.7rem 0 $component-padding-bottom 0;
 }
 
 :host ::ng-deep h1 {
@@ -76,12 +81,12 @@
 :host ::ng-deep p {
     font-size: 1rem;
     line-height: 2.2rem;
-    padding-bottom: 1.5rem;
+    padding-bottom: $component-padding-bottom;
 }
 
 :host ::ng-deep ol {
-    margin-top: -1.5rem;
-    padding-bottom: 1.5rem;
+    margin: -1.5rem 0 0 0;
+    padding-bottom: $component-padding-bottom;
     line-height: 2.2rem;
 }
 
@@ -89,7 +94,7 @@
     margin-left: auto;
     margin-right: auto;
     display: block;
-    padding-bottom: 1.5rem;
+    padding-bottom: $component-padding-bottom;
 }
 
 :host ::ng-deep code {
@@ -99,11 +104,15 @@
 @media only screen and (max-width: 720px) {
     .title-div {
         font-size: 1.5rem;
-        padding-bottom: 0.5rem;
-        padding-top: 0.8rem;
+        padding: 0.8rem 0 0.5rem 0;
+        line-height: 1.8rem;
     }
 
     .date-div {
-        padding-top: 0.8rem;
+        padding-top: 0.5rem;
+    }
+
+    :host ::ng-deep img {
+        width: 100%;
     }
 }

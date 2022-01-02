@@ -9,7 +9,8 @@ export const REPLIES_COLLECTION = 'replies';
 export const CATEGORIES = [
     'Project',
     'Event',
-    'Life'
+    'Life',
+    'Tech'
 ];
 
 export const KEYWORDS_SEPARATOR = ',';
