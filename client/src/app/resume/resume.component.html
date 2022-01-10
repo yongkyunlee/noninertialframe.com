@@ -1,0 +1,165 @@
+<div class='language-div'>
+    <span [ngClass]="{'selected-language-span': languageService.language === 'korean'}"
+            class='kor-span language-span' (click)="languageService.chooseLanguage('korean')">
+        한국어
+    </span>
+    <span [ngClass]="{'selected-language-span': languageService.language === 'english'}"
+            class='language-span' (click)="languageService.chooseLanguage('english')">
+        English
+    </span>
+</div>
+
+<!-- Header -->
+<div *ngIf="languageService.language !== 'korean'" class='header-div'>
+    <div class='name-div'>
+        <span class='name-span'>Yongkyun (Daniel) Lee</span>
+        <span class='title-span'>Full-Stack Software Engineer</span>
+    </div>
+    <div class='contact-info-div'>
+        <!-- Social contact icons -->
+        <span>Email: <strong>yongkyun.daniel.lee@gmail.com</strong></span>
+        
+    </div>
+</div>
+<div *ngIf="languageService.language === 'korean'" class='header-div'>
+    <div class='name-div'>
+        <span class='name-span'>이용균</span>
+        <span class='position-span'>Full-Stack 엔지니어</span>
+    </div>
+    <div class='contact-info-div'>
+        <span>이메일: <strong>yongkyun.daniel.lee@gmail.com</strong></span>
+    </div>
+</div>
+
+<div class='content-div'>
+    <!-- About Me -->
+    <div class='section-header'>
+        <span>About Me</span>
+    </div>
+    <div *ngIf="languageService.language !== 'korean'" class='section-div'>
+        
+    </div>
+    <div *ngIf="languageService.language === 'korean'" class='section-div'>
+
+    </div>
+
+    <!-- Experience -->
+    <div class='section-header'>
+        <span>Experience</span>
+    </div>
+    <div *ngIf="languageService.language !== 'korean'" class='section-div'>
+        <div class='experience-item-div'>
+            <div class='position-div'>
+                <span class='company-span'>Goldman Sachs</span>
+                <span class='company-url-span'>https://www.goldmansachs.com</span>
+                <span class='position-span'><strong>Analyst (Full-Stack Engineer)</strong></span>
+                <span>2021.07 ~ Present</span>
+            </div>
+            <div class='experience-details-div'>
+                <ul class="experience-details-ul">
+                    <li>Working on a trading tool in charge of $4B+ of assets used by traders in Private Wealth Management.</li>
+                    <li>Writing event-driven Java back-end using RxJava and Kafka to handle a large volume of market data and account position data.</li>
+                    <li>Applied multi-threading to reduce the time taken for the back-end to fetch account transaction data from ~13s to ~2s (over 80% improvement).</li>
+                    <li>Writing event-driven Angular front-end using RxJS and displaying data on AG Grid.</li>
+                    <li>Diagnosed slowness due to high RAM usage and separated services to different hosts.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class='experience-item-div'>
+            <div class='position-div'>
+                <span class='company-span'>PageNow</span>
+                <span class='company-url-span'>https://www.pagenow.io</span>
+                <span class='position-span'><strong>Head Engineer</strong></span>
+                <span>2021.06 ~ Present</span>
+            </div>
+            <div class='experience-details-div'>
+                <ul class='experience-details-ul'>
+                    <li>Built an <a class='link-a' href="https://github.com/PageNow">open-source</a> real-time activity sharing social Chrome extension service from scratch.</li>
+                    <li>Wrote the back-end to handle user information with Fast API. Deployed the service (with load balancing/auto-scaling) and the database (with connection pooling) to AWS using Terraform.</li>
+                    <li>Implemented the back-end for real-time features using serverless architecture (AWS Lambda, ElastiCache (Redis), DynamoDB, API Gateway, and etc.) and deployed it with AWS CDK.</li>
+                    <li>Wrote the Chrome extension front-end with React and the PageNow client with Angular.</li>
+                    <li>Conducted surveys and analyzed user activity data to iteratively release features and improve the UI/UX.</li>
+                    <li>Wrote a technical post on <a class='link-a' href="https://github.com/PageNow/presence-api">Presence API</a> on my blog.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class='experience-item-div'>
+            <div class='position-div'>
+                <span class='company-span'>Lablup</span>
+                <span class='company-url-span'>https://lablup.com</span>
+                <span class='position-span'><strong>Software Engineer Intern</strong></span>
+                <span>2021.08 ~ 2021.09</span>
+                <span><a class='link-a' href="https://noninertialframe.com/blog/Summer%202020%20-%20Lablup%20Internship">Blog Post</a></span>
+            </div>
+            <div class='experience-details-div'>
+                <ul class='experience-details-ul'>
+                    <li>Implemented group and domain level dotfile support and service port validation upon kernel creation.</li>
+                    <li>Developed storage proxy support for XFS and advanced features for the Backend.AI virtual folder system.</li>
+                    <li>Uupdated the <a class='link-a' href="https://github.com/lablup/backend.ai/pull/215/files">shell script</a> to achieve single-run installation and configuration to run Backend.AI.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="languageService.language === 'korean'" class='section-div'>
+
+    </div>
+
+    <!-- Skills -->
+    <div class='section-header'>
+        <span>Skills</span>
+    </div>
+    <div *ngIf="languageService.language !== 'korean'" class='section-div'>
+
+    </div>
+    <div *ngIf="languageService.language === 'korean'" class='section-div'>
+
+    </div>
+
+    <!-- Education -->
+    <div class='section-header'>
+        <span>Education</span>
+    </div>
+    <div *ngIf="languageService.language !== 'korean'" class='section-div'>
+
+    </div>
+    <div *ngIf="languageService.language === 'korean'" class='section-div'>
+
+    </div>
+
+    <!-- Open Source -->
+    <div class='section-header'>
+        <span>Open Source</span>
+    </div>
+    <div *ngIf="languageService.language !== 'korean'" class='section-div'>
+
+    </div>
+    <div *ngIf="languageService.language === 'korean'" class='section-div'>
+
+    </div>
+
+    <!-- Awards -->
+    <div class='section-header'>
+        <span>Awards</span>
+    </div>
+    <div *ngIf="languageService.language !== 'korean'" class='section-div'>
+
+    </div>
+    <div *ngIf="languageService.language === 'korean'" class='section-div'>
+
+    </div>
+
+    <!-- Paper -->
+    <div class='section-header'>
+        <span>Papers</span>
+    </div>
+    <div *ngIf="languageService.language !== 'korean'" class='section-div'>
+
+    </div>
+    <div *ngIf="languageService.language === 'korean'" class='section-div'>
+
+    </div>
+</div>
+
+

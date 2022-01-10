@@ -25,6 +25,7 @@ import { AboutComponent } from './about/about.component';
 import { TimelineComponent } from './about/timeline/timeline.component';
 import { SharedModule } from './shared/shared.module';
 import { ProjectSnippetComponent } from './projects/project-snippet/project-snippet.component';
+import { ResumeComponent } from './resume/resume.component';
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { ProjectSnippetComponent } from './projects/project-snippet/project-snip
     AboutComponent,
     TimelineComponent,
     ProjectSnippetComponent,
+    ResumeComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,82 @@
+.header-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.name-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-info-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.content-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 60px 0 60px;
+}
+
+.section-header {
+    text-align: center;
+    font-size: 1.5rem;
+    border-bottom: dashed 2px #cccccc;
+    padding-bottom: 10px;
+    margin-top: 30px;
+}
+
+.section-div {
+    display: flex;
+    flex-direction: column;
+}
+
+.experience-item-div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.position-div {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 250px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    line-height: 1.7rem;
+}
+
+.company-span {
+    font-size: 1.3rem;
+}
+
+.company-url-span {
+    font-size: 0.8rem;
+}
+
+.position-span {
+    font-size: 0.9rem;
+}
+
+.experience-details-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.experience-details-ul {
+    margin: 0px;
+    line-height: 1.6rem;
+}
+
+.link-a {
+    text-decoration: none;
+    color: #0074D9;
+}
+
+.link-a:hover {
+    color: #003366;
+}

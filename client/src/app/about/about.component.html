@@ -9,7 +9,7 @@
             English
         </span>
     </div>
-    <div *ngIf="languageService.language === 'english'" class='content-div'>
+    <div *ngIf="languageService.language !== 'korean'" class='content-div'>
         <h2><strong>Why Noninertial Frame?</strong></h2>
         <p>
             Noninertial frame, by definition, is a frame of reference that moves with the object, 
@@ -74,7 +74,7 @@
             한국의 교육 시스템 개선
         </p>
     </div>
-    <h2 id='life-update' *ngIf="languageService.language === 'english'">
+    <h2 id='life-update' *ngIf="languageService.language !== 'korean'">
         <strong>What have I been up to?</strong>
     </h2>
     <h2 id='life-update' *ngIf="languageService.language === 'korean'">
