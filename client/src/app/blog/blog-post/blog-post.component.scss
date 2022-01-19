@@ -2,7 +2,7 @@ $component-padding-bottom: 1.3rem;
 
 .post-div {
     // background-color: #FBFDFD;
-    background: #fafafa;
+    // background: #fafafa;
 }
 
 .language-div {
@@ -97,7 +97,7 @@ $component-padding-bottom: 1.3rem;
     padding-bottom: $component-padding-bottom;
 }
 
-:host ::ng-deep code {
+:host ::ng-deep p code {
     color: #e83e8c;
 }
 

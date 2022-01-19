@@ -95,12 +95,12 @@
     </ng-container>
     <ng-container *ngIf="mode === 'previewEng'">
         <markdown class="variable-binding" [data]="blogPostForm.value.contentEng"
-                  emoji katex>
+                  emoji>
         </markdown>
     </ng-container>
     <ng-container *ngIf="mode === 'previewKor'">
         <markdown class="variable-binding" [data]="blogPostForm.value.contentKor"
-                  emoji katex>
+                  emoji>
         </markdown>
     </ng-container>
 </div>
