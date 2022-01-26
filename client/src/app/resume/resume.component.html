@@ -1,4 +1,4 @@
-<div class='language-div'>
+<!-- <div class='language-div'>
     <span [ngClass]="{'selected-language-span': languageService.language === 'korean'}"
             class='kor-span language-span' (click)="languageService.chooseLanguage('korean')">
         한국어
@@ -7,21 +7,25 @@
             class='language-span' (click)="languageService.chooseLanguage('english')">
         English
     </span>
-</div>
+</div> -->
 
 <!-- Header -->
-<div *ngIf="languageService.language !== 'korean'" class='header-div'>
+<div class='header-div'>
     <div class='name-div'>
         <span class='name-span'>Yongkyun (Daniel) Lee</span>
         <span class='title-span'>Full-Stack Software Engineer</span>
     </div>
     <div class='contact-info-div'>
         <!-- Social contact icons -->
-        <span>Email: <strong>yongkyun.daniel.lee@gmail.com</strong></span>
-        
+        <div class='email-div'>Email: <strong>yongkyun.daniel.lee@gmail.com</strong></div>
+        <div class='social-div'>Social: 
+            <span class='social-span'><a href="https://www.github.com/yongkyunlee" target="_blank" class='link-a'>Github</a></span>
+            <span class='social-span'><a href="https://www.linkedin.com/in/yongkyunlee" target="_blank" class='link-a'>LinkedIn</a></span>
+            <span class='social-span'><a href="https://stackoverflow.com/users/14090412/noninertialframe" target="_blank" class='link-a'>Stack Overflow</a></span>
+        </div>
     </div>
 </div>
-<div *ngIf="languageService.language === 'korean'" class='header-div'>
+<!-- <div *ngIf="languageService.language === 'korean'" class='header-div'>
     <div class='name-div'>
         <span class='name-span'>이용균</span>
         <span class='position-span'>Full-Stack 엔지니어</span>
@@ -29,137 +33,321 @@
     <div class='contact-info-div'>
         <span>이메일: <strong>yongkyun.daniel.lee@gmail.com</strong></span>
     </div>
-</div>
+</div> -->
 
 <div class='content-div'>
     <!-- About Me -->
     <div class='section-header'>
-        <span>About Me</span>
+        <span><strong>About Me</strong></span>
     </div>
-    <div *ngIf="languageService.language !== 'korean'" class='section-div'>
-        
+    <div class='section-div'>
+        <p class='about-me-p' style="margin-top: 30px;">
+            I am a junior full-stack software engineer. 
+            I have worked on the front-end, back-end, and the infrastructure of a portfolio management tool (handling $4B+ of assets) 
+            at <strong>Goldman Sachs</strong> and a new social Chrome extension at <a class='link-a' href='https://www.pagenow.io' target="_blank">PageNow</a>.
+        </p>
+        <p class='about-me-p'>
+            For the back-end, I improve performance by using techniques like multi-threading, asynchronous calls, and in-memory caching. 
+            For the front-end, I engage in user-centric design/development by analyzing user activities and acquiring direct feedback. 
+            For the infrastructure, I build a secure (strict access control and user authentication), scalable, and available system. I am also capable of diagnosing problems and resolving the issues.
+        </p>
     </div>
-    <div *ngIf="languageService.language === 'korean'" class='section-div'>
+    <!-- <div *ngIf="languageService.language === 'korean'" class='section-div'>
 
-    </div>
+    </div> -->
 
     <!-- Experience -->
     <div class='section-header'>
-        <span>Experience</span>
+        <span><strong>Experience</strong></span>
     </div>
-    <div *ngIf="languageService.language !== 'korean'" class='section-div'>
+
+    <div class='section-div'>
         <div class='experience-item-div'>
-            <div class='position-div'>
+            <div class='experience-header-div'>
                 <span class='company-span'>Goldman Sachs</span>
-                <span class='company-url-span'>https://www.goldmansachs.com</span>
+                <span class='plain-link-span'>
+                    <a class='plain-link-a' href='https://www.goldmansachs.com' target="_blank">
+                        <i>https://www.goldmansachs.com</i>
+                    </a>
+                </span>
                 <span class='position-span'><strong>Analyst (Full-Stack Engineer)</strong></span>
-                <span>2021.07 ~ Present</span>
+                <span class='position-span'>2021.07 ~ Present</span>
             </div>
             <div class='experience-details-div'>
                 <ul class="experience-details-ul">
-                    <li>Working on a trading tool in charge of $4B+ of assets used by traders in Private Wealth Management.</li>
-                    <li>Writing event-driven Java back-end using RxJava and Kafka to handle a large volume of market data and account position data.</li>
-                    <li>Applied multi-threading to reduce the time taken for the back-end to fetch account transaction data from ~13s to ~2s (over 80% improvement).</li>
-                    <li>Writing event-driven Angular front-end using RxJS and displaying data on AG Grid.</li>
-                    <li>Diagnosed slowness due to high RAM usage and separated services to different hosts.</li>
+                    <li>Working on a portfolio management tool managing $4B+ of assets.</li>
+                    <li>Writing an event-driven Java back-end with RxJava and Kafka to handle account position data.</li>
+                    <li>Reduced the time taken for the back-end to fetch account transaction data from ~13s to ~2s (over 80% improvement) by applying multi-threading.</li>
+                    <li>Writing an event-driven Angular front-end with RxJS.</li>
+                    <li>Diagnosed high RAM usage and separated services to multiple hosts to prevent service failure.</li>
                 </ul>
             </div>
         </div>
 
         <div class='experience-item-div'>
-            <div class='position-div'>
+            <div class='experience-header-div'>
                 <span class='company-span'>PageNow</span>
-                <span class='company-url-span'>https://www.pagenow.io</span>
+                <span class='plain-link-span'>
+                    <a class='plain-link-a' href='https://www.pagenow.io' target="_blank">
+                        <i>https://www.pagenow.io</i>
+                    </a>
+                </span>
                 <span class='position-span'><strong>Head Engineer</strong></span>
-                <span>2021.06 ~ Present</span>
+                <span class='position-span'>2021.06 ~ Present</span>
+                <span><a class='link-a' href='https://noninertialframe.com/blog/PageNow%20-%20Part%201%20%28Development%20Overview%29' target="_blank">PageNow Blog Post</a></span>
+                <span><a class='link-a' href='https://noninertialframe.com/blog/Presence%20API%20-%20Part%201%20%28Architecture,%20AWS%20CDK%29' target="_blank">Presence API Blog Post</a></span>
             </div>
             <div class='experience-details-div'>
                 <ul class='experience-details-ul'>
-                    <li>Built an <a class='link-a' href="https://github.com/PageNow">open-source</a> real-time activity sharing social Chrome extension service from scratch.</li>
-                    <li>Wrote the back-end to handle user information with Fast API. Deployed the service (with load balancing/auto-scaling) and the database (with connection pooling) to AWS using Terraform.</li>
-                    <li>Implemented the back-end for real-time features using serverless architecture (AWS Lambda, ElastiCache (Redis), DynamoDB, API Gateway, and etc.) and deployed it with AWS CDK.</li>
-                    <li>Wrote the Chrome extension front-end with React and the PageNow client with Angular.</li>
-                    <li>Conducted surveys and analyzed user activity data to iteratively release features and improve the UI/UX.</li>
-                    <li>Wrote a technical post on <a class='link-a' href="https://github.com/PageNow/presence-api">Presence API</a> on my blog.</li>
+                    <li>Built an <a class='link-a' href="https://github.com/PageNow" target="_blank">open-source</a> social Chrome extension for real-time activity sharing.</li>
+                    <li>Built a Python Fast API back-end to handle user information. Deployed the service (supporting load balancing/auto-scaling) to AWS with Terraform.</li>
+                    <li>Built a serverless API (AWS Lambda, ElastiCache (Redis), DynamoDB, API Gateway, etc.) for real-time features. Deployed with AWS CDK.</li>
+                    <li>Built the Chrome extension front-end with React and the PageNow client with Angular.</li>
+                    <li>Conducted surveys and analyzed user activity data to release features and UI/UX enhancements iteratively.</li>
+                    <li>Wrote technical <a class='link-a' href="https://noninertialframe.com/blog/Presence%20API%20-%20Part%201%20%28Architecture,%20AWS%20CDK%29" target="_blank">blog post</a>s on <a class='link-a' href="https://github.com/PageNow/presence-api" target="_blank">Presence API</a>.</li>
                 </ul>
             </div>
         </div>
 
         <div class='experience-item-div'>
-            <div class='position-div'>
+            <div class='experience-header-div'>
                 <span class='company-span'>Lablup</span>
-                <span class='company-url-span'>https://lablup.com</span>
+                <span class='plain-link-span'>
+                    <a class='plain-link-a' href='https://lablup.com' target="_blank">
+                        <i>https://lablup.com</i>
+                    </a>
+                </span>
                 <span class='position-span'><strong>Software Engineer Intern</strong></span>
-                <span>2021.08 ~ 2021.09</span>
-                <span><a class='link-a' href="https://noninertialframe.com/blog/Summer%202020%20-%20Lablup%20Internship">Blog Post</a></span>
+                <span class='position-span'>2021.08 ~ 2021.09</span>
+                <span><a class='link-a' href="https://noninertialframe.com/blog/Summer%202020%20-%20Lablup%20Internship" target="_blank">Blog Post</a></span>
             </div>
             <div class='experience-details-div'>
                 <ul class='experience-details-ul'>
                     <li>Implemented group and domain level dotfile support and service port validation upon kernel creation.</li>
                     <li>Developed storage proxy support for XFS and advanced features for the Backend.AI virtual folder system.</li>
-                    <li>Uupdated the <a class='link-a' href="https://github.com/lablup/backend.ai/pull/215/files">shell script</a> to achieve single-run installation and configuration to run Backend.AI.</li>
+                    <li>Updated the <a class='link-a' href="https://github.com/lablup/backend.ai/pull/215/files" target="_blank">shell script</a> to achieve single-run installation and configuration to run Backend.AI.</li>
                 </ul>
             </div>
         </div>
     </div>
-    <div *ngIf="languageService.language === 'korean'" class='section-div'>
 
-    </div>
+    <!-- <div *ngIf="languageService.language === 'korean'" class='section-div'>
 
-    <!-- Skills -->
-    <div class='section-header'>
-        <span>Skills</span>
-    </div>
-    <div *ngIf="languageService.language !== 'korean'" class='section-div'>
-
-    </div>
-    <div *ngIf="languageService.language === 'korean'" class='section-div'>
-
-    </div>
+    </div> -->
 
     <!-- Education -->
     <div class='section-header'>
-        <span>Education</span>
+        <span><strong>Education</strong></span>
     </div>
-    <div *ngIf="languageService.language !== 'korean'" class='section-div'>
 
+    <div class='section-div'>
+        <div class='education-item-div'>
+            <div class='education-header-div'>
+                <span class='school-span'>California Institute of Technology (Caltech)</span>
+                <span class='school-detail-span'>B.S. in Computer Science & Business/Economics/Management</span>
+                <span class='school-detail-span'>Graduated June 2021</span>
+                <span class='school-detail-span'>GPA - 4.0/4.3</span>
+            </div>
+            <div class='education-details-div'>
+                <ul class="education-details-ul">
+                    <li><strong>Head Teaching Assistant</strong> for IDS 157 (Statistical Inference) in Spring 2021-21</li>
+                    <li>Teaching Assistant for CS 121 (Relational Database) in Winter 2020-21</li>
+                    <li>Teaching Assistant for ACM 116 (Introduction to Probabilities Model) in Fall 2020-21</li>
+                    <li>Computer Science Classes - CS 122 (Database Implementation), CS 124 (Operating Systems), CS 142 (Distributed Computing), CS 144 (Networks)</li>
+                    <li>Machine Learning Classes - CS 179 (GPU Programming), CS 155 (Machine Learning & Data Mining), CS 165 (Foundations of Machine Learning and Statistical Inference)</li>
+                    <li>Applied Math Classes - ACM 104 (Applied Linear Algebra), ACM 116 (Probability Models), ACM 157 (Statistical Inference)</li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div *ngIf="languageService.language === 'korean'" class='section-div'>
 
+    <!-- <div *ngIf="languageService.language === 'korean'" class='section-div'>
+
+    </div> -->
+
+    <!-- Skills -->
+    <div class='section-header'>
+        <span><strong>Skills</strong></span>
+    </div>
+
+    <div class='section-div'>
+        <div class='skill-item-div'>
+            <div class='skill-header-div'>
+                Back-end
+            </div>
+            <div class='skill-details-div'>
+                <ul class='skill-details-ul'>
+                    <li>AWS Serverless - API Gateway, Lambda, ElastiCache (Redis), RDS</li>
+                    <li>Python - Fast API</li>
+                    <li>Java - Jersey, Guice, RxJava</li>
+                    <li>Database - PostgreSQL</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class='skill-item-div'>
+            <div class='skill-header-div'>
+                Front-end
+            </div>
+            <div class='skill-details-div'>
+                <ul class='skill-details-ul'>
+                    <li>Angular, React</li>
+                    <li>Chrome extension</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class='skill-item-div'>
+            <div class='skill-header-div'>
+                DevOps
+            </div>
+            <div class='skill-details-div'>
+                <ul class='skill-details-ul'>
+                    <li>AWS - API Gateway, ElastiCache, ECS, RDS, DynamoDB</li>
+                    <li>Docker</li>
+                </ul>
+            </div>
+        </div>
     </div>
 
     <!-- Open Source -->
     <div class='section-header'>
-        <span>Open Source</span>
+        <span><strong>Open Source</strong></span>
     </div>
-    <div *ngIf="languageService.language !== 'korean'" class='section-div'>
 
-    </div>
-    <div *ngIf="languageService.language === 'korean'" class='section-div'>
+    <div class='section-div'>
+        <div class='open-source-item-div'>
+            <div class='open-source-header-div'>
+                <span class='open-source-header-span'>PageNow</span>
+                <a class='link-a' href="https://github.com/PageNow" target="_blank">Github Link</a>
+            </div>
+            <div class='open-source-details-div'>
+                <ul class='open-source-ul'>
+                    <li>Open source code for PageNow.</li>
+                    <li>Composed of Presence API, Chat API, User API, chrome extension, PageNow client.</li>
+                    <li>Used Angular for the front-end and Python FAST API and AWS serverless stack for the back-end.</li>
+                </ul>
+            </div>
+        </div>
 
+        <div class='open-source-item-div'>
+            <div class='open-source-header-div'>
+                <span class='open-source-header-span'>Noninertialframe</span>
+                <a class='link-a' href="https://github.com/yongkyunlee/noninertialframe.com" target="_blank">Github Link</a>
+            </div>
+            <div class='open-source-details-div'>
+                <ul class='open-source-ul'>
+                    <li>A personal blog with posts about life and projects.</li>
+                    <li>Used Angular for the front-end and Google Firebase for the back-end.</li>
+                </ul>
+            </div>
+        </div>
     </div>
+
+    <!-- <div *ngIf="languageService.language === 'korean'" class='section-div'>
+
+    </div> -->
 
     <!-- Awards -->
     <div class='section-header'>
-        <span>Awards</span>
+        <span><strong>Awards</strong></span>
     </div>
-    <div *ngIf="languageService.language !== 'korean'" class='section-div'>
 
-    </div>
-    <div *ngIf="languageService.language === 'korean'" class='section-div'>
+    <div class='section-div'>
+        <div class='award-item-div'>
+            <div class='award-header-div'>
+                <span class='award-header-title-span'>TreeHacks 2021</span>
+                <span><strong>Runner-up of [Neo] Reinvent Social Networking</strong></span>
+                <span>February 2021</span>
+            </div>
+            <div class='award-details-div'>
+                <ul class='award-details-ul'>
+                    <li>Developed a Chrome extension to promote serendipitous social connections by displaying web pages your friends are reading and by suggesting chats with anonymous users viewing the same web page.</li>
+                    <li>More details can be found at <a class='plain-link-a' href='https://devpost.com/software/pagechat' target="_blank"><i>https://devpost.com/software/pagechat</i></a></li>
+                </ul>
+            </div>
+        </div>
 
+        <div class='award-item-div'>
+            <div class='award-header-div'>
+                <span class='award-header-title-span'>Goldman Sachs Incoming Campus Hires Hackathon</span>
+                <span><strong>1st Place</strong></span>
+                <span>December 2020</span>
+            </div>
+            <div class='award-details-div'>
+                <ul class='award-details-ul'>
+                    <li>Developed a chrome extension that displays the number of COVID19 cases in the county that the user searches on Google Maps.</li>
+                    <li>Used React for the extension and AWS serverless (Lambda, API Gateway, DynamoDB) for the back-end.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class='award-item-div'>
+            <div class='award-header-div'>
+                <span class='award-header-title-span'>2020 MBN AI Training Data Hackathon</span>
+                <span><strong>3rd Place</strong></span>
+                <span>November 2020</span>
+            </div>
+            <div class='award-details-div'>
+                <ul class='award-details-ul'>
+                    <li>Developed a business model and a demo for an ad auction platform for product placement in video content.</li>
+                    <li>News article about the competition - <a class='plain-link-a' href='https://mbn.co.kr/news/economy/4346112' target="_blank"><i>https://mbn.co.kr/news/economy/4346112</i></a></li>
+                    <li>Presentation link - <a class='plain-link-a' href='https://youtu.be/I2kt3emlfv0?t=2977' target='_blank'><i>https://youtu.be/I2kt3emlfv0?t=2977</i></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class='award-item-div'>
+            <div class='award-header-div'>
+                <span class='award-header-title-span'>Hacktech 2020</span>
+                <span><strong>Best Use of Esri Technology</strong></span>
+                <span>March 2020</span>
+            </div>
+            <div class='award-details-div'>
+                <ul class='award-details-ul'>
+                    <li>Developed a web app that evaluates the 'living score' of any coordinate in New York and provides a fair AirBnB rent price to guide users on finding good rooms at a reasonable price.</li>
+                    <li>Used ESRI's geometric feature layer aggregation with machine learning to calculate the score and price.</li>
+                    <li>Submission link - <a class='plain-link-a' href='https://devpost.com/software/homes-reinvented' target="_blank"><i>https://devpost.com/software/homes-reinvented</i></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class='award-item-div'>
+            <div class='award-header-div'>
+                <span class='award-header-title-span'>2015-2016 Thales Arduino Competition</span>
+                <span><strong>1st Place</strong></span>
+                <span>December 2015</span>
+            </div>
+            <div class='award-details-div'>
+                <ul class='award-details-ul'>
+                    <li>Built a conveyor module that moves the center mass by a conveyor belt according to its slope.</li>
+                    <li>Wrote Arduino code that controls a motor according to the input from the IMU and IR sensor.</li>
+                    <li>Applied a complementary filter on the data obtained from the IMU to calculate the angle of the system.</li>
+                </ul>
+            </div>
+        </div>
     </div>
+
+    <!-- <div *ngIf="languageService.language === 'korean'" class='section-div'>
+
+    </div> -->
 
     <!-- Paper -->
     <div class='section-header'>
-        <span>Papers</span>
+        <span><strong>Papers</strong></span>
     </div>
-    <div *ngIf="languageService.language !== 'korean'" class='section-div'>
 
+    <div class='section-div' style="margin-bottom: 40px;">
+        <ul class='papers-ul'>
+            <li>
+                Improving Robustness of Reinforcement Learning for Power System Control with Adversarial Training - 
+                <a href="https://arxiv.org/abs/2110.08956" class='link-a' target="_blank">arxiv link</a>
+            </li>
+        </ul>
     </div>
-    <div *ngIf="languageService.language === 'korean'" class='section-div'>
+    <!-- <div *ngIf="languageService.language === 'korean'" class='section-div'>
 
-    </div>
+    </div> -->
 </div>
 
 

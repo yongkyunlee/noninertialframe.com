@@ -1,7 +1,19 @@
+$side-panel-width: 250px;
+$content-font-size: 0.9rem;
+$content-line-height: 1.8rem;
+$header-content-line-height: 1.7rem;
+$content-lr-margin: 40px;
+$content-lr-margin-sm: 20px;
+$content-lr-margin-xm: 5px;
+$ul-padding-left: 20px;
+
+// Resume Header
+
 .header-div {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin: 20px $content-lr-margin 0 $content-lr-margin;
 }
 
 .name-div {
@@ -9,16 +21,37 @@
     flex-direction: column;
 }
 
+.name-span {
+    font-size: 1.9rem;
+    margin-bottom: 15px;
+}
+
+.title-span {
+    font-size: 1rem;
+}
+
 .contact-info-div {
     display: flex;
     flex-direction: column;
+    align-items: flex-end;
+    font-size: 0.8rem;
 }
+
+.email-div {
+    margin-bottom: 5px;
+}
+
+.social-span {
+    margin-left: 10px;
+}
+
+// Resume Content
 
 .content-div {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin: 0 60px 0 60px;
+    margin: 0 $content-lr-margin 0 $content-lr-margin;
 }
 
 .section-header {
@@ -26,7 +59,7 @@
     font-size: 1.5rem;
     border-bottom: dashed 2px #cccccc;
     padding-bottom: 10px;
-    margin-top: 30px;
+    margin-top: 35px;
 }
 
 .section-div {
@@ -34,43 +67,189 @@
     flex-direction: column;
 }
 
+.about-me-p {
+    line-height: $content-line-height;
+    font-size: $content-font-size;
+}
+
+// Experience
+
 .experience-item-div {
     display: flex;
     flex-direction: row;
     margin-top: 30px;
 }
 
-.position-div {
+.experience-header-div {
     display: flex;
     flex-direction: column;
-    flex-basis: 250px;
+    flex-basis: $side-panel-width;
     flex-grow: 0;
     flex-shrink: 0;
-    line-height: 1.7rem;
+    line-height: $header-content-line-height;
 }
 
 .company-span {
-    font-size: 1.3rem;
-}
-
-.company-url-span {
-    font-size: 0.8rem;
+    font-size: 1.5rem;
 }
 
 .position-span {
-    font-size: 0.9rem;
+    font-size: $content-font-size;
 }
 
 .experience-details-div {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+    font-size: $content-font-size;
 }
 
 .experience-details-ul {
     margin: 0px;
-    line-height: 1.6rem;
+    line-height: $content-line-height;
 }
+
+// Education
+
+.education-item-div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.education-header-div {
+    display: flex;
+    flex-direction: column;
+    flex-basis: $side-panel-width;
+    flex-grow: 0;
+    flex-shrink: 0;
+    line-height: $header-content-line-height;
+}
+
+.school-span {
+    font-size: 1.2rem;
+    margin-bottom: 0.4rem;
+}
+
+.school-detail-span {
+    font-size: $content-font-size;
+    margin-bottom: 0.3rem;
+}
+
+.education-details-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: $content-font-size;
+}
+
+.education-details-ul {
+    margin: 0;
+    line-height: $content-line-height;
+}
+
+// Skills
+
+.skill-item-div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.skill-header-div {
+    display: flex;
+    flex-basis: $side-panel-width;
+    flex-grow: 0;
+    flex-shrink: 0;
+    font-size: 1.2rem;
+}
+
+.skill-details-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: $content-font-size;
+}
+
+.skill-details-ul {
+    margin: 0px;
+    line-height: $content-line-height;
+}
+
+// Open Source
+
+.open-source-item-div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.open-source-header-div {
+    display: flex;
+    flex-direction: column;
+    flex-basis: $side-panel-width;
+    flex-grow: 0;
+    flex-shrink: 0;
+    line-height: $header-content-line-height;
+}
+
+.open-source-header-span {
+    font-size: 1.2rem;
+}
+
+.open-source-details-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: $content-font-size;
+}
+
+.open-source-ul {
+    margin: 0px;
+    line-height: $content-line-height;
+}
+
+// Award
+
+.award-item-div {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+}
+
+.award-header-div {
+    display: flex;
+    flex-direction: column;
+    flex-basis: $side-panel-width;
+    flex-grow: 0;
+    flex-shrink: 0;
+    line-height: $header-content-line-height;
+}
+
+.award-header-title-span {
+    font-size: 1.2rem;
+    margin-bottom: 0.3rem;
+}
+
+.award-details-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    font-size: $content-font-size;
+}
+
+.award-details-ul {
+    margin: 0px;
+    line-height: $content-line-height;
+}
+
+// Paper
+
+.papers-ul {
+    margin: 20px 0 0 -20px;
+}
+
+// common styles
 
 .link-a {
     text-decoration: none;
@@ -79,4 +258,149 @@
 
 .link-a:hover {
     color: #003366;
+}
+
+.plain-link-span {
+    font-size: 0.8rem;
+}
+
+.plain-link-a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.plain-link-a:hover {
+    cursor: pointer;
+    text-decoration: underline;
+    color: inherit;
+}
+
+@media only screen and (max-width: 850px) {
+    // Resume Header
+    .header-div {
+        flex-direction: column;
+        margin: 20px $content-lr-margin-sm 0 $content-lr-margin-sm;
+    }
+
+    .name-div {
+        text-align: center;
+    }
+
+    .contact-info-div {
+        margin-top: 20px;
+        align-items: center;
+    }
+
+    // Resume Content
+    
+    .content-div {
+        margin: 0 $content-lr-margin-sm 0 $content-lr-margin-sm;
+    }
+
+    // Experience
+    
+    .experience-item-div {
+        flex-direction: column;
+        margin-bottom: 10px;
+    }
+
+    .experience-header-div {
+        align-items: center;
+        flex-basis: 0;
+        margin-bottom: 15px;
+    }
+
+    .experience-details-ul {
+        padding-left: $ul-padding-left;
+    }
+
+    // Education
+
+    .education-item-div {
+        flex-direction: column;
+    }
+    
+    .education-header-div {
+        align-items: center;
+        flex-basis: 0;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+    .education-details-ul {
+        padding-left: $ul-padding-left;
+    }
+
+    // Skill
+
+    .skill-item-div {
+        flex-direction: column;
+    }
+    
+    .skill-header-div {
+        flex-basis: 0;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+
+    .skill-details-ul {
+        padding-left: $ul-padding-left;
+    }
+
+    // Open Source
+
+    .open-source-item-div {
+        flex-direction: column;
+    }
+    
+    .open-source-header-div {
+        flex-basis: 0;
+        margin-bottom: 15px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .open-source-ul {
+        padding-left: $ul-padding-left;
+    }
+
+    // Awards
+
+    .award-item-div {
+        flex-direction: column;
+        margin-bottom: 5px;
+    }
+    
+    .award-header-div {
+        flex-basis: 0;
+        margin-bottom: 15px;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .award-details-ul {
+        padding-left: $ul-padding-left;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .header-div {
+        margin: 20px $content-lr-margin-xm 0 $content-lr-margin-xm;
+    }
+
+    .content-div {
+        margin: 0 $content-lr-margin-xm 0 $content-lr-margin-xm;
+    }
+
+    .name-span {
+        font-size: 1.5rem;
+    }
+
+    .section-header {
+        font-size: 1.3rem;
+    }
+
+    .company-span {
+        font-size: 1.4rem;
+    }
 }
