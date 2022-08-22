@@ -1,7 +1,26 @@
 <div class='container-div'>
     <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
-            Jun 2022
+            Jul 2022
+        </div>
+        <div class='event-description-div'>
+            Start Full-time @ <a href="https://www.onehouse.ai" target="_blank">Onehouse</a>
+            <img class='company-img onehouse-img' src='../../../assets/logos/onehouse.png'>
+        </div>
+    </div>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2022년 07월
+        </div>
+        <div class='event-description-div'>
+            풀타임 시작 @ <a href="https://www.onehouse.ai" target="_blank">Onehouse</a>
+            <img class='company-img onehouse-img' src='../../../assets/logos/onehouse.png'>
+        </div>
+    </div>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
+        <div class='time-div'>
+            May 2022
         </div>
         <div class='event-description-div'>
             Pitched @ 82 Startup Web3 Ideathon
@@ -9,7 +28,7 @@
     </div>
     <div class='event-div' *ngIf="languageService.language === 'korean'">
         <div class='time-div-kor'>
-            2022년 06월
+            2022년 05월
         </div>
         <div class='event-description-div'>
             사업 계획 피치 @ 82 Startup Web3 아이디어톤
