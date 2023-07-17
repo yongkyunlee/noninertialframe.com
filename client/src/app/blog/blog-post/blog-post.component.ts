@@ -42,7 +42,7 @@ export class BlogPostComponent implements OnInit {
     ){
         const url = this.router.url;
         const urlComponent = url.split('/');
-        this.titleEng = decodeURI(urlComponent[urlComponent.length - 1]);
+        this.titleEng = decodeURI(urlComponent[urlComponent.length - 1].split('?')[0]);
     }
 
     ngOnInit() {
