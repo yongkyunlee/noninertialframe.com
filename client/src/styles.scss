@@ -1,20 +1,28 @@
+@use '@angular/material' as mat;
+
 /* You can add global styles to this file, and also import other style files */
 
 // @import 'prismjs/themes/prism-okaidia.css';
 @import 'assets/prism-themes/prism-vsc-dark-plus.css';
 @import 'prismjs/plugins/line-numbers/prism-line-numbers.css';
 @import 'prismjs/plugins/line-highlight/prism-line-highlight.css';
-@import '@angular/material/theming';
 
-html, body { height: 100%; }
+html, body { 
+    height: 100%; 
+    font-family: "Merriweather", serif;
+}
 body {
     margin: 0;
     color: black;
 }
 
-// $custom-typography: mat-typography-config($font-family: '"Oxygen", serif;');
-$custom-typography: mat-typography-config($font-family: '"Merriweather", serif;');
-@include mat-core($custom-typography);
+@include mat.core();
+
+// Custom typography configuration for Angular Material 15
+$custom-typography: mat.define-typography-config(
+  $font-family: '"Merriweather", serif'
+);
+@include mat.typography-hierarchy($custom-typography);
 
 :root {
     --mobile-width: 800;
