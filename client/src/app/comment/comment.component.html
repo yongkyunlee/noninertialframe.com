@@ -2,7 +2,7 @@
     <div class='header-div'>
         <span><strong>Comments</strong> ({{ comments.length }})</span>
         <div *ngIf='authService.user | async'>
-            <span class='sign-out-span' (click)="authService.signOut()">Sign Out</span>
+            <span class='sign-out-span' (click)="authService.signOut()" (keyup.enter)="authService.signOut()" (keyup.space)="authService.signOut()" tabindex="0" role="button">Sign Out</span>
         </div>
     </div>
     <div class='app-comment-div' *ngIf="!signedIn">

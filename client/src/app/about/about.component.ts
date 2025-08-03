@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { LanguageService } from '../shared/services/language.service';
 
@@ -9,11 +9,9 @@ import { LanguageService } from '../shared/services/language.service';
 })
 export class AboutComponent implements OnInit, AfterViewInit {
     fragment: string | null = null;
-
-    constructor(
-        public languageService: LanguageService,
-        private route: ActivatedRoute
-    ) { }
+    
+    public languageService = inject(LanguageService);
+    private route = inject(ActivatedRoute);
 
     ngOnInit() {
         this.route.fragment.subscribe(fragment => { this.fragment = fragment; });

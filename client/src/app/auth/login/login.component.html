@@ -1,15 +1,15 @@
 <div class='login-div' *ngIf="(authService.user | async) === null">
     <div class='field-div'>
         <div class='label-div'>
-            <label class='field-label'>Email</label>
+            <label for='login-email' class='field-label'>Email</label>
         </div>
-        <input [(ngModel)]="email" type="email">
+        <input id='login-email' [(ngModel)]="email" type="email">
     </div>
     <div class='field-div'>
         <div class='label-div'>
-            <label>Password</label>
+            <label for='login-password'>Password</label>
         </div>
-        <input [(ngModel)]="password" type="password">
+        <input id='login-password' [(ngModel)]="password" type="password">
     </div>
     <button (click)="signIn()">Sign In</button>
 </div>

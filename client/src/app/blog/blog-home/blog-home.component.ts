@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, inject } from '@angular/core';
 
 import { BlogService } from '../blog.service';
 import { BlogPost } from '../blog-post.model';
@@ -11,6 +10,9 @@ import { LanguageService } from 'src/app/shared/services/language.service';
     styleUrls: ['./blog-home.component.scss', '../../shared/styles/languages.scss']
 })
 export class BlogHomeComponent implements OnInit {
+    private blogService = inject(BlogService);
+    public languageService = inject(LanguageService);
+    
     blogSnippets: Record<string, BlogPost> = {};
     blogSnippetsByYear: Record<string, string[]> = {};
     blogSnippetsByCategory: Record<string, string[]> = {};
@@ -18,11 +20,6 @@ export class BlogHomeComponent implements OnInit {
     categories: string[] = [];
 
     listByOption = 'year';
-
-    constructor(
-        private blogService: BlogService,
-        public languageService: LanguageService
-    ) { }
 
     ngOnInit() {
         this.blogService.getBlogSnippets().subscribe(data => {
@@ -34,11 +31,11 @@ export class BlogHomeComponent implements OnInit {
             for (const blogSnippet of data) {
                 const year = blogSnippet.date.substring(0, 4);
                 const category = blogSnippet.category;
-                if (!this.blogSnippetsByYear.hasOwnProperty(year)) {
+                if (!(year in this.blogSnippetsByYear)) {
                     this.blogSnippetsByYear[year] = [];
                     this.years.push(year);
                 }
-                if (!this.blogSnippetsByCategory.hasOwnProperty(category)) {
+                if (!(category in this.blogSnippetsByCategory)) {
                     this.blogSnippetsByCategory[category] = [];
                     this.categories.push(category);
                 }
@@ -49,8 +46,8 @@ export class BlogHomeComponent implements OnInit {
         });
     }
 
-    changeListByOption(event: any) {
-        this.listByOption = event.target.value;
+    changeListByOption(event: Event) {
+        this.listByOption = (event.target as HTMLSelectElement).value;
     }
 
 }

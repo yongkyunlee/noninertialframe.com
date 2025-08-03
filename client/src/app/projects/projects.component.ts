@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 
 import { LanguageService } from '../shared/services/language.service';
 import { ProjectSnippet } from './projects.model';
@@ -10,13 +10,11 @@ import { ProjectsService } from './projects.service';
     styleUrls: ['./projects.component.scss', '../shared/styles/languages.scss']
 })
 export class ProjectsComponent implements OnInit {
+    private projectsService = inject(ProjectsService);
+    public languageService = inject(LanguageService);
+    
     projectSnippets: ProjectSnippet[] = [];
     nAdditionalDivs = 0;
-
-    constructor(
-        private projectsService: ProjectsService,
-        public languageService: LanguageService
-    ) { }
 
     ngOnInit() {
         this.projectsService.getProjects().subscribe(data => {

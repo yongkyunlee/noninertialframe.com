@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
@@ -13,6 +13,11 @@ import { ReplyService } from '../reply.service';
     styleUrls: ['./reply-input.component.scss', '../../shared/styles/textarea.scss']
 })
 export class ReplyInputComponent {
+    private fb = inject(UntypedFormBuilder);
+    private authService = inject(AuthService);
+    private replyService = inject(ReplyService);
+    private replyModeService = inject(ReplyModeService);
+    
     @Input() collection: string;
     @Input() docId: string;
     @Input() commentId: string;
@@ -23,13 +28,6 @@ export class ReplyInputComponent {
         content: ['', [Validators.required]]
     });
     isUploading = false;
-
-    constructor(
-        private fb: UntypedFormBuilder,
-        private authService: AuthService,
-        private replyService: ReplyService,
-        private replyModeService: ReplyModeService
-    ) { }
 
     submitReply() {
         this.isUploading = true;

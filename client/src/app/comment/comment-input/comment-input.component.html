@@ -9,7 +9,7 @@
         </div>
         <div class='comment-button-div'>
             <button class='comment-button' type="submit" (click)="submitComment()"
-                    [disabled]="((authService.user | async) == null) || (!commentForm.valid) || isUploading">
+                    [disabled]="((authService.user | async) === null) || (!commentForm.valid) || isUploading">
                 <strong>Comment</strong>
             </button>
         </div>

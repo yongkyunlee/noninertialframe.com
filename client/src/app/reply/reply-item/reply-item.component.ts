@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { ReplyDoc } from '../reply.model';
 import { ReplyService } from '../reply.service';
@@ -9,6 +9,9 @@ import { ReplyService } from '../reply.service';
     styleUrls: ['./reply-item.component.scss', '../../shared/styles/textarea.scss']
 })
 export class ReplyItemComponent implements OnInit {
+    public authService = inject(AuthService);
+    private replyService = inject(ReplyService);
+    
     @Input() reply: ReplyDoc;
     @Input() collection: string;
     @Input() docId: string;
@@ -18,11 +21,6 @@ export class ReplyItemComponent implements OnInit {
     errorMessage = '';
     newContent: string;
     isUploading = false;
-
-    constructor(
-        public authService: AuthService,
-        private replyService: ReplyService
-    ) { }
 
     ngOnInit(): void {
         this.newContent = this.reply.content;

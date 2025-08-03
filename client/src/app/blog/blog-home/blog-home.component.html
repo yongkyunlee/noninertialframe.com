@@ -15,11 +15,11 @@
         </div>
         <div class='language-div'>
             <span [ngClass]="{'selected-language-span': languageService.language === 'korean'}"
-                  class='kor-span language-span' (click)="languageService.chooseLanguage('korean')">
+                  class='kor-span language-span' (click)="languageService.chooseLanguage('korean')" (keyup.enter)="languageService.chooseLanguage('korean')" (keyup.space)="languageService.chooseLanguage('korean')" tabindex="0" role="button">
                 한국어
             </span>
             <span [ngClass]="{'selected-language-span': languageService.language === 'english'}"
-                  class='language-span' (click)="languageService.chooseLanguage('english')">
+                  class='language-span' (click)="languageService.chooseLanguage('english')" (keyup.enter)="languageService.chooseLanguage('english')" (keyup.space)="languageService.chooseLanguage('english')" tabindex="0" role="button">
                 English
             </span>
         </div>

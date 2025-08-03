@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Firestore, collection, collectionData, query, orderBy, limit, where, addDoc, doc, updateDoc } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -10,8 +10,7 @@ import { BLOG_COLLECTION } from '../shared/constants';
     providedIn: 'root'
 })
 export class BlogService {
-
-    constructor(private firestore: Firestore) { }
+    private firestore = inject(Firestore);
 
     getBlogSnippets(): Observable<BlogPostDoc[]> {
         const blogCollection = collection(this.firestore, BLOG_COLLECTION);
@@ -19,14 +18,14 @@ export class BlogService {
         return collectionData(q, { idField: 'id' }) as Observable<BlogPostDoc[]>;
     }
 
-    getBlogFieldValues(fields: string[]): Observable<any[]> {
+    getBlogFieldValues(fields: string[]): Observable<Record<string, string>[]> {
         const blogCollection = collection(this.firestore, BLOG_COLLECTION);
         return collectionData(blogCollection).pipe(
             map(docs => {
                 return docs.map(data => {
                     const fieldValues: Record<string, string> = { };
                     for (const field of fields) {
-                        fieldValues[field] = (data as any)[field];
+                        fieldValues[field] = (data as BlogPost)[field] as string;
                     }
                     return fieldValues;
                 });

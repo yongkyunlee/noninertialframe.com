@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { CommentDoc } from '../comment.model';
 import { CommentSerivce } from '../comment.service';
@@ -9,15 +9,13 @@ import { CommentSerivce } from '../comment.service';
     styleUrls: ['./comment-list.component.scss']
 })
 export class CommentListComponent implements OnInit {
+    private commentService = inject(CommentSerivce);
+    public authService = inject(AuthService);
+    
     @Input() collection: string;
     @Input() docId: string;
     @Input() signedIn: boolean;
     comments: CommentDoc[];
-
-    constructor(
-        private commentService: CommentSerivce,
-        public authService: AuthService
-    ) { }
 
     ngOnInit() {
         this.commentService.getComments(this.collection, this.docId).subscribe(data => {

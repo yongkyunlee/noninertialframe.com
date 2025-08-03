@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { faTrophy, faMedal, faExternalLinkAlt, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { LanguageService } from 'src/app/shared/services/language.service';
@@ -14,8 +14,6 @@ export class TimelineComponent {
     faLink = faExternalLinkAlt;
     faPencil = faPencilAlt;
 
-    constructor(
-        public languageService: LanguageService
-    ) { }
+    public languageService = inject(LanguageService);
 
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faFacebookSquare, faGoogle } from '@fortawesome/free-brands-svg-icons';
@@ -11,7 +11,11 @@ import { WindowSizeService } from 'src/app/shared/services/window-size.service';
     templateUrl: './comment-sign-in.component.html',
     styleUrls: ['./comment-sign-in.component.scss']
 })
-export class CommentSignInComponent implements OnInit {
+export class CommentSignInComponent {
+    private fb = inject(UntypedFormBuilder);
+    public authService = inject(AuthService);
+    public windowSizeService = inject(WindowSizeService);
+    
     faEnvelope = faEnvelope;
     faGithub = faGithub;
     faFacebook = faFacebookSquare;
@@ -26,14 +30,6 @@ export class CommentSignInComponent implements OnInit {
         password: ['', [Validators.required]]
     });
 
-    constructor(
-        private fb: UntypedFormBuilder,
-        public authService: AuthService,
-        public windowSizeService: WindowSizeService
-    ) { }
-
-    ngOnInit() {
-    }
 
     get email() {
         return this.authForm.get('email');

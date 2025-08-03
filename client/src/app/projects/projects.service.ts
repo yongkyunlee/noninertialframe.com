@@ -1,6 +1,5 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Firestore, collection, collectionData, query, orderBy, limit, where, addDoc, doc, setDoc } from '@angular/fire/firestore';
-import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
 import { PROJECTS_COLLECTION } from '../shared/constants';
@@ -11,7 +10,7 @@ import { ProjectSnippet, ProjectDoc } from './projects.model';
     providedIn: 'root'
 })
 export class ProjectsService {
-    constructor(private firestore: Firestore) { }
+    private firestore = inject(Firestore);
 
     getProjects(): Observable<ProjectDoc[]> {
         const projectsCollection = collection(this.firestore, PROJECTS_COLLECTION);

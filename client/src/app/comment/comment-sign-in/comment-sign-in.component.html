@@ -4,7 +4,7 @@
         <div class='auth-button-div'>
             <button mat-raised-button class='auth-button first-auth-button' (click)="authService.signInViaGoogle()">
                 <div class='google-button-div'>
-                    <img class='oauth-img' src='../../assets/logos/google.svg'>
+                    <img class='oauth-img' src='../../assets/logos/google.svg' alt='Google logo'>
                     <span>Google</span>
                 </div>
                 <!-- <fa-icon class='auth-icon google-icon' [icon]="faGoogle"></fa-icon> -->
@@ -27,12 +27,12 @@
     </div>
     <form [formGroup]="authForm" class='email-sign-in-form' *ngIf="emailAuth">
         <div class='email-input-div'>
-            <label class='email-label'>Email</label>
-            <input formControlName="email" class='email-input'>
+            <label for='email-input' class='email-label'>Email</label>
+            <input id='email-input' formControlName="email" class='email-input'>
         </div>
         <div class='password-input-div'>
-            <label class='password-label'>Password</label>
-            <input formControlName="password" type="password" class='password-input'>
+            <label for='password-input' class='password-label'>Password</label>
+            <input id='password-input' formControlName="password" type="password" class='password-input'>
         </div>
         <div class='email-input-button-div'>
             <div class='email-sign-in-button-div'>
@@ -42,7 +42,7 @@
                 </button>
             </div>
             <div class='reset-div' *ngIf="emailAuth">
-                <span *ngIf='!forgotPassword' (click)="toggleForgotPassword()"
+                <span *ngIf='!forgotPassword' (click)="toggleForgotPassword()" (keyup.enter)="toggleForgotPassword()" (keyup.space)="toggleForgotPassword()" tabindex="0" role="button"
                       class='forgot-password-span'>
                     Forgot Password?
                 </span>

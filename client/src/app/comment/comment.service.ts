@@ -1,5 +1,5 @@
-import { Injectable } from '@angular/core';
-import { Firestore, collection, collectionData, query, where, orderBy, addDoc, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
+import { Injectable, inject } from '@angular/core';
+import { Firestore, collection, collectionData, query, orderBy, addDoc, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { COMMENTS_COLLECTION } from '../shared/constants';
@@ -10,7 +10,7 @@ import { Comment, CommentDoc } from './comment.model';
     providedIn: 'root'
 })
 export class CommentSerivce {
-    constructor(private firestore: Firestore) { }
+    private firestore = inject(Firestore);
 
     getComments(collectionName: string, docId: string): Observable<CommentDoc[]> {
         const commentsCollection = collection(this.firestore, collectionName, docId, COMMENTS_COLLECTION);
@@ -18,8 +18,8 @@ export class CommentSerivce {
         return collectionData(q, { idField: 'id' }).pipe(
             map(comments => {
                 return comments.map(comment => {
-                    if (comment['timestamp'] && (comment['timestamp'] as any).toDate) {
-                        comment['timestamp'] = (comment['timestamp'] as any).toDate();
+                    if (comment['timestamp'] && typeof comment['timestamp'] === 'object' && 'toDate' in comment['timestamp']) {
+                        comment['timestamp'] = (comment['timestamp'] as { toDate(): Date }).toDate();
                     }
                     return comment as CommentDoc;
                 });

@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 import { BlogService } from 'src/app/blog/blog.service';
@@ -12,13 +12,13 @@ import { BlogPostDoc } from 'src/app/blog/blog-post.model';
   styleUrls: ['./manage-blog-post.component.scss']
 })
 export class ManageBlogPostComponent implements OnInit {
+    private blogService = inject(BlogService);
+    
     blogPosts: BlogPostDoc[];
     searchControl = new UntypedFormControl();
     options: string[];
     filteredOptions$: Observable<string[]>;
     filteredBlogPosts$: Observable<BlogPostDoc[]>;
-
-    constructor(private blogService: BlogService) { }
 
     ngOnInit() {
         this.blogService.getBlogSnippets().subscribe(data => {

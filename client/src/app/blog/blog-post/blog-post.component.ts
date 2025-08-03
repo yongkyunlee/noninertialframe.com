@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Router } from '@angular/router';
 import { MarkdownService } from 'ngx-markdown';
 
@@ -27,19 +27,19 @@ import { LanguageService } from 'src/app/shared/services/language.service';
   styleUrls: ['./blog-post.component.scss', '../../shared/styles/languages.scss']
 })
 export class BlogPostComponent implements OnInit {
+    private router = inject(Router);
+    private blogService = inject(BlogService);
+    public windowSizeService = inject(WindowSizeService);
+    public languageService = inject(LanguageService);
+    private markdownService = inject(MarkdownService);
+    
     screenWidth: number;
     lineNumbersThreshold = LINE_NUBMERS_THRESHOLD;
     titleEng: string;
     blogPost: BlogPostDoc | undefined;
     blogCollection = BLOG_COLLECTION;
 
-    constructor(
-        private router: Router,
-        private blogService: BlogService,
-        public windowSizeService: WindowSizeService,
-        public languageService: LanguageService,
-        private markdownService: MarkdownService
-    ){
+    constructor(){
         const url = this.router.url;
         const urlComponent = url.split('/');
         this.titleEng = decodeURI(urlComponent[urlComponent.length - 1].split('?')[0]);

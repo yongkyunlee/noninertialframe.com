@@ -4,15 +4,15 @@
     </div>
     <div class='mode-div'>
         <span [ngClass]="{'selected-mode-span': mode === 'edit'}" class='mode-span'
-              (click)="changeMode('edit')">
+              (click)="changeMode('edit')" (keyup.enter)="changeMode('edit')" (keyup.space)="changeMode('edit')" tabindex="0" role="button">
             Edit
         </span>
         <span [ngClass]="{'selected-mode-span': mode === 'previewEng'}" class='mode-span'
-              (click)="changeMode('previewEng')">
+              (click)="changeMode('previewEng')" (keyup.enter)="changeMode('previewEng')" (keyup.space)="changeMode('previewEng')" tabindex="0" role="button">
             Preview (English)
         </span>
         <span [ngClass]="{'selected-mode-span': mode === 'previewKor'}" class='mode-span'
-              (click)="changeMode('previewKor')">
+              (click)="changeMode('previewKor')" (keyup.enter)="changeMode('previewKor')" (keyup.space)="changeMode('previewKor')" tabindex="0" role="button">
             Preview (Korean)
         </span>
     </div>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { AuthService } from '../auth.service';
@@ -8,17 +8,13 @@ import { AuthService } from '../auth.service';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent {
+    private router = inject(Router);
+    public authService = inject(AuthService);
+    
     email = '';
     password = '';
 
-    constructor(
-        private router: Router,
-        public authService: AuthService
-    ) { }
-
-    ngOnInit(): void {
-    }
 
     signIn() {
         this.authService.signInViaEmail(this.email, this.password)

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -27,6 +27,10 @@ export class EditBlogPostComponent {
     pageTitle: string;
     buttonContent: string;
 
+    protected fb = inject(UntypedFormBuilder);
+    protected blogService = inject(BlogService);
+    protected router = inject(Router);
+
     mode = 'edit';
     categories = CATEGORIES;
     keywordsSeparator = KEYWORDS_SEPARATOR;
@@ -34,7 +38,7 @@ export class EditBlogPostComponent {
     blogPostForm = this.fb.group({
         titleEng: ['', [Validators.required]],
         titleKor: ['', [Validators.required]],
-        date: ['', [Validators.required, Validators.pattern('^\\d\\d\\d\\d\-\\d\\d\-\\d\\d$')]],
+        date: ['', [Validators.required, Validators.pattern('^\\d\\d\\d\\d-\\d\\d-\\d\\d$')]],
         category: ['', [Validators.required]],
         keywordsEng: [''],
         keywordsKor: [''],
@@ -42,11 +46,7 @@ export class EditBlogPostComponent {
         contentEng: ['']
     });
 
-    constructor(
-        protected fb: UntypedFormBuilder,
-        protected blogService: BlogService,
-        protected router: Router
-    ) {
+    constructor() {
         const url = this.router.url;
         const urlComponent = url.split('/');
         this.titleEng = decodeURI(urlComponent[urlComponent.length - 1]);
@@ -57,6 +57,8 @@ export class EditBlogPostComponent {
     }
 
     // placeholder function for inheritance
-    uploadBlogPost() { }
+    uploadBlogPost() {
+        // TODO: Implement blog post upload functionality
+    }
 
 }

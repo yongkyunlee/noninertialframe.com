@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { faEllipsisV } from '@fortawesome/free-solid-svg-icons';
 
 import { BlogPostDoc } from '../blog/blog-post.model';
@@ -14,15 +14,13 @@ import { LanguageService } from '../shared/services/language.service';
     styleUrls: ['./home.component.scss', '../shared/styles/languages.scss', '../about/timeline/timeline.component.scss']
 })
 export class HomeComponent implements OnInit {
+    public languageService = inject(LanguageService);
+    private blogService = inject(BlogService);
+    private projectsService = inject(ProjectsService);
+    
     blogSnippetArr: BlogPostDoc[];
     projectSnippetArr: ProjectSnippet[];
     faEllipsisV = faEllipsisV;
-
-    constructor(
-        public languageService: LanguageService,
-        private blogService: BlogService,
-        private projectsService: ProjectsService
-    ) { }
 
     ngOnInit() {
         this.blogService.getRecentBlogPosts(N_HOME_BLOG_SNIPPETS).subscribe(data => {

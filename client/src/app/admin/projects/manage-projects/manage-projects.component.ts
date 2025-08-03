@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { UntypedFormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -12,13 +12,13 @@ import { ProjectsService } from 'src/app/projects/projects.service';
     styleUrls: ['./manage-projects.component.scss']
 })
 export class ManageProjectsComponent implements OnInit {
+    private projectsService = inject(ProjectsService);
+    
     projects: ProjectSnippet[];
     searchControl = new UntypedFormControl();
     options: string[];
     filteredOptions$: Observable<string[]>;
     filteredProjects$: Observable<ProjectSnippet[]>;
-
-    constructor(private projectsService: ProjectsService) { }
 
     ngOnInit() {
         this.projectsService.getProjects().subscribe(data => {

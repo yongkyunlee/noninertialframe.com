@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { UntypedFormArray, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProjectsService } from 'src/app/projects/projects.service';
@@ -13,13 +13,17 @@ export class EditProjectComponent {
     pageTitle: string;
     buttonContent: string;
 
+    protected fb = inject(UntypedFormBuilder);
+    protected router = inject(Router);
+    protected projectService = inject(ProjectsService);
+
     titleEng: string;
     projectForm = this.fb.group({
         titleEng: ['', [Validators.required]],
         titleKor: ['', [Validators.required]],
         descriptionEng: ['', [Validators.required]],
         descriptionKor: ['', [Validators.required]],
-        date: ['', [Validators.required, Validators.pattern('^\\d\\d\\d\\d\-\\d\\d\-\\d\\d$')]],
+        date: ['', [Validators.required, Validators.pattern('^\\d\\d\\d\\d-\\d\\d-\\d\\d$')]],
         notesKor: this.fb.array([
             // this.fb.control('', [Validators.required])
         ]),
@@ -34,11 +38,7 @@ export class EditProjectComponent {
         ])
     });
 
-    constructor(
-        protected fb: UntypedFormBuilder,
-        protected router: Router,
-        protected projectService: ProjectsService
-    ) {
+    constructor() {
         const url = this.router.url;
         const urlComponent = url.split('/');
         this.titleEng = decodeURI(urlComponent[urlComponent.length - 1]);
@@ -77,5 +77,7 @@ export class EditProjectComponent {
         this.links.removeAt(idx);
     }
 
-    uploadProject() { }
+    uploadProject() {
+        // TODO: Implement project upload functionality
+    }
 }

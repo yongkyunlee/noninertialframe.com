@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { AuthService } from 'src/app/auth/auth.service';
 import { CommentDoc } from '../comment.model';
 import { CommentSerivce } from '../comment.service';
@@ -9,6 +9,9 @@ import { CommentSerivce } from '../comment.service';
     styleUrls: ['./comment-item.component.scss', '../../shared/styles/textarea.scss']
 })
 export class CommentItemComponent implements OnInit {
+    public authService = inject(AuthService);
+    private commentService = inject(CommentSerivce);
+    
     @Input() comment: CommentDoc;
     @Input() collection: string;
     @Input() docId: string;
@@ -17,11 +20,6 @@ export class CommentItemComponent implements OnInit {
     newContent: string;
     errorMessage = '';
     isUploading = false;
-
-    constructor(
-        public authService: AuthService,
-        private commentService: CommentSerivce
-    ) { }
 
     ngOnInit() {
         this.newContent = this.comment.content;

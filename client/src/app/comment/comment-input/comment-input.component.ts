@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, inject } from '@angular/core';
 import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
@@ -12,6 +12,10 @@ import { CommentSerivce } from '../comment.service';
     styleUrls: ['./comment-input.component.scss', '../../shared/styles/textarea.scss']
 })
 export class CommentInputComponent {
+    private fb = inject(UntypedFormBuilder);
+    public authService = inject(AuthService);
+    private commentService = inject(CommentSerivce);
+    
     @Input() collection: string;
     @Input() docId: string;
     errorMessage = '';
@@ -21,12 +25,6 @@ export class CommentInputComponent {
         content: ['', [Validators.required]]
     });
     isUploading = false;
-
-    constructor(
-        private fb: UntypedFormBuilder,
-        public authService: AuthService,
-        private commentService: CommentSerivce
-    ) { }
 
     submitComment() {
         this.isUploading = true;
@@ -40,7 +38,7 @@ export class CommentInputComponent {
                     nReplies: 0
                 };
                 this.commentService.createComment(this.collection, this.docId, newComment)
-                    .then(res => {
+                    .then(() => {
                         this.commentForm.patchValue({
                             nickname: '',
                             content: ''

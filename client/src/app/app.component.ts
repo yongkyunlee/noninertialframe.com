@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { faUser, faPencilAlt, faProjectDiagram } from '@fortawesome/free-solid-svg-icons';
 import { faFileAlt } from '@fortawesome/free-regular-svg-icons';
@@ -8,7 +8,7 @@ import { filter } from 'rxjs/operators';
 import { SIDE_NAV_THRESHOLD } from './shared/constants';
 import { WindowSizeService } from './shared/services/window-size.service';
 
-declare let gtag: any;
+declare let gtag: (command: string, targetId: string, config?: Record<string, unknown>) => void;
 
 @Component({
     selector: 'app-root',
@@ -16,6 +16,9 @@ declare let gtag: any;
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
+    private router = inject(Router);
+    private windowSizeService = inject(WindowSizeService);
+    
     screenWidth: number;
     sideNavThreshold = SIDE_NAV_THRESHOLD;
     faUser = faUser;
@@ -27,7 +30,7 @@ export class AppComponent implements OnInit{
     url = '';
     isSidenavExpanded = false;
 
-    constructor(private router: Router, private windowSizeService: WindowSizeService) {
+    constructor() {
         this.screenWidth = window.innerWidth;
         window.onresize = () => {
             this.windowSizeService.screenWidth = window.innerWidth;
@@ -45,8 +48,8 @@ export class AppComponent implements OnInit{
     ngOnInit() {
         this.router.events.pipe(
             filter(event => event instanceof NavigationEnd)
-        ).subscribe((event: any) => {
-            this.url = event.url;
+        ).subscribe((event) => {
+            this.url = (event as NavigationEnd).url;
         });
     }
 

@@ -2,11 +2,11 @@
     <div class='comment-nickname-div'><strong>{{ comment.nickname }}</strong></div>
     <div class='comment-date-div'>{{ comment.timestamp | date: 'MMM d, y, h:mm a' }}</div>
     <div class='comment-edit-div' *ngIf="comment.userId === (authService.user | async)?.uid">
-        <span class='edit-span' (click)="changeMode('edit')"
+        <span class='edit-span' (click)="changeMode('edit')" (keyup.enter)="changeMode('edit')" (keyup.space)="changeMode('edit')" tabindex="0" role="button"
               [ngClass]="{'selected-mode-span': mode === 'edit'}">
             Edit
         </span>
-        <span class='delete-span' (click)="changeMode('delete')"
+        <span class='delete-span' (click)="changeMode('delete')" (keyup.enter)="changeMode('delete')" (keyup.space)="changeMode('delete')" tabindex="0" role="button"
               [ngClass]="{'selected-mode-span': mode === 'delete'}">
             Delete
         </span>
