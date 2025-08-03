@@ -12,7 +12,7 @@ const decomposeDateStr = (dateStr: string) => {
     name: 'dateStrEng'
 })
 export class DateStrEngPipe implements PipeTransform {
-    transform(value: any, full = false) {
+    transform(value: string | undefined, full = false) {
         if (!value) {
             return value;
         }
@@ -67,7 +67,7 @@ export class DateStrEngPipe implements PipeTransform {
     name: 'dateStrKor'
 })
 export class DateStrKorPipe implements PipeTransform {
-    transform(value: any) {
+    transform(value: string | undefined) {
         if (!value) {
             return value;
         }

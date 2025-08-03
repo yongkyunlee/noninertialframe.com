@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { Injectable, inject } from '@angular/core';
 import { Firestore, collection, collectionData, query, orderBy, addDoc, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
@@ -10,7 +10,7 @@ import { Reply, ReplyDoc } from './reply.model';
     providedIn: 'root'
 })
 export class ReplyService {
-    constructor(private firestore: Firestore) { }
+    private firestore = inject(Firestore);
 
     getReplies(collectionName: string, docId: string, commentId: string): Observable<ReplyDoc[]> {
         const repliesCollection = collection(this.firestore, collectionName, docId, COMMENTS_COLLECTION, commentId, REPLIES_COLLECTION);
@@ -18,8 +18,8 @@ export class ReplyService {
         return collectionData(q, { idField: 'id' }).pipe(
             map(replies => {
                 return replies.map(reply => {
-                    if (reply['timestamp'] && (reply['timestamp'] as any).toDate) {
-                        reply['timestamp'] = (reply['timestamp'] as any).toDate();
+                    if (reply['timestamp'] && (reply['timestamp'] as { toDate?: () => Date }).toDate) {
+                        reply['timestamp'] = (reply['timestamp'] as { toDate: () => Date }).toDate();
                     }
                     return reply as ReplyDoc;
                 });

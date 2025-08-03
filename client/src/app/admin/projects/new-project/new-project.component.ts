@@ -12,7 +12,7 @@ export class NewProjectComponent extends EditProjectComponent {
     buttonContent = 'Upload';
 
     uploadProject() {
-        const newLinks: { [key: string]: string } = {};
+        const newLinks: Record<string, string> = {};
         for (const link of this.projectForm.value.links) {
             newLinks[(link.website as string).toLowerCase()] = link.url;
         }

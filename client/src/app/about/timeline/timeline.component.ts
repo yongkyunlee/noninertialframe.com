@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { faTrophy, faMedal, faExternalLinkAlt, faPencilAlt } from '@fortawesome/free-solid-svg-icons';
 
 import { LanguageService } from 'src/app/shared/services/language.service';
@@ -8,7 +8,7 @@ import { LanguageService } from 'src/app/shared/services/language.service';
     templateUrl: './timeline.component.html',
     styleUrls: ['./timeline.component.scss']
 })
-export class TimelineComponent implements OnInit {
+export class TimelineComponent {
     faTrophy = faTrophy;
     faMedal = faMedal;
     faLink = faExternalLinkAlt;
@@ -17,8 +17,5 @@ export class TimelineComponent implements OnInit {
     constructor(
         public languageService: LanguageService
     ) { }
-
-    ngOnInit(): void {
-    }
 
 }

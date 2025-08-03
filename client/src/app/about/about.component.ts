@@ -24,6 +24,8 @@ export class AboutComponent implements OnInit, AfterViewInit {
             if (this.fragment) {
                 document.querySelector('#' + this.fragment)?.scrollIntoView();
             }
-        } catch (e) {}
+        } catch {
+            // Ignore scroll errors
+        }
     }
 }

@@ -6,7 +6,7 @@ export interface ProjectSnippet {
     descriptionKor: string;
     notesKor: string[];
     notesEng: string[];
-    links: { [key: string]: string };
+    links: Record<string, string>;
     date: string; // date is for ordering purpose
 }
 

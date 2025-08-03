@@ -24,7 +24,7 @@ export class AppComponent implements OnInit{
     faProjectDiagram = faProjectDiagram;
     faGithub = faGithubSquare;
     faLinkedin = faLinkedin;
-    url: string = '';
+    url = '';
     isSidenavExpanded = false;
 
     constructor(private router: Router, private windowSizeService: WindowSizeService) {

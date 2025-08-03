@@ -7,10 +7,10 @@
 </div>
 <div class='new-reply-div'>
     <div class='reply-span-div'>
-        ↳ <span class='reply-span' (click)="toggleReply()" *ngIf="!replyModeService.writeModeIdSet.has(commentId)">
+        ↳ <span class='reply-span' (click)="toggleReply()" (keyup.enter)="toggleReply()" (keyup.space)="toggleReply()" tabindex="0" *ngIf="!replyModeService.writeModeIdSet.has(commentId)">
             Reply
         </span>
-        <span class='reply-span' (click)="toggleReply()" *ngIf="replyModeService.writeModeIdSet.has(commentId)">
+        <span class='reply-span' (click)="toggleReply()" (keyup.enter)="toggleReply()" (keyup.space)="toggleReply()" tabindex="0" *ngIf="replyModeService.writeModeIdSet.has(commentId)">
             Hide
         </span>
     </div>

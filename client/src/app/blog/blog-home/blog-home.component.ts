@@ -11,9 +11,9 @@ import { LanguageService } from 'src/app/shared/services/language.service';
     styleUrls: ['./blog-home.component.scss', '../../shared/styles/languages.scss']
 })
 export class BlogHomeComponent implements OnInit {
-    blogSnippets: { [key: string]: BlogPost } = {};
-    blogSnippetsByYear: { [key: string]: string[] } = {};
-    blogSnippetsByCategory: { [key: string]: string[] } = {};
+    blogSnippets: Record<string, BlogPost> = {};
+    blogSnippetsByYear: Record<string, string[]> = {};
+    blogSnippetsByCategory: Record<string, string[]> = {};
     years: string[] = [];
     categories: string[] = [];
 

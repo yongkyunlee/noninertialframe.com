@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, inject } from "@angular/core";
 
 import { LanguageService } from "../shared/services/language.service";
 
@@ -8,7 +8,5 @@ import { LanguageService } from "../shared/services/language.service";
     styleUrls: ['./resume.component.scss', '../shared/styles/languages.scss']
 })
 export class ResumeComponent {
-    constructor(
-        public languageService: LanguageService
-    ) { }
+    public languageService = inject(LanguageService);
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 
 import { AuthService } from '../auth/auth.service';
 import { ReplyModeService } from './reply-mode.service';
@@ -17,11 +17,9 @@ export class ReplyComponent implements OnInit {
     @Input() signedIn: boolean;
     replies: ReplyDoc[];
 
-    constructor(
-        public authService: AuthService,
-        private replyService: ReplyService,
-        public replyModeService: ReplyModeService
-    ) { }
+    public authService = inject(AuthService);
+    private replyService = inject(ReplyService);
+    public replyModeService = inject(ReplyModeService);
 
     ngOnInit() {
         this.replyService.getReplies(this.collection, this.docId, this.commentId).subscribe(data => {

@@ -24,7 +24,7 @@ export class BlogService {
         return collectionData(blogCollection).pipe(
             map(docs => {
                 return docs.map(data => {
-                    const fieldValues: { [key: string]: string } = { };
+                    const fieldValues: Record<string, string> = { };
                     for (const field of fields) {
                         fieldValues[field] = (data as any)[field];
                     }

@@ -3,7 +3,7 @@ declare namespace rxfire {
   namespace firestore {
     namespace lite {
       namespace interfaces {
-        type CountSnapshot = any;
+        type CountSnapshot = unknown;
       }
     }
   }
@@ -11,5 +11,5 @@ declare namespace rxfire {
 
 // Patch the problematic interface
 declare module 'rxfire/firestore/lite/interfaces' {
-  export type CountSnapshot = any;
+  export type CountSnapshot = unknown;
 }

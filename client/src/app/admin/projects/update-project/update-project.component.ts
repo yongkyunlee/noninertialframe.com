@@ -67,7 +67,7 @@ export class UpdateProjectComponent extends EditProjectComponent implements OnIn
     }
 
     uploadProject() {
-        const newLinks: { [key: string]: string } = {};
+        const newLinks: Record<string, string> = {};
         for (const link of this.projectForm.value.links) {
             newLinks[(link.website as string).toLowerCase()] = link.url;
         }

@@ -7,8 +7,6 @@ export class LanguageService {
     language = localStorage.getItem('language') ? localStorage.getItem('language') as string
                                                 : 'english';
 
-    constructor() { }
-
     chooseLanguage(language: string) {
         this.language = language;
         localStorage.setItem('language', language);
