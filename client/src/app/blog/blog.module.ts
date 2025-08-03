@@ -4,6 +4,7 @@ import { MarkdownModule } from 'ngx-markdown';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { BlogRoutingModule } from './blog-routing.module';
 import { BlogHomeComponent } from './blog-home/blog-home.component';
@@ -25,6 +26,7 @@ import { ReplyModule } from '../reply/reply.module';
         ReactiveFormsModule,
         MatButtonModule,
         FontAwesomeModule,
+        AngularFirestoreModule,
         BlogRoutingModule,
         SharedModule,
         MarkdownModule.forChild(),

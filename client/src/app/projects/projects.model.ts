@@ -1,4 +1,5 @@
 export interface ProjectSnippet {
+    id?: string;
     titleEng: string;
     titleKor: string;
     descriptionEng: string;

@@ -7,6 +7,8 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MarkdownModule } from 'ngx-markdown';
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { AngularFireAuthGuardModule } from '@angular/fire/compat/auth-guard';
 
 import { NewBlogPostComponent } from './blog/new-blog-post/new-blog-post.component';
 import { ManageBlogPostComponent } from './blog/manage-blog-post/manage-blog-post.component';
@@ -41,6 +43,8 @@ import { EditProjectComponent } from './projects/edit-project/edit-project.compo
         MatSelectModule,
         MatButtonModule,
         MatAutocompleteModule,
+        AngularFirestoreModule,
+        AngularFireAuthGuardModule,
         AdminRoutingModule,
         MarkdownModule.forChild()
     ]

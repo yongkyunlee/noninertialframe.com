@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
-import { BlogPost } from './blog-post.model';
+import { BlogPost, BlogPostDoc } from './blog-post.model';
 import { BLOG_COLLECTION } from '../shared/constants';
 
 @Injectable({
@@ -12,11 +13,8 @@ export class BlogService {
 
     constructor(private afs: AngularFirestore) { }
 
-    // private mockBlogSnippets$: BehaviorSubject<BlogPost[]> = new BehaviorSubject<BlogPost[]>(mockBlogPostData);
-
-    getBlogSnippets() {
-        return this.afs.collection(
-                BLOG_COLLECTION, ref => ref.orderBy('date', 'desc'))
+    getBlogSnippets(): Observable<BlogPostDoc[]> {
+        return this.afs.collection(BLOG_COLLECTION, ref => ref.orderBy('date', 'desc'))
             .snapshotChanges()
             .pipe(
                 map(actions => {
@@ -24,14 +22,13 @@ export class BlogService {
                         return {
                             id: a.payload.doc.id,
                             ...a.payload.doc.data() as BlogPost
-                        };
+                        } as BlogPostDoc;
                     });
                 })
             );
-        // return this.mockBlogSnippets$;
     }
 
-    getBlogFieldValues(fields: string[]) {
+    getBlogFieldValues(fields: string[]): Observable<any[]> {
         return this.afs.collection(BLOG_COLLECTION)
             .snapshotChanges()
             .pipe(
@@ -48,9 +45,8 @@ export class BlogService {
             );
     }
 
-    getBlogPostByTitle(titleEng: string) {
-        return this.afs.collection(
-                BLOG_COLLECTION, ref => ref.where('titleEng', '==', titleEng))
+    getBlogPostByTitle(titleEng: string): Observable<BlogPostDoc[]> {
+        return this.afs.collection(BLOG_COLLECTION, ref => ref.where('titleEng', '==', titleEng))
             .snapshotChanges()
             .pipe(
                 map(actions => {
@@ -58,18 +54,14 @@ export class BlogService {
                         return {
                             id: a.payload.doc.id,
                             ...a.payload.doc.data() as BlogPost
-                        };
+                        } as BlogPostDoc;
                     });
                 })
             );
-        // return this.mockBlogSnippets$.pipe(
-        //     map(posts => [posts.find(post => post.titleEng === titleEng)])
-        // );
     }
 
-    getRecentBlogPosts(count: number) {
-        return this.afs.collection(
-                BLOG_COLLECTION, ref => ref.orderBy('date', 'desc').limit(count))
+    getRecentBlogPosts(count: number): Observable<BlogPostDoc[]> {
+        return this.afs.collection(BLOG_COLLECTION, ref => ref.orderBy('date', 'desc').limit(count))
             .snapshotChanges()
             .pipe(
                 map(actions => {
@@ -77,7 +69,7 @@ export class BlogService {
                         return {
                             id: a.payload.doc.id,
                             ...a.payload.doc.data() as BlogPost
-                        };
+                        } as BlogPostDoc;
                     });
                 })
             );

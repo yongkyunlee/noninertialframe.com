@@ -1,4 +1,5 @@
 export interface Reply {
+    id?: string;
     userId: string;
     nickname: string;
     timestamp: Date;

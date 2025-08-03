@@ -20,12 +20,12 @@ export class BlogHomeComponent implements OnInit {
     listByOption = 'year';
 
     constructor(
-        private blogSerivce: BlogService,
+        private blogService: BlogService,
         public languageService: LanguageService
     ) { }
 
     ngOnInit() {
-        this.blogSerivce.getBlogSnippets().subscribe(data => {
+        this.blogService.getBlogSnippets().subscribe(data => {
             this.years = [];
             this.categories = [];
             this.blogSnippets = {};

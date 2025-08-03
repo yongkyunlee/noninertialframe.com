@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { map } from 'rxjs/operators';
+import { Observable } from 'rxjs';
 
 import { PROJECTS_COLLECTION } from '../shared/constants';
-import { ProjectSnippet } from './projects.model';
+import { ProjectSnippet, ProjectDoc } from './projects.model';
 
 
 @Injectable({
@@ -12,9 +13,8 @@ import { ProjectSnippet } from './projects.model';
 export class ProjectsService {
     constructor(private afs: AngularFirestore) { }
 
-    getProjects() {
-        return this.afs.collection(
-                PROJECTS_COLLECTION, ref => ref.orderBy('date', 'desc'))
+    getProjects(): Observable<ProjectDoc[]> {
+        return this.afs.collection(PROJECTS_COLLECTION, ref => ref.orderBy('date', 'desc'))
             .snapshotChanges()
             .pipe(
                 map(actions => {
@@ -22,15 +22,14 @@ export class ProjectsService {
                         return {
                             id: a.payload.doc.id,
                             ...a.payload.doc.data() as ProjectSnippet
-                        };
+                        } as ProjectDoc;
                     });
                 })
             );
     }
 
-    getProjectByTitle(titleEng: string) {
-        return this.afs.collection(
-                PROJECTS_COLLECTION, ref => ref.where('titleEng', '==', titleEng))
+    getProjectByTitle(titleEng: string): Observable<ProjectDoc[]> {
+        return this.afs.collection(PROJECTS_COLLECTION, ref => ref.where('titleEng', '==', titleEng))
             .snapshotChanges()
             .pipe(
                 map(actions => {
@@ -38,15 +37,14 @@ export class ProjectsService {
                         return {
                             id: a.payload.doc.id,
                             ...a.payload.doc.data() as ProjectSnippet
-                        };
+                        } as ProjectDoc;
                     });
                 })
             );
     }
 
-    getRecentProjects(count: number) {
-        return this.afs.collection(
-                PROJECTS_COLLECTION, ref => ref.orderBy('date', 'desc').limit(count))
+    getRecentProjects(count: number): Observable<ProjectDoc[]> {
+        return this.afs.collection(PROJECTS_COLLECTION, ref => ref.orderBy('date', 'desc').limit(count))
             .snapshotChanges()
             .pipe(
                 map(actions => {
@@ -54,7 +52,7 @@ export class ProjectsService {
                         return {
                             id: a.payload.doc.id,
                             ...a.payload.doc.data() as ProjectSnippet
-                        };
+                        } as ProjectDoc;
                     });
                 })
             );
