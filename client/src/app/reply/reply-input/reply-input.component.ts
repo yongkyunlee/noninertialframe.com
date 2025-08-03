@@ -1,5 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AuthService } from 'src/app/auth/auth.service';
@@ -25,7 +25,7 @@ export class ReplyInputComponent {
     isUploading = false;
 
     constructor(
-        private fb: FormBuilder,
+        private fb: UntypedFormBuilder,
         private authService: AuthService,
         private replyService: ReplyService,
         private replyModeService: ReplyModeService

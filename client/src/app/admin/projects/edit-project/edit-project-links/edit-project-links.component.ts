@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { UntypedFormGroup } from '@angular/forms';
 
 @Component({
     selector: 'app-edit-project-links',
@@ -7,5 +7,5 @@ import { FormGroup } from '@angular/forms';
     styleUrls: ['./edit-project-links.component.scss']
 })
 export class EditProjectLinksComponent{
-    @Input() linkForm: FormGroup;
+    @Input() linkForm: UntypedFormGroup;
 }

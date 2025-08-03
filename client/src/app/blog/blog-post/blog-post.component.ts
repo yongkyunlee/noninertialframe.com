@@ -30,7 +30,7 @@ export class BlogPostComponent implements OnInit {
     screenWidth: number;
     lineNumbersThreshold = LINE_NUBMERS_THRESHOLD;
     titleEng: string;
-    blogPost: BlogPostDoc;
+    blogPost: BlogPostDoc | undefined;
     blogCollection = BLOG_COLLECTION;
 
     constructor(

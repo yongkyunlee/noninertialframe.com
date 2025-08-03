@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormArray, Validators } from '@angular/forms';
+import { UntypedFormArray, Validators } from '@angular/forms';
 import { ProjectSnippet } from 'src/app/projects/projects.model';
 
 import { EditProjectComponent } from '../edit-project/edit-project.component';
@@ -32,23 +32,23 @@ export class UpdateProjectComponent extends EditProjectComponent implements OnIn
                 descriptionKor: data[0].descriptionKor,
             });
 
-            this._clearFormArray(this.projectForm.get('notesEng') as FormArray);
+            this._clearFormArray(this.projectForm.get('notesEng') as UntypedFormArray);
             for (const noteEng of data[0].notesEng) {
-                (this.projectForm.get('notesEng') as FormArray).push(this.fb.control(
+                (this.projectForm.get('notesEng') as UntypedFormArray).push(this.fb.control(
                     noteEng, [Validators.required]
                 ));
             }
 
-            this._clearFormArray(this.projectForm.get('notesKor') as FormArray);
+            this._clearFormArray(this.projectForm.get('notesKor') as UntypedFormArray);
             for (const noteKor of data[0].notesKor) {
-                (this.projectForm.get('notesKor') as FormArray).push(this.fb.control(
+                (this.projectForm.get('notesKor') as UntypedFormArray).push(this.fb.control(
                     noteKor, [Validators.required]
                 ));
             }
 
-            this._clearFormArray(this.projectForm.get('links') as FormArray);
+            this._clearFormArray(this.projectForm.get('links') as UntypedFormArray);
             for (const website of Object.keys(data[0].links)) {
-                (this.projectForm.get('links') as FormArray).push(this.fb.group({
+                (this.projectForm.get('links') as UntypedFormArray).push(this.fb.group({
                     website: [website, [Validators.required]],
                     url: [data[0].links[website], [Validators.required]]
                 }));
@@ -60,7 +60,7 @@ export class UpdateProjectComponent extends EditProjectComponent implements OnIn
         });
     }
 
-    _clearFormArray(formArray: FormArray) {
+    _clearFormArray(formArray: UntypedFormArray) {
         while (formArray.length !== 0) {
             formArray.removeAt(0);
         }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormArray, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormArray, UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProjectsService } from 'src/app/projects/projects.service';
 
@@ -35,7 +35,7 @@ export class EditProjectComponent {
     });
 
     constructor(
-        protected fb: FormBuilder,
+        protected fb: UntypedFormBuilder,
         protected router: Router,
         protected projectService: ProjectsService
     ) {
@@ -45,11 +45,11 @@ export class EditProjectComponent {
     }
 
     get notesEng() {
-        return this.projectForm.get('notesEng') as FormArray;
+        return this.projectForm.get('notesEng') as UntypedFormArray;
     }
 
     get notesKor() {
-        return this.projectForm.get('notesKor') as FormArray;
+        return this.projectForm.get('notesKor') as UntypedFormArray;
     }
 
     addNote() {
@@ -63,7 +63,7 @@ export class EditProjectComponent {
     }
 
     get links() {
-        return this.projectForm.get('links') as FormArray;
+        return this.projectForm.get('links') as UntypedFormArray;
     }
 
     addLink() {

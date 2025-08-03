@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -13,7 +13,7 @@ import { ProjectsService } from 'src/app/projects/projects.service';
 })
 export class ManageProjectsComponent implements OnInit {
     projects: ProjectSnippet[];
-    searchControl = new FormControl();
+    searchControl = new UntypedFormControl();
     options: string[];
     filteredOptions$: Observable<string[]>;
     filteredProjects$: Observable<ProjectSnippet[]>;

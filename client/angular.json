@@ -41,6 +41,9 @@
                 "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
                 "node_modules/emoji-toolkit/lib/js/joypixels.min.js",
                 "node_modules/katex/dist/katex.min.js"
+            ],
+            "allowedCommonJsDependencies": [
+              "prismjs"
             ]
           },
           "configurations": {
@@ -135,7 +138,6 @@
       }
     }
   },
-  "defaultProject": "noninertialframe",
   "cli": {
     "analytics": false
   }

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { BlogService } from 'src/app/blog/blog.service';
@@ -43,7 +43,7 @@ export class EditBlogPostComponent {
     });
 
     constructor(
-        protected fb: FormBuilder,
+        protected fb: UntypedFormBuilder,
         protected blogService: BlogService,
         protected router: Router
     ) {

@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
 import { AuthService } from 'src/app/auth/auth.service';
@@ -23,7 +23,7 @@ export class CommentInputComponent {
     isUploading = false;
 
     constructor(
-        private fb: FormBuilder,
+        private fb: UntypedFormBuilder,
         public authService: AuthService,
         private commentService: CommentSerivce
     ) { }

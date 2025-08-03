@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -13,7 +13,7 @@ import { BlogPostDoc } from 'src/app/blog/blog-post.model';
 })
 export class ManageBlogPostComponent implements OnInit {
     blogPosts: BlogPostDoc[];
-    searchControl = new FormControl();
+    searchControl = new UntypedFormControl();
     options: string[];
     filteredOptions$: Observable<string[]>;
     filteredBlogPosts$: Observable<BlogPostDoc[]>;

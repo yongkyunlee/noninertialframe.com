@@ -22,7 +22,7 @@
         <div class='sidenav-list-div'>
             <div [ngClass]="{'sm-sidenav-item-div': screenWidth <= sideNavThreshold, 'sidenav-item-div': screenWidth > sideNavThreshold}">
                 <a routerLink="/about" (click)="(screenWidth <= sideNavThreshold) && sidenav.close()">
-                    <span class="sidenav-li-text" [ngClass]="{'selected-page': url?.startsWith('/about')}">
+                    <span class="sidenav-li-text" [ngClass]="{'selected-page': url.startsWith('/about')}">
                         About
                     </span>
                     <span class="sidenav-li-icon">

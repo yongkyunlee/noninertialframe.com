@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormBuilder, Validators } from '@angular/forms';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { faGithub, faFacebookSquare, faGoogle } from '@fortawesome/free-brands-svg-icons';
 
@@ -27,7 +27,7 @@ export class CommentSignInComponent implements OnInit {
     });
 
     constructor(
-        private fb: FormBuilder,
+        private fb: UntypedFormBuilder,
         public authService: AuthService,
         public windowSizeService: WindowSizeService
     ) { }
