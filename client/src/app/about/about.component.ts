@@ -8,7 +8,7 @@ import { LanguageService } from '../shared/services/language.service';
     styleUrls: ['./about.component.scss', '../shared/styles/languages.scss']
 })
 export class AboutComponent implements OnInit, AfterViewInit {
-    fragment: string;
+    fragment: string | null = null;
 
     constructor(
         public languageService: LanguageService,
@@ -21,7 +21,9 @@ export class AboutComponent implements OnInit, AfterViewInit {
 
     ngAfterViewInit() {
         try {
-            document.querySelector('#' + this.fragment)?.scrollIntoView();
+            if (this.fragment) {
+                document.querySelector('#' + this.fragment)?.scrollIntoView();
+            }
         } catch (e) {}
     }
 }
