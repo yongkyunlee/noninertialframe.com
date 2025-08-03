@@ -36,11 +36,11 @@
               "src/styles.scss"
             ],
             "scripts": [
-                "node_modules/marked/marked.min.js",
-                "node_modules/prismjs/prism.js",
-                "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
-                "node_modules/emoji-toolkit/lib/js/joypixels.min.js",
-                "node_modules/katex/dist/katex.min.js"
+              "node_modules/marked/marked.min.js",
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
+              "node_modules/emoji-toolkit/lib/js/joypixels.min.js",
+              "node_modules/katex/dist/katex.min.js"
             ],
             "allowedCommonJsDependencies": [
               "prismjs"
@@ -121,11 +121,23 @@
               "devServerTarget": "noninertialframe:serve:production"
             }
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
+            ]
+          }
         }
       }
     }
   },
   "cli": {
-    "analytics": false
+    "analytics": false,
+    "schematicCollections": [
+      "angular-eslint"
+    ]
   }
 }
