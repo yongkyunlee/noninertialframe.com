@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Firestore, collection, collectionData, query, orderBy, limit, where, addDoc, doc, setDoc } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -11,58 +11,33 @@ import { ProjectSnippet, ProjectDoc } from './projects.model';
     providedIn: 'root'
 })
 export class ProjectsService {
-    constructor(private afs: AngularFirestore) { }
+    constructor(private firestore: Firestore) { }
 
     getProjects(): Observable<ProjectDoc[]> {
-        return this.afs.collection(PROJECTS_COLLECTION, ref => ref.orderBy('date', 'desc'))
-            .snapshotChanges()
-            .pipe(
-                map(actions => {
-                    return actions.map(a => {
-                        return {
-                            id: a.payload.doc.id,
-                            ...a.payload.doc.data() as ProjectSnippet
-                        } as ProjectDoc;
-                    });
-                })
-            );
+        const projectsCollection = collection(this.firestore, PROJECTS_COLLECTION);
+        const q = query(projectsCollection, orderBy('date', 'desc'));
+        return collectionData(q, { idField: 'id' }) as Observable<ProjectDoc[]>;
     }
 
     getProjectByTitle(titleEng: string): Observable<ProjectDoc[]> {
-        return this.afs.collection(PROJECTS_COLLECTION, ref => ref.where('titleEng', '==', titleEng))
-            .snapshotChanges()
-            .pipe(
-                map(actions => {
-                    return actions.map(a => {
-                        return {
-                            id: a.payload.doc.id,
-                            ...a.payload.doc.data() as ProjectSnippet
-                        } as ProjectDoc;
-                    });
-                })
-            );
+        const projectsCollection = collection(this.firestore, PROJECTS_COLLECTION);
+        const q = query(projectsCollection, where('titleEng', '==', titleEng));
+        return collectionData(q, { idField: 'id' }) as Observable<ProjectDoc[]>;
     }
 
     getRecentProjects(count: number): Observable<ProjectDoc[]> {
-        return this.afs.collection(PROJECTS_COLLECTION, ref => ref.orderBy('date', 'desc').limit(count))
-            .snapshotChanges()
-            .pipe(
-                map(actions => {
-                    return actions.map(a => {
-                        return {
-                            id: a.payload.doc.id,
-                            ...a.payload.doc.data() as ProjectSnippet
-                        } as ProjectDoc;
-                    });
-                })
-            );
+        const projectsCollection = collection(this.firestore, PROJECTS_COLLECTION);
+        const q = query(projectsCollection, orderBy('date', 'desc'), limit(count));
+        return collectionData(q, { idField: 'id' }) as Observable<ProjectDoc[]>;
     }
 
     uploadProject(project: ProjectSnippet) {
-        return this.afs.collection(PROJECTS_COLLECTION).add(project);
+        const projectsCollection = collection(this.firestore, PROJECTS_COLLECTION);
+        return addDoc(projectsCollection, project);
     }
 
     updateProject(docId: string, project: ProjectSnippet) {
-        return this.afs.collection(PROJECTS_COLLECTION).doc(docId).set(project);
+        const projectDoc = doc(this.firestore, PROJECTS_COLLECTION, docId);
+        return setDoc(projectDoc, project);
     }
 }

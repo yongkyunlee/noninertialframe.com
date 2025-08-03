@@ -1,7 +1,7 @@
 <div class='container-div'>
     <div class='header-div'>
         <span><strong>Comments</strong> ({{ comments.length }})</span>
-        <div *ngIf='authService.afAuth.user | async'>
+        <div *ngIf='authService.user | async'>
             <span class='sign-out-span' (click)="authService.signOut()">Sign Out</span>
         </div>
     </div>

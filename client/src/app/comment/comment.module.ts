@@ -3,7 +3,6 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { MatButtonModule } from '@angular/material/button';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 
 import { CommentInputComponent } from './comment-input/comment-input.component';
 import { CommentSignInComponent } from './comment-sign-in/comment-sign-in.component';
@@ -26,7 +25,6 @@ import { ReplyModule } from '../reply/reply.module';
         ReactiveFormsModule,
         FontAwesomeModule,
         MatButtonModule,
-        AngularFirestoreModule,
         ReplyModule
     ],
     exports: [

@@ -30,7 +30,7 @@ export class CommentInputComponent {
 
     submitComment() {
         this.isUploading = true;
-        this.authService.afAuth.user.pipe(first()).subscribe(data => {
+        this.authService.user.pipe(first()).subscribe(data => {
             console.log('subscribing to authservice');
             if (data) {
                 const newComment = {

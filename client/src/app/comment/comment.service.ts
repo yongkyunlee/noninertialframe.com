@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Firestore, collection, collectionData, query, where, orderBy, addDoc, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { COMMENTS_COLLECTION } from '../shared/constants';
@@ -10,42 +10,37 @@ import { Comment, CommentDoc } from './comment.model';
     providedIn: 'root'
 })
 export class CommentSerivce {
-    constructor(private afs: AngularFirestore) { }
+    constructor(private firestore: Firestore) { }
 
     getComments(collectionName: string, docId: string): Observable<CommentDoc[]> {
-        return this.afs.collection(collectionName).doc(docId).collection(
-                COMMENTS_COLLECTION, ref => ref.orderBy('timestamp', 'desc'))
-            .snapshotChanges()
-            .pipe(
-                map(actions => {
-                    return actions.map(a => {
-                        const comment = a.payload.doc.data() as Comment;
-                        if (comment.timestamp && (comment.timestamp as any).toDate) {
-                            comment.timestamp = (comment.timestamp as any).toDate();
-                        }
-                        return {
-                            id: a.payload.doc.id,
-                            ...comment
-                        } as CommentDoc;
-                    });
-                })
-            );
+        const commentsCollection = collection(this.firestore, collectionName, docId, COMMENTS_COLLECTION);
+        const q = query(commentsCollection, orderBy('timestamp', 'desc'));
+        return collectionData(q, { idField: 'id' }).pipe(
+            map(comments => {
+                return comments.map(comment => {
+                    if (comment['timestamp'] && (comment['timestamp'] as any).toDate) {
+                        comment['timestamp'] = (comment['timestamp'] as any).toDate();
+                    }
+                    return comment as CommentDoc;
+                });
+            })
+        );
     }
 
     createComment(collectionName: string, docId: string, comment: Comment) {
-        return this.afs.collection(collectionName).doc(docId).collection(COMMENTS_COLLECTION)
-                       .add(comment);
+        const commentsCollection = collection(this.firestore, collectionName, docId, COMMENTS_COLLECTION);
+        return addDoc(commentsCollection, comment);
     }
 
     updateComment(collectionName: string, docId: string, commentDoc: CommentDoc) {
-        return this.afs.collection(collectionName).doc(docId).collection(COMMENTS_COLLECTION)
-                       .doc(commentDoc.id).update({
-                           content: commentDoc.content
-                       });
+        const commentDocRef = doc(this.firestore, collectionName, docId, COMMENTS_COLLECTION, commentDoc.id);
+        return updateDoc(commentDocRef, {
+            content: commentDoc.content
+        });
     }
 
     deleteComment(collectionName: string, docId: string, commentId: string) {
-        return this.afs.collection(collectionName).doc(docId).collection(COMMENTS_COLLECTION)
-                       .doc(commentId).delete();
+        const commentDocRef = doc(this.firestore, collectionName, docId, COMMENTS_COLLECTION, commentId);
+        return deleteDoc(commentDocRef);
     }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Firestore, collection, collectionData, query, orderBy, limit, where, addDoc, doc, updateDoc } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -11,75 +11,48 @@ import { BLOG_COLLECTION } from '../shared/constants';
 })
 export class BlogService {
 
-    constructor(private afs: AngularFirestore) { }
+    constructor(private firestore: Firestore) { }
 
     getBlogSnippets(): Observable<BlogPostDoc[]> {
-        return this.afs.collection(BLOG_COLLECTION, ref => ref.orderBy('date', 'desc'))
-            .snapshotChanges()
-            .pipe(
-                map(actions => {
-                    return actions.map(a => {
-                        return {
-                            id: a.payload.doc.id,
-                            ...a.payload.doc.data() as BlogPost
-                        } as BlogPostDoc;
-                    });
-                })
-            );
+        const blogCollection = collection(this.firestore, BLOG_COLLECTION);
+        const q = query(blogCollection, orderBy('date', 'desc'));
+        return collectionData(q, { idField: 'id' }) as Observable<BlogPostDoc[]>;
     }
 
     getBlogFieldValues(fields: string[]): Observable<any[]> {
-        return this.afs.collection(BLOG_COLLECTION)
-            .snapshotChanges()
-            .pipe(
-                map(actions => {
-                    return actions.map(a => {
-                        const data = a.payload.doc.data() as any;
-                        const fieldValues: { [key: string]: string } = { };
-                        for (const field of fields) {
-                            fieldValues[field] = data[field];
-                        }
-                        return fieldValues;
-                    });
-                })
-            );
+        const blogCollection = collection(this.firestore, BLOG_COLLECTION);
+        return collectionData(blogCollection).pipe(
+            map(docs => {
+                return docs.map(data => {
+                    const fieldValues: { [key: string]: string } = { };
+                    for (const field of fields) {
+                        fieldValues[field] = (data as any)[field];
+                    }
+                    return fieldValues;
+                });
+            })
+        );
     }
 
     getBlogPostByTitle(titleEng: string): Observable<BlogPostDoc[]> {
-        return this.afs.collection(BLOG_COLLECTION, ref => ref.where('titleEng', '==', titleEng))
-            .snapshotChanges()
-            .pipe(
-                map(actions => {
-                    return actions.map(a => {
-                        return {
-                            id: a.payload.doc.id,
-                            ...a.payload.doc.data() as BlogPost
-                        } as BlogPostDoc;
-                    });
-                })
-            );
+        const blogCollection = collection(this.firestore, BLOG_COLLECTION);
+        const q = query(blogCollection, where('titleEng', '==', titleEng));
+        return collectionData(q, { idField: 'id' }) as Observable<BlogPostDoc[]>;
     }
 
     getRecentBlogPosts(count: number): Observable<BlogPostDoc[]> {
-        return this.afs.collection(BLOG_COLLECTION, ref => ref.orderBy('date', 'desc').limit(count))
-            .snapshotChanges()
-            .pipe(
-                map(actions => {
-                    return actions.map(a => {
-                        return {
-                            id: a.payload.doc.id,
-                            ...a.payload.doc.data() as BlogPost
-                        } as BlogPostDoc;
-                    });
-                })
-            );
+        const blogCollection = collection(this.firestore, BLOG_COLLECTION);
+        const q = query(blogCollection, orderBy('date', 'desc'), limit(count));
+        return collectionData(q, { idField: 'id' }) as Observable<BlogPostDoc[]>;
     }
 
     createBlogPost(blogPost: BlogPost) {
-        return this.afs.collection<BlogPost>(BLOG_COLLECTION).add(blogPost);
+        const blogCollection = collection(this.firestore, BLOG_COLLECTION);
+        return addDoc(blogCollection, blogPost);
     }
 
     updateBlogPost(docId: string, blogPost: BlogPost) {
-        return this.afs.collection<BlogPost>(BLOG_COLLECTION).doc(docId).update(blogPost);
+        const blogDoc = doc(this.firestore, BLOG_COLLECTION, docId);
+        return updateDoc(blogDoc, { ...blogPost });
     }
 }

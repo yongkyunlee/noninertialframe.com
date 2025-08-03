@@ -21,7 +21,7 @@ export class CommentComponent implements OnInit {
         public windowSizeService: WindowSizeService,
         private commentService: CommentSerivce,
     ) {
-        this.authService.afAuth.user.subscribe(data => {
+        this.authService.user.subscribe(data => {
             if (data) {
                 this.signedIn = true;
             } else {

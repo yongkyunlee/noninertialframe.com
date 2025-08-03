@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { canActivate, hasCustomClaim } from '@angular/fire/compat/auth-guard';
+import { canActivate, hasCustomClaim } from '@angular/fire/auth-guard';
 
 import { NewBlogPostComponent } from './blog/new-blog-post/new-blog-post.component';
 import { ManageBlogPostComponent } from './blog/manage-blog-post/manage-blog-post.component';

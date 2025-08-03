@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-import { AngularFireAuth } from '@angular/fire/compat/auth';
+import { Auth, signInWithEmailAndPassword, signInWithPopup, signOut, sendPasswordResetEmail, GoogleAuthProvider, FacebookAuthProvider, GithubAuthProvider, user, User } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 import { map } from 'rxjs/operators';
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
+import { Observable } from 'rxjs';
 
 import { environment } from '../../environments/environment';
 
@@ -12,30 +11,33 @@ import { environment } from '../../environments/environment';
 })
 export class AuthService {
     redirectUrl: string;
+    user: Observable<User | null>;
 
-    constructor(public afAuth: AngularFireAuth, private router: Router) { }
+    constructor(private auth: Auth, private router: Router) { 
+        this.user = user(this.auth);
+    }
 
     signInViaEmail(email: string, password: string) {
-        return this.afAuth.signInWithEmailAndPassword(email, password);
+        return signInWithEmailAndPassword(this.auth, email, password);
     }
 
     signInViaGoogle() {
-        return this.afAuth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
+        return signInWithPopup(this.auth, new GoogleAuthProvider());
     }
 
     signInViaFacebook() {
-        return this.afAuth.signInWithPopup(new firebase.auth.FacebookAuthProvider());
+        return signInWithPopup(this.auth, new FacebookAuthProvider());
     }
 
     signInViaGithub() {
-        return this.afAuth.signInWithPopup(new firebase.auth.GithubAuthProvider());
+        return signInWithPopup(this.auth, new GithubAuthProvider());
     }
 
     signOut() {
-        return this.afAuth.signOut();
+        return signOut(this.auth);
     }
 
     resetPassword(email: string) {
-        return this.afAuth.sendPasswordResetEmail(email);
+        return sendPasswordResetEmail(this.auth, email);
     }
 }

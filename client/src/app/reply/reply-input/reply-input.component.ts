@@ -33,7 +33,7 @@ export class ReplyInputComponent {
 
     submitReply() {
         this.isUploading = true;
-        this.authService.afAuth.user.pipe(first()).subscribe(data => {
+        this.authService.user.pipe(first()).subscribe(data => {
             if (data) {
                 const newReply = {
                     ...this.replyForm.value,

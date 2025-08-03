@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Firestore, collection, collectionData, query, orderBy, addDoc, doc, updateDoc, deleteDoc } from '@angular/fire/firestore';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
 
@@ -10,44 +10,37 @@ import { Reply, ReplyDoc } from './reply.model';
     providedIn: 'root'
 })
 export class ReplyService {
-    constructor(private afs: AngularFirestore) { }
+    constructor(private firestore: Firestore) { }
 
     getReplies(collectionName: string, docId: string, commentId: string): Observable<ReplyDoc[]> {
-        return this.afs.collection(collectionName).doc(docId).collection(COMMENTS_COLLECTION)
-                       .doc(commentId).collection(REPLIES_COLLECTION, ref => ref.orderBy('timestamp', 'asc'))
-                    .snapshotChanges()
-                    .pipe(
-                        map(actions => {
-                            return actions.map(a => {
-                                const reply = a.payload.doc.data() as Reply;
-                                if (reply.timestamp && (reply.timestamp as any).toDate) {
-                                    reply.timestamp = (reply.timestamp as any).toDate();
-                                }
-                                return {
-                                    id: a.payload.doc.id,
-                                    ...reply
-                                } as ReplyDoc;
-                            });
-                        })
-                    );
+        const repliesCollection = collection(this.firestore, collectionName, docId, COMMENTS_COLLECTION, commentId, REPLIES_COLLECTION);
+        const q = query(repliesCollection, orderBy('timestamp', 'asc'));
+        return collectionData(q, { idField: 'id' }).pipe(
+            map(replies => {
+                return replies.map(reply => {
+                    if (reply['timestamp'] && (reply['timestamp'] as any).toDate) {
+                        reply['timestamp'] = (reply['timestamp'] as any).toDate();
+                    }
+                    return reply as ReplyDoc;
+                });
+            })
+        );
     }
 
     createReply(collectionName: string, docId: string, commentId: string, reply: Reply) {
-        return this.afs.collection(collectionName).doc(docId).collection(COMMENTS_COLLECTION)
-                       .doc(commentId).collection(REPLIES_COLLECTION).add(reply);
+        const repliesCollection = collection(this.firestore, collectionName, docId, COMMENTS_COLLECTION, commentId, REPLIES_COLLECTION);
+        return addDoc(repliesCollection, reply);
     }
 
     updateReply(collectionName: string, docId: string, commentId: string, replyDoc: ReplyDoc) {
-        return this.afs.collection(collectionName).doc(docId).collection(COMMENTS_COLLECTION)
-                       .doc(commentId).collection(REPLIES_COLLECTION)
-                       .doc(replyDoc.id).update({
-                           content: replyDoc.content
-                       });
+        const replyDocRef = doc(this.firestore, collectionName, docId, COMMENTS_COLLECTION, commentId, REPLIES_COLLECTION, replyDoc.id);
+        return updateDoc(replyDocRef, {
+            content: replyDoc.content
+        });
     }
 
     deleteReply(collectionName: string, docId: string, commentId: string, replyId: string) {
-        return this.afs.collection(collectionName).doc(docId).collection(COMMENTS_COLLECTION)
-                       .doc(commentId).collection(REPLIES_COLLECTION)
-                       .doc(replyId).delete();
+        const replyDocRef = doc(this.firestore, collectionName, docId, COMMENTS_COLLECTION, commentId, REPLIES_COLLECTION, replyId);
+        return deleteDoc(replyDocRef);
     }
 }

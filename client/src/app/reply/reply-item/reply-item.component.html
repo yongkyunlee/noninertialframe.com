@@ -5,7 +5,7 @@
     <div class='reply-date-div'>
         {{ reply.timestamp | date: 'MMM d, y, h:mm a' }}
     </div>
-    <div class='reply-mode-div' *ngIf="reply.userId === (authService.afAuth.user | async)?.uid">
+    <div class='reply-mode-div' *ngIf="reply.userId === (authService.user | async)?.uid">
         <span class='edit-span' (click)="changeMode('edit')"
               [ngClass]="{'selected-mode-span': mode === 'edit'}">
             Edit
