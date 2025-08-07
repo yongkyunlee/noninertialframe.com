@@ -1,4 +1,75 @@
 <div class='container-div'>
+    <div class="event-div" *ngIf="languageService.language === 'english'">
+        <div class='time-div'>
+            Aug 2025
+        </div>
+        <div class='event-description-div'>
+            <a href="https://github.com/apache/arrow-rs/pull/8046" target="_blank">My first contribution</a> to <a href="https://github.com/apache/arrow-rs" target="_blank">arrow-rs</a>
+        </div>
+    </div>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2025년 08월
+        </div>
+        <div class='event-description-div'>
+            <a href="https://github.com/apache/arrow-rs" target="_blank">arrow-rs</a>에 <a href="https://github.com/apache/arrow-rs/pull/8046" target="_blank">첫 기여</a>
+        </div>
+    </div>
+    
+    <div class='event-div' *ngIf="languageService.language === 'english'">
+        <div class='time-div'>
+            Jun 2025
+        </div>
+        <div class='event-description-div'>
+            <a href="https://github.com/apache/incubator-gluten/pull/9834" target="_blank">My first contribution</a> to <a href="https://github.com/apache/incubator-gluten" target="_blank">incubator-gluten</a>
+        </div>
+    </div>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2025년 06월
+        </div>
+        <div class='event-description-div'>
+            <a href="https://github.com/apache/incubator-gluten" target="_blank">incubator-gluten</a>에 <a href="https://github.com/apache/incubator-gluten/pull/9834" target="_blank">첫 기여</a>
+        </div>
+    </div>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
+        <div class='time-div'>
+            May 2025
+        </div>
+        <div class='event-description-div'>
+            <a href="https://www.onehouse.ai/blog/announcing-spark-and-sql-on-the-onehouse-compute-runtime-with-quanton" target="_blank">Quanton</a> Launch &#64; Onehouse
+        </div>
+    </div>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2025년 05월
+        </div>
+        <div class='event-description-div'>
+            <a href="https://www.onehouse.ai/blog/announcing-spark-and-sql-on-the-onehouse-compute-runtime-with-quanton" target="_blank">Quanton</a> 출시
+        </div>
+    </div>
+
+    <div class='event-div' *ngIf="languageService.language === 'english'">
+        <div class='time-div'>
+            Oct 2024
+        </div>
+        <div class='event-description-div'>
+            Talkbox Launch
+            <img class='company-img talkbox-img' src='../../../assets/logos/talkbox.png' alt='Talkbox logo'>
+        </div>
+    </div>
+    <div class='event-div' *ngIf="languageService.language === 'korean'">
+        <div class='time-div-kor'>
+            2024년 10월
+        </div>
+        <div class='event-description-div'>
+            Talkbox 출시
+            <img class='company-img talkbox-img' src='../../../assets/logos/talkbox.png' alt='Talkbox logo'>
+        </div>
+    </div>
+
+
     <div class='event-div' *ngIf="languageService.language === 'english'">
         <div class='time-div'>
             Feb 2023
